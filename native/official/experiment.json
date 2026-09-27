@@ -1,0 +1,804 @@
+{
+  "model_sha256": "83de31079b97252e369bdd23660c4a5880466f94e6fda4b8e7fa43decf8b84e8",
+  "scale": 20,
+  "schedule": [
+    4,
+    2.5,
+    2
+  ],
+  "seed_per_image": 42,
+  "precision": "float32, including non-registered depth model; all submodules eval",
+  "official_ensemble": "single pass",
+  "lightweight_ensemble": "existing x8",
+  "compatibility": "Each stage retains native input; official superpixel/RAM and bicubic guide, then replicate-pad HR conditioning right/bottom to min512 and multiple32; official latent tile64 (512px); crop output back before wavelet correction. No learned weights modified. Not an exact paper benchmark recipe.",
+  "source_sha256": {
+    "infer/_common.py": "9002f0e6526d42beabe1f0550de12bf31950f16fce75cacd5e6b005a57fa6417",
+    "src/models/casr_stage2_tile.py": "fadc18f0f9b848dcd497bc610b28c89777acbe4a4292001adf9bf65f09b6650b"
+  },
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "records": [
+    {
+      "dataset": "planesnet",
+      "id": "24900",
+      "input_size": [
+        18,
+        16
+      ],
+      "input_sha256": "557d0f683a064372d29b6d208e2008b7e928c0e73b5448216cb2f96db4c81428",
+      "output_size": [
+        360,
+        320
+      ],
+      "stage_trace": [
+        {
+          "size": [
+            72,
+            64
+          ],
+          "right_bottom_padding": [
+            440,
+            448
+          ]
+        },
+        {
+          "size": [
+            180,
+            160
+          ],
+          "right_bottom_padding": [
+            332,
+            352
+          ]
+        },
+        {
+          "size": [
+            360,
+            320
+          ],
+          "right_bottom_padding": [
+            152,
+            192
+          ]
+        }
+      ],
+      "pre_alignment_size": [
+        360,
+        320
+      ],
+      "output_sha256": "4c1db1773a64d763db89cff181b01a54b8acd83a5466c91f22a93d69487a9184",
+      "seconds": 13.00582746276632,
+      "display_input_sha256": "4ba54e423c26264b8f82f5b194bed560d08547b03b3765dbc50a4933643e510e"
+    },
+    {
+      "dataset": "planesnet",
+      "id": "27300",
+      "input_size": [
+        20,
+        20
+      ],
+      "input_sha256": "e9a0e53513794b68f06dd3315e7003141be84a245259ad4f5d16e6630826b993",
+      "output_size": [
+        400,
+        400
+      ],
+      "stage_trace": [
+        {
+          "size": [
+            80,
+            80
+          ],
+          "right_bottom_padding": [
+            432,
+            432
+          ]
+        },
+        {
+          "size": [
+            200,
+            200
+          ],
+          "right_bottom_padding": [
+            312,
+            312
+          ]
+        },
+        {
+          "size": [
+            400,
+            400
+          ],
+          "right_bottom_padding": [
+            112,
+            112
+          ]
+        }
+      ],
+      "pre_alignment_size": [
+        400,
+        400
+      ],
+      "output_sha256": "0f0617e77a40fd2968af521228f4b8edd7ba42693f8b64a40488d0695f791496",
+      "seconds": 2.3374493210576475,
+      "display_input_sha256": "e8d8891c6a4c517da1545521602e6878c0da2aca78f499bfab4e4f49002e0240"
+    },
+    {
+      "dataset": "planesnet",
+      "id": "27700",
+      "input_size": [
+        20,
+        20
+      ],
+      "input_sha256": "5193c1ba2ce25d060592c68d9a88dec615eebac7a5946168d23854ea32e8bd72",
+      "output_size": [
+        400,
+        400
+      ],
+      "stage_trace": [
+        {
+          "size": [
+            80,
+            80
+          ],
+          "right_bottom_padding": [
+            432,
+            432
+          ]
+        },
+        {
+          "size": [
+            200,
+            200
+          ],
+          "right_bottom_padding": [
+            312,
+            312
+          ]
+        },
+        {
+          "size": [
+            400,
+            400
+          ],
+          "right_bottom_padding": [
+            112,
+            112
+          ]
+        }
+      ],
+      "pre_alignment_size": [
+        400,
+        400
+      ],
+      "output_sha256": "f3575e0b26f9f40c88e988b102127d0aa898639c86720250e08abc2acc63e945",
+      "seconds": 2.144599810242653,
+      "display_input_sha256": "fb474a4861717d766285bb80001808c358fe49ccef7e0f2dfe315e2d1aecbe8d"
+    },
+    {
+      "dataset": "planesnet",
+      "id": "28200",
+      "input_size": [
+        15,
+        16
+      ],
+      "input_sha256": "dfce7ad61051c50192f0562ae4e3d8929f6337e01afaafc3d4b0646b79055820",
+      "output_size": [
+        300,
+        320
+      ],
+      "stage_trace": [
+        {
+          "size": [
+            60,
+            64
+          ],
+          "right_bottom_padding": [
+            452,
+            448
+          ]
+        },
+        {
+          "size": [
+            150,
+            160
+          ],
+          "right_bottom_padding": [
+            362,
+            352
+          ]
+        },
+        {
+          "size": [
+            300,
+            320
+          ],
+          "right_bottom_padding": [
+            212,
+            192
+          ]
+        }
+      ],
+      "pre_alignment_size": [
+        300,
+        320
+      ],
+      "output_sha256": "670aa85280169c0f56d2a61bb52ae58c9aa4b0d158c955acd38e152636638fcc",
+      "seconds": 2.0520962197333574,
+      "display_input_sha256": "80984109db570c9d2553af05f5ed6ba7cdee7bbfb95e874329698f4fc8c597cd"
+    },
+    {
+      "dataset": "planesnet",
+      "id": "30600",
+      "input_size": [
+        20,
+        20
+      ],
+      "input_sha256": "2170cda948e57798e1d20bf6b4f5dfba5192b148cccf12eb99bdfdc771a9f9cf",
+      "output_size": [
+        400,
+        400
+      ],
+      "stage_trace": [
+        {
+          "size": [
+            80,
+            80
+          ],
+          "right_bottom_padding": [
+            432,
+            432
+          ]
+        },
+        {
+          "size": [
+            200,
+            200
+          ],
+          "right_bottom_padding": [
+            312,
+            312
+          ]
+        },
+        {
+          "size": [
+            400,
+            400
+          ],
+          "right_bottom_padding": [
+            112,
+            112
+          ]
+        }
+      ],
+      "pre_alignment_size": [
+        400,
+        400
+      ],
+      "output_sha256": "41619cdd1f9d58d3a3f81a03cef1780a65916507da78d1ea93c0c7ccc51c8496",
+      "seconds": 2.3372642509639263,
+      "display_input_sha256": "49cf6eef1f8583c69d8fb2f32be3ec452029d87739388ffa2a6b06af5550f0f0"
+    },
+    {
+      "dataset": "rareplanes-real",
+      "id": "105_104001003108D900_tile_51",
+      "input_size": [
+        77,
+        29
+      ],
+      "input_sha256": "24776c7209e231d17177a5d0543302b6e1459bd9e4da1e6dff9fc7185ea869e4",
+      "output_size": [
+        1540,
+        580
+      ],
+      "stage_trace": [
+        {
+          "size": [
+            308,
+            116
+          ],
+          "right_bottom_padding": [
+            204,
+            396
+          ]
+        },
+        {
+          "size": [
+            770,
+            290
+          ],
+          "right_bottom_padding": [
+            30,
+            222
+          ]
+        },
+        {
+          "size": [
+            1540,
+            580
+          ],
+          "right_bottom_padding": [
+            28,
+            28
+          ]
+        }
+      ],
+      "pre_alignment_size": [
+        1540,
+        580
+      ],
+      "output_sha256": "9c922233325aa2b1b71f8c36f4acf39642d8bed7d68e6301078f0ff9b8395116",
+      "seconds": 8.129710655659437,
+      "display_input_sha256": "f6bfa9dae68ea1201705d060d5661e931e0a1a7a713b549e9c2cf70b91450fff"
+    },
+    {
+      "dataset": "rareplanes-real",
+      "id": "124_104001001F2A5700_tile_212",
+      "input_size": [
+        78,
+        69
+      ],
+      "input_sha256": "6b51d3a544893ac0fa48073a374bc7d16cf64ac008aa848165f2b9e408bf3354",
+      "output_size": [
+        1560,
+        1380
+      ],
+      "stage_trace": [
+        {
+          "size": [
+            312,
+            276
+          ],
+          "right_bottom_padding": [
+            200,
+            236
+          ]
+        },
+        {
+          "size": [
+            780,
+            690
+          ],
+          "right_bottom_padding": [
+            20,
+            14
+          ]
+        },
+        {
+          "size": [
+            1560,
+            1380
+          ],
+          "right_bottom_padding": [
+            8,
+            28
+          ]
+        }
+      ],
+      "pre_alignment_size": [
+        1560,
+        1380
+      ],
+      "output_sha256": "a6cb48cbfed1dda9a302aa858722fd377c39c79f2669b19adc2872b22c7474df",
+      "seconds": 14.413061771076173,
+      "display_input_sha256": "42d837202e18c59a6cea83a4d5a276f6561eb5744fa89183446c4ff18b3b8a5a"
+    },
+    {
+      "dataset": "rareplanes-real",
+      "id": "126_104001000C4AEE00_tile_1687",
+      "input_size": [
+        250,
+        229
+      ],
+      "input_sha256": "586f8b5b2a940d88caac970f862f2e6f77c0f8d0c28716b279b6f888523fcdd5",
+      "output_size": [
+        5000,
+        4580
+      ],
+      "stage_trace": [
+        {
+          "size": [
+            1000,
+            916
+          ],
+          "right_bottom_padding": [
+            24,
+            12
+          ]
+        },
+        {
+          "size": [
+            2500,
+            2290
+          ],
+          "right_bottom_padding": [
+            28,
+            14
+          ]
+        },
+        {
+          "size": [
+            5000,
+            4580
+          ],
+          "right_bottom_padding": [
+            24,
+            28
+          ]
+        }
+      ],
+      "pre_alignment_size": [
+        5000,
+        4580
+      ],
+      "output_sha256": "ca328ef6b9c05c77832e478c2fad30ab4fbcea05bd1008d25c267bacd864c4f5",
+      "seconds": 149.6320416741073,
+      "display_input_sha256": "6a38022d170737f0b3c6b0a4ce11d12684145474779637f076369cf9639571d7"
+    },
+    {
+      "dataset": "rareplanes-real",
+      "id": "31_10400100443CFD00_tile_608",
+      "input_size": [
+        167,
+        181
+      ],
+      "input_sha256": "2c32abe58e78bdb70c306707452806650687bf48878382b864f165fc7badb78c",
+      "output_size": [
+        3340,
+        3620
+      ],
+      "stage_trace": [
+        {
+          "size": [
+            668,
+            724
+          ],
+          "right_bottom_padding": [
+            4,
+            12
+          ]
+        },
+        {
+          "size": [
+            1670,
+            1810
+          ],
+          "right_bottom_padding": [
+            26,
+            14
+          ]
+        },
+        {
+          "size": [
+            3340,
+            3620
+          ],
+          "right_bottom_padding": [
+            20,
+            28
+          ]
+        }
+      ],
+      "pre_alignment_size": [
+        3340,
+        3620
+      ],
+      "output_sha256": "e87448db1a0dbbe2bda23d6708f0cb4331433384146b2410ec25724b6149a528",
+      "seconds": 77.13411170011386,
+      "display_input_sha256": "0335d03783772ec375259ff6f420515b7c1d56375a244679c72ac7547446f79b"
+    },
+    {
+      "dataset": "rareplanes-real",
+      "id": "55_1040010049CD5600_tile_577",
+      "input_size": [
+        173,
+        159
+      ],
+      "input_sha256": "4739c365f8e2bdf1d6cfc301fc98ba7537b23c604cd459122000f3a46d85ae13",
+      "output_size": [
+        3460,
+        3180
+      ],
+      "stage_trace": [
+        {
+          "size": [
+            692,
+            636
+          ],
+          "right_bottom_padding": [
+            12,
+            4
+          ]
+        },
+        {
+          "size": [
+            1730,
+            1590
+          ],
+          "right_bottom_padding": [
+            30,
+            10
+          ]
+        },
+        {
+          "size": [
+            3460,
+            3180
+          ],
+          "right_bottom_padding": [
+            28,
+            20
+          ]
+        }
+      ],
+      "pre_alignment_size": [
+        3460,
+        3180
+      ],
+      "output_sha256": "c598bcea70c217f49654868c74ad5138812935a804b01dbb6b5ea66d08138d44",
+      "seconds": 66.86997506115586,
+      "display_input_sha256": "3ed29f1ab1c967702df266030e5c616e329eb6b3ade3c69ce57e561aa1319684"
+    },
+    {
+      "dataset": "resisc45",
+      "id": "airplane_001",
+      "input_size": [
+        103,
+        97
+      ],
+      "input_sha256": "4902a2cb77c70a38c3cf1dfd986aee9857b92908210c09b867b1be0ac2da3aff",
+      "output_size": [
+        2060,
+        1940
+      ],
+      "stage_trace": [
+        {
+          "size": [
+            412,
+            388
+          ],
+          "right_bottom_padding": [
+            100,
+            124
+          ]
+        },
+        {
+          "size": [
+            1030,
+            970
+          ],
+          "right_bottom_padding": [
+            26,
+            22
+          ]
+        },
+        {
+          "size": [
+            2060,
+            1940
+          ],
+          "right_bottom_padding": [
+            20,
+            12
+          ]
+        }
+      ],
+      "pre_alignment_size": [
+        2060,
+        1940
+      ],
+      "output_sha256": "626046f62f5f196afbb7e042a61993ae51b266738eff990221b9467a50955ebc",
+      "seconds": 27.09635885199532,
+      "display_input_sha256": "2b8d1a29b29e4ded100e7848b766ae099346f2412f33fe7c0f3270a24a8916af"
+    },
+    {
+      "dataset": "resisc45",
+      "id": "airplane_108",
+      "input_size": [
+        89,
+        81
+      ],
+      "input_sha256": "8008ed0bb0239d6dc7b51a9cfcb36e6f002d1ab3f461458fc05e2718c1c31750",
+      "output_size": [
+        1780,
+        1620
+      ],
+      "stage_trace": [
+        {
+          "size": [
+            356,
+            324
+          ],
+          "right_bottom_padding": [
+            156,
+            188
+          ]
+        },
+        {
+          "size": [
+            890,
+            810
+          ],
+          "right_bottom_padding": [
+            6,
+            22
+          ]
+        },
+        {
+          "size": [
+            1780,
+            1620
+          ],
+          "right_bottom_padding": [
+            12,
+            12
+          ]
+        }
+      ],
+      "pre_alignment_size": [
+        1780,
+        1620
+      ],
+      "output_sha256": "8b7faf042dea9b369802ce4f6d5d7d21575b28c82277b74bea2ce457d3026998",
+      "seconds": 18.872035115025938,
+      "display_input_sha256": "49641403edcda75a49d606ebf04bd1170439309dffe52a8c4cfc19324dda9010"
+    },
+    {
+      "dataset": "resisc45",
+      "id": "airplane_172",
+      "input_size": [
+        138,
+        114
+      ],
+      "input_sha256": "dca24b00e030226e16bea57cbf22d8a5bc1580e8e496ae3881fe0fd37127b595",
+      "output_size": [
+        2760,
+        2280
+      ],
+      "stage_trace": [
+        {
+          "size": [
+            552,
+            456
+          ],
+          "right_bottom_padding": [
+            24,
+            56
+          ]
+        },
+        {
+          "size": [
+            1380,
+            1140
+          ],
+          "right_bottom_padding": [
+            28,
+            12
+          ]
+        },
+        {
+          "size": [
+            2760,
+            2280
+          ],
+          "right_bottom_padding": [
+            24,
+            24
+          ]
+        }
+      ],
+      "pre_alignment_size": [
+        2760,
+        2280
+      ],
+      "output_sha256": "2454ae123ca35bdff06f0b452e4b5ff8de6534bff67e56c267f80a6fd9671436",
+      "seconds": 38.49769657989964,
+      "display_input_sha256": "8e6895364e8ad9c7b45dcc8902c0ed04612c29ab8f929cd56b9fea075594eee2"
+    },
+    {
+      "dataset": "resisc45",
+      "id": "airplane_433",
+      "input_size": [
+        100,
+        106
+      ],
+      "input_sha256": "d9520f0e5eb70e0ba66d981e39ffdcddf3dedd929b6c0b55a2a40abcf76d2c91",
+      "output_size": [
+        2000,
+        2120
+      ],
+      "stage_trace": [
+        {
+          "size": [
+            400,
+            424
+          ],
+          "right_bottom_padding": [
+            112,
+            88
+          ]
+        },
+        {
+          "size": [
+            1000,
+            1060
+          ],
+          "right_bottom_padding": [
+            24,
+            28
+          ]
+        },
+        {
+          "size": [
+            2000,
+            2120
+          ],
+          "right_bottom_padding": [
+            16,
+            24
+          ]
+        }
+      ],
+      "pre_alignment_size": [
+        2000,
+        2120
+      ],
+      "output_sha256": "1f40a8c4f47254a2ba61e6dc1587ef117fa7a90634c06c380409e69343af2920",
+      "seconds": 26.82908865204081,
+      "display_input_sha256": "43dc6d052e4cfeeccb450f39c1cfabeae4fbd5cd63e453477c51c1db4cead130"
+    },
+    {
+      "dataset": "resisc45",
+      "id": "airplane_648",
+      "input_size": [
+        78,
+        80
+      ],
+      "input_sha256": "c7ccf1769b56dde3cdb6f5c9ebc4f8049eac3785263cf75cf23a473f9343bf06",
+      "output_size": [
+        1560,
+        1600
+      ],
+      "stage_trace": [
+        {
+          "size": [
+            312,
+            320
+          ],
+          "right_bottom_padding": [
+            200,
+            192
+          ]
+        },
+        {
+          "size": [
+            780,
+            800
+          ],
+          "right_bottom_padding": [
+            20,
+            0
+          ]
+        },
+        {
+          "size": [
+            1560,
+            1600
+          ],
+          "right_bottom_padding": [
+            8,
+            0
+          ]
+        }
+      ],
+      "pre_alignment_size": [
+        1560,
+        1600
+      ],
+      "output_sha256": "f757c92cff1f0c6afa53c2ed93479919e8076988c7430b32f6b8c4516dd2c71c",
+      "seconds": 15.561984079889953,
+      "display_input_sha256": "494d9d2ce40598e8f2479330e8c120ad4f489353af5ebf8a29855fa43e184ebf"
+    }
+  ],
+  "complete": true,
+  "count": 15,
+  "input_hash_note": "input_sha256 hashes the inference source PNG; display_input_sha256 hashes its re-encoded website copy. Decoded RGB pixels were verified equal."
+}
