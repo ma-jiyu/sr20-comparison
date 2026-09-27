@@ -1,0 +1,693 @@
+{
+  "complete": true,
+  "count": 15,
+  "new_inferences": 30,
+  "scale": 20,
+  "mode": "x8",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "models": {
+    "A": {
+      "completion": {
+        "complete": true,
+        "arm": "A",
+        "steps": 2000,
+        "best_step": 1500,
+        "best_validation_score": 21.400518099466957
+      },
+      "checkpoint_sha256": "5e7e99a50d4e33e39ad938320bd55bf17902ea483825b88ef671410a4e09fed1",
+      "initial_score": 21.39217837651571,
+      "validation_score": 21.400518099466957,
+      "validation_means": {
+        "clean": {
+          "psnr": 21.775746250152586,
+          "ssim": 0.47127778877814613,
+          "bicubic_psnr": 21.31704238255819,
+          "bicubic_ssim": 0.4589916562040647
+        },
+        "degraded": {
+          "psnr": 21.02528994878133,
+          "ssim": 0.45985216051340105,
+          "bicubic_psnr": 20.63334108988444,
+          "bicubic_ssim": 0.45242701868216195
+        }
+      },
+      "test_means": {
+        "clean": {
+          "psnr": 21.711151599884033,
+          "ssim": 0.43782234092553457,
+          "bicubic_psnr": 21.23593743642171,
+          "bicubic_ssim": 0.42529209330677986
+        },
+        "degraded": {
+          "psnr": 20.93692792256673,
+          "ssim": 0.42573617373903594,
+          "bicubic_psnr": 20.514885711669923,
+          "bicubic_ssim": 0.418025687088569
+        }
+      },
+      "test_source_count": 60
+    },
+    "B": {
+      "completion": {
+        "complete": true,
+        "arm": "B",
+        "steps": 2000,
+        "best_step": 0,
+        "best_validation_score": 21.392178710301717
+      },
+      "checkpoint_sha256": "a76e176e3a2a3d08fd41920069a2d68b199a5eee72b1e8ddbf1ca7ee2e59385a",
+      "initial_score": 21.392178710301717,
+      "validation_score": 21.392178710301717,
+      "validation_means": {
+        "clean": {
+          "psnr": 21.7696951230367,
+          "ssim": 0.4709247961640358,
+          "bicubic_psnr": 21.31704238255819,
+          "bicubic_ssim": 0.4589916562040647
+        },
+        "degraded": {
+          "psnr": 21.014662297566733,
+          "ssim": 0.45963223377863566,
+          "bicubic_psnr": 20.63334108988444,
+          "bicubic_ssim": 0.45242701868216195
+        }
+      },
+      "test_means": {
+        "clean": {
+          "psnr": 21.70359532038371,
+          "ssim": 0.43740000451604527,
+          "bicubic_psnr": 21.23593743642171,
+          "bicubic_ssim": 0.42529209330677986
+        },
+        "degraded": {
+          "psnr": 20.92579574584961,
+          "ssim": 0.4255038360754649,
+          "bicubic_psnr": 20.514885711669923,
+          "bicubic_ssim": 0.418025687088569
+        }
+      },
+      "test_source_count": 60
+    },
+    "B_lora": {
+      "completion": {
+        "complete": true,
+        "arm": "B_lora",
+        "steps": 2000,
+        "best_step": 500,
+        "best_validation_score": 21.40117435455322
+      },
+      "checkpoint_sha256": "de327dc61d0e3d4f4a3e267573b558fb1a3fc5c226532a906f2a418dd32267c4",
+      "initial_score": 21.392177629470826,
+      "validation_score": 21.40117435455322,
+      "validation_means": {
+        "clean": {
+          "psnr": 21.745045375823974,
+          "ssim": 0.47081166207790376,
+          "bicubic_psnr": 21.31704238255819,
+          "bicubic_ssim": 0.4589916562040647
+        },
+        "degraded": {
+          "psnr": 21.05730333328247,
+          "ssim": 0.4601237451036771,
+          "bicubic_psnr": 20.63334108988444,
+          "bicubic_ssim": 0.45242701868216195
+        }
+      },
+      "test_means": {
+        "clean": {
+          "psnr": 21.67667220433553,
+          "ssim": 0.437329126894474,
+          "bicubic_psnr": 21.23593743642171,
+          "bicubic_ssim": 0.42529209330677986
+        },
+        "degraded": {
+          "psnr": 20.97228806813558,
+          "ssim": 0.42602521454294523,
+          "bicubic_psnr": 20.514885711669923,
+          "bicubic_ssim": 0.418025687088569
+        }
+      },
+      "test_source_count": 60
+    }
+  },
+  "B_identical_to_old_verified": true,
+  "baseline_checkpoint_sha256": "c8bc112cf5674327daaa3d6363dff761a2d2ba1c11dcba5ef2b3260feca02e73",
+  "records": [
+    {
+      "dataset": "resisc45",
+      "id": "airplane_001",
+      "input_size": [
+        103,
+        97
+      ],
+      "output_size": [
+        2060,
+        1940
+      ],
+      "display_size": [
+        800,
+        753
+      ],
+      "crop": [
+        40,
+        66,
+        143,
+        163
+      ],
+      "bbox": [
+        46,
+        74,
+        136,
+        154
+      ],
+      "input_sha256": "2b8d1a29b29e4ded100e7848b766ae099346f2412f33fe7c0f3270a24a8916af",
+      "output_sha256": {
+        "A": "0c567d7166d154130773d89519a04b13404ca16e8080b4a3deb6a05883739366",
+        "B_lora": "bb760fecf09ae79e2ee8606716001c4b36533219e4cff4e7a5e804a9b4375895"
+      },
+      "output_change_mae_255": {
+        "A": 0.29105857014656067,
+        "B_lora": 0.7126805782318115
+      }
+    },
+    {
+      "dataset": "resisc45",
+      "id": "airplane_108",
+      "input_size": [
+        89,
+        81
+      ],
+      "output_size": [
+        1780,
+        1620
+      ],
+      "display_size": [
+        800,
+        728
+      ],
+      "crop": [
+        104,
+        61,
+        193,
+        142
+      ],
+      "bbox": [
+        110,
+        68,
+        188,
+        135
+      ],
+      "input_sha256": "49641403edcda75a49d606ebf04bd1170439309dffe52a8c4cfc19324dda9010",
+      "output_sha256": {
+        "A": "8912fe0892d735d56034b44b89e2ce03159eb62516b832dfac0e2c67c7c87d48",
+        "B_lora": "112157f32dc5a63f1a487c0e50859d0b203237551bd124b1e86949a2ceb1c17a"
+      },
+      "output_change_mae_255": {
+        "A": 0.3784125745296478,
+        "B_lora": 0.8894591331481934
+      }
+    },
+    {
+      "dataset": "resisc45",
+      "id": "airplane_172",
+      "input_size": [
+        138,
+        114
+      ],
+      "output_size": [
+        2760,
+        2280
+      ],
+      "display_size": [
+        800,
+        661
+      ],
+      "crop": [
+        84,
+        9,
+        222,
+        123
+      ],
+      "bbox": [
+        92,
+        19,
+        213,
+        113
+      ],
+      "input_sha256": "8e6895364e8ad9c7b45dcc8902c0ed04612c29ab8f929cd56b9fea075594eee2",
+      "output_sha256": {
+        "A": "57cc34fa71423b4050a66cca289813926240919e61dcdd544b5013ecf2733690",
+        "B_lora": "ba3f5413186f47dad0ea00dbeb4612341d8d42fc79379d427ee20acfa8a96581"
+      },
+      "output_change_mae_255": {
+        "A": 0.25802597403526306,
+        "B_lora": 0.5875523686408997
+      }
+    },
+    {
+      "dataset": "resisc45",
+      "id": "airplane_433",
+      "input_size": [
+        100,
+        106
+      ],
+      "output_size": [
+        2000,
+        2120
+      ],
+      "display_size": [
+        755,
+        800
+      ],
+      "crop": [
+        6,
+        72,
+        106,
+        178
+      ],
+      "bbox": [
+        12,
+        81,
+        99,
+        169
+      ],
+      "input_sha256": "43dc6d052e4cfeeccb450f39c1cfabeae4fbd5cd63e453477c51c1db4cead130",
+      "output_sha256": {
+        "A": "94a5d3af1b5886e5aa27582540ed172b9f83833ab9ecc2ce4ea0781b4bbbae91",
+        "B_lora": "e30095c0c281bba604279d4e64aeb888bdad5779d1be43ed38fd53a00c8de299"
+      },
+      "output_change_mae_255": {
+        "A": 0.23079480230808258,
+        "B_lora": 0.5713210701942444
+      }
+    },
+    {
+      "dataset": "resisc45",
+      "id": "airplane_648",
+      "input_size": [
+        78,
+        80
+      ],
+      "output_size": [
+        1560,
+        1600
+      ],
+      "display_size": [
+        780,
+        800
+      ],
+      "crop": [
+        90,
+        75,
+        168,
+        155
+      ],
+      "bbox": [
+        95,
+        82,
+        163,
+        148
+      ],
+      "input_sha256": "494d9d2ce40598e8f2479330e8c120ad4f489353af5ebf8a29855fa43e184ebf",
+      "output_sha256": {
+        "A": "1d1f715f97b97e3cbd25e8eb3aa3839c8c25891c8f18382d43f5e9710a04269d",
+        "B_lora": "13d1b9e7e3b0984f871122b496208b90ffe59144628b52aae51da6edae16d17e"
+      },
+      "output_change_mae_255": {
+        "A": 0.22447322309017181,
+        "B_lora": 0.5526866316795349
+      }
+    },
+    {
+      "dataset": "rareplanes-real",
+      "id": "105_104001003108D900_tile_51",
+      "input_size": [
+        77,
+        29
+      ],
+      "output_size": [
+        1540,
+        580
+      ],
+      "display_size": [
+        800,
+        301
+      ],
+      "crop": [
+        353,
+        290,
+        430,
+        319
+      ],
+      "bbox": [
+        358,
+        292,
+        425,
+        316
+      ],
+      "input_sha256": "f6bfa9dae68ea1201705d060d5661e931e0a1a7a713b549e9c2cf70b91450fff",
+      "output_sha256": {
+        "A": "cbb10b053be619fb8d90960fddce3a42255068e8ae7acb9cd8e8efc761f90e52",
+        "B_lora": "f33f2c76243224a3000b8e134602ff0cdcf9fa12816c3c26fde3e52f8647d3d7"
+      },
+      "output_change_mae_255": {
+        "A": 0.42509016394615173,
+        "B_lora": 0.905820369720459
+      }
+    },
+    {
+      "dataset": "rareplanes-real",
+      "id": "124_104001001F2A5700_tile_212",
+      "input_size": [
+        78,
+        69
+      ],
+      "output_size": [
+        1560,
+        1380
+      ],
+      "display_size": [
+        800,
+        708
+      ],
+      "crop": [
+        207,
+        149,
+        285,
+        218
+      ],
+      "bbox": [
+        212,
+        155,
+        280,
+        212
+      ],
+      "input_sha256": "42d837202e18c59a6cea83a4d5a276f6561eb5744fa89183446c4ff18b3b8a5a",
+      "output_sha256": {
+        "A": "a465c355ce9288a6ac3d29c7faaba848012367a6d04b8c2c82cd92a39fc68e36",
+        "B_lora": "833bf8c09f6a729e72fb03495fe790ee244fc269d3dfe89bf407f6003599ceb2"
+      },
+      "output_change_mae_255": {
+        "A": 0.29107800126075745,
+        "B_lora": 0.6904670000076294
+      }
+    },
+    {
+      "dataset": "rareplanes-real",
+      "id": "31_10400100443CFD00_tile_608",
+      "input_size": [
+        167,
+        181
+      ],
+      "output_size": [
+        3340,
+        3620
+      ],
+      "display_size": [
+        738,
+        800
+      ],
+      "crop": [
+        208,
+        278,
+        375,
+        459
+      ],
+      "bbox": [
+        218,
+        294,
+        364,
+        444
+      ],
+      "input_sha256": "0335d03783772ec375259ff6f420515b7c1d56375a244679c72ac7547446f79b",
+      "output_sha256": {
+        "A": "52de6b72ab9d5d5d157d3988ecf7531467879b7d10fbffc660c30e5527bf7874",
+        "B_lora": "40293c228d1289555c439a4c5b69a6eca70934aaccc73c9a81ebd2c6686321b5"
+      },
+      "output_change_mae_255": {
+        "A": 0.16256773471832275,
+        "B_lora": 0.4213036000728607
+      }
+    },
+    {
+      "dataset": "rareplanes-real",
+      "id": "55_1040010049CD5600_tile_577",
+      "input_size": [
+        173,
+        159
+      ],
+      "output_size": [
+        3460,
+        3180
+      ],
+      "display_size": [
+        800,
+        735
+      ],
+      "crop": [
+        257,
+        42,
+        430,
+        201
+      ],
+      "bbox": [
+        268,
+        55,
+        419,
+        187
+      ],
+      "input_sha256": "3ed29f1ab1c967702df266030e5c616e329eb6b3ade3c69ce57e561aa1319684",
+      "output_sha256": {
+        "A": "a170355aea4c36bfbb1062e09d9fd11078ff32870fdeda4946cff49190b6e560",
+        "B_lora": "2b633d0c9c18f3899800bbeb01de165dd70241b3ee55e84442768e200dd3b6d4"
+      },
+      "output_change_mae_255": {
+        "A": 0.13346628844738007,
+        "B_lora": 0.3099820613861084
+      }
+    },
+    {
+      "dataset": "rareplanes-real",
+      "id": "126_104001000C4AEE00_tile_1687",
+      "input_size": [
+        250,
+        229
+      ],
+      "output_size": [
+        5000,
+        4580
+      ],
+      "display_size": [
+        800,
+        733
+      ],
+      "crop": [
+        116,
+        268,
+        366,
+        497
+      ],
+      "bbox": [
+        131,
+        287,
+        350,
+        477
+      ],
+      "input_sha256": "6a38022d170737f0b3c6b0a4ce11d12684145474779637f076369cf9639571d7",
+      "output_sha256": {
+        "A": "6b0acf3b49307953807766ce79671ed232d42b5fa18fdf1860d2ef603ad706e0",
+        "B_lora": "a8e488ba110b44870c26b2dabda73efc455e43169edddfc807b1f9e130242f73"
+      },
+      "output_change_mae_255": {
+        "A": 0.1308518648147583,
+        "B_lora": 0.33714523911476135
+      }
+    },
+    {
+      "dataset": "planesnet",
+      "id": "24900",
+      "input_size": [
+        18,
+        16
+      ],
+      "output_size": [
+        360,
+        320
+      ],
+      "display_size": [
+        360,
+        320
+      ],
+      "crop": [
+        2,
+        2,
+        20,
+        18
+      ],
+      "bbox": [
+        3,
+        4,
+        18,
+        17
+      ],
+      "input_sha256": "4ba54e423c26264b8f82f5b194bed560d08547b03b3765dbc50a4933643e510e",
+      "output_sha256": {
+        "A": "f38c6801161f71325a5c815ae0dfbccf959a10f993105eecf7148e3e13f76684",
+        "B_lora": "2b6b95acfccef3d349391a2e8c3ee10e4781ece490496ba8fc381a22575a102f"
+      },
+      "output_change_mae_255": {
+        "A": 0.25276923179626465,
+        "B_lora": 0.7995641231536865
+      }
+    },
+    {
+      "dataset": "planesnet",
+      "id": "27300",
+      "input_size": [
+        20,
+        20
+      ],
+      "output_size": [
+        400,
+        400
+      ],
+      "display_size": [
+        400,
+        400
+      ],
+      "crop": [
+        0,
+        0,
+        20,
+        20
+      ],
+      "bbox": [
+        3,
+        1,
+        16,
+        19
+      ],
+      "input_sha256": "e8d8891c6a4c517da1545521602e6878c0da2aca78f499bfab4e4f49002e0240",
+      "output_sha256": {
+        "A": "63202d8fde985f53686e23e02ea3e7780b6ab5fa434eedbb3976cf1db084a13f",
+        "B_lora": "5f96a3e52add6e8624afcd860e3bf6fe5a2e31f8ffcd5dfe8cb94666094b8e0c"
+      },
+      "output_change_mae_255": {
+        "A": 0.16013532876968384,
+        "B_lora": 0.4364814758300781
+      }
+    },
+    {
+      "dataset": "planesnet",
+      "id": "27700",
+      "input_size": [
+        20,
+        20
+      ],
+      "output_size": [
+        400,
+        400
+      ],
+      "display_size": [
+        400,
+        400
+      ],
+      "crop": [
+        0,
+        0,
+        20,
+        20
+      ],
+      "bbox": [
+        1,
+        0,
+        19,
+        19
+      ],
+      "input_sha256": "fb474a4861717d766285bb80001808c358fe49ccef7e0f2dfe315e2d1aecbe8d",
+      "output_sha256": {
+        "A": "75cdb44dfcf60f8b1bfef03a2e4c6f0a3e0897908b3a1e85d621e4c59a4350bd",
+        "B_lora": "5dc41836771c249169ee22d0f7c22fc45f19ea296b9b612dd9b623d0705f966c"
+      },
+      "output_change_mae_255": {
+        "A": 0.2168567180633545,
+        "B_lora": 0.5803070068359375
+      }
+    },
+    {
+      "dataset": "planesnet",
+      "id": "28200",
+      "input_size": [
+        15,
+        16
+      ],
+      "output_size": [
+        300,
+        320
+      ],
+      "display_size": [
+        300,
+        320
+      ],
+      "crop": [
+        3,
+        2,
+        18,
+        18
+      ],
+      "bbox": [
+        4,
+        4,
+        17,
+        17
+      ],
+      "input_sha256": "80984109db570c9d2553af05f5ed6ba7cdee7bbfb95e874329698f4fc8c597cd",
+      "output_sha256": {
+        "A": "ab21f7e8c70432d391f25dea2ad229c43576d192dcf37d24311da1cd8d43703d",
+        "B_lora": "5a09e2182ed2180845379a8f3c8f5e30a8e56c91078469c1c03f0c65fd8c2279"
+      },
+      "output_change_mae_255": {
+        "A": 0.1359812617301941,
+        "B_lora": 0.471306711435318
+      }
+    },
+    {
+      "dataset": "planesnet",
+      "id": "30600",
+      "input_size": [
+        20,
+        20
+      ],
+      "output_size": [
+        400,
+        400
+      ],
+      "display_size": [
+        400,
+        400
+      ],
+      "crop": [
+        0,
+        0,
+        20,
+        20
+      ],
+      "bbox": [
+        0,
+        1,
+        19,
+        19
+      ],
+      "input_sha256": "49cf6eef1f8583c69d8fb2f32be3ec452029d87739388ffa2a6b06af5550f0f0",
+      "output_sha256": {
+        "A": "9967a3c753b406ed0377bd750d93df12cc7f6cf8f5ee915068a120a920beb0b5",
+        "B_lora": "4d7c60edc4317adfa803034661b045f2cf7c8254f22f193b9453f5a46d69b2e9"
+      },
+      "output_change_mae_255": {
+        "A": 0.2150389850139618,
+        "B_lora": 0.6043761968612671
+      }
+    }
+  ],
+  "scope": "15 fixed native aircraft inputs; diagnostic only, not a new full-dataset run. B selected old weights, reused old output after tensor equality check. No native HR ground truth."
+}
