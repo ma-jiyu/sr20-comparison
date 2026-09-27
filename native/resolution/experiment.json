@@ -1,0 +1,1179 @@
+{
+  "complete": true,
+  "counts": {
+    "internal": 1440,
+    "resisc45": 8400
+  },
+  "source_counts": {
+    "internal": 60,
+    "resisc45": 700
+  },
+  "input_sides": [
+    16,
+    20,
+    24,
+    32,
+    48,
+    64
+  ],
+  "models_sha256": {
+    "old": "c8bc112cf5674327daaa3d6363dff761a2d2ba1c11dcba5ef2b3260feca02e73",
+    "adapted": "c8e7ad90c76c8fc9c0c088fa30a00f16f4d0e0bec420abd6cb2af05fa71b4627"
+  },
+  "adapted_arm": "B_lora",
+  "metrics": {
+    "internal": [
+      {
+        "dataset": "internal",
+        "regime": "clean",
+        "input_side": 16,
+        "model": "adapted",
+        "count": 60,
+        "psnr": 19.914809147516888,
+        "bicubic_psnr": 19.47418169975281,
+        "delta_psnr": 0.44062744776407875,
+        "delta_psnr_ci95": [
+          0.3944287896156311,
+          0.48658677180608106
+        ],
+        "ssim": 0.39328666105866433,
+        "bicubic_ssim": 0.3834129340946674,
+        "delta_ssim": 0.009873726963996887,
+        "delta_ssim_ci95": [
+          0.008712583221495152,
+          0.011058125061293443
+        ],
+        "edge_mae": 0.040006179238359134,
+        "bicubic_edge_mae": 0.03981338168183963,
+        "delta_edge_mae": 0.00019279755651950835,
+        "delta_edge_mae_ci95": [
+          0.00016908889325956502,
+          0.0002163056703284383
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": false
+      },
+      {
+        "dataset": "internal",
+        "regime": "clean",
+        "input_side": 16,
+        "model": "old",
+        "count": 60,
+        "psnr": 19.937091302871703,
+        "bicubic_psnr": 19.47418169975281,
+        "delta_psnr": 0.4629096031188965,
+        "delta_psnr_ci95": [
+          0.41792457262674965,
+          0.5084171446164449
+        ],
+        "ssim": 0.39333356991410257,
+        "bicubic_ssim": 0.3834129340946674,
+        "delta_ssim": 0.00992063581943512,
+        "delta_ssim_ci95": [
+          0.0088080695271492,
+          0.011062352980176608
+        ],
+        "edge_mae": 0.039951280162980156,
+        "bicubic_edge_mae": 0.03981338168183963,
+        "delta_edge_mae": 0.00013789848114053408,
+        "delta_edge_mae_ci95": [
+          0.00011835789230341713,
+          0.00015774493028099338
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": false
+      },
+      {
+        "dataset": "internal",
+        "regime": "clean",
+        "input_side": 20,
+        "model": "adapted",
+        "count": 60,
+        "psnr": 20.524425315856934,
+        "bicubic_psnr": 20.046265172958375,
+        "delta_psnr": 0.47816014289855957,
+        "delta_psnr_ci95": [
+          0.43564464449882506,
+          0.5235032753149668
+        ],
+        "ssim": 0.4083321685592333,
+        "bicubic_ssim": 0.392903287957112,
+        "delta_ssim": 0.015428880602121353,
+        "delta_ssim_ci95": [
+          0.014036268970618646,
+          0.016855625075598558
+        ],
+        "edge_mae": 0.03999227285385132,
+        "bicubic_edge_mae": 0.039799685745189585,
+        "delta_edge_mae": 0.0001925871086617311,
+        "delta_edge_mae_ci95": [
+          0.0001716648833826184,
+          0.0002137785009108484
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": false
+      },
+      {
+        "dataset": "internal",
+        "regime": "clean",
+        "input_side": 20,
+        "model": "old",
+        "count": 60,
+        "psnr": 20.549998060862222,
+        "bicubic_psnr": 20.046265172958375,
+        "delta_psnr": 0.5037328879038493,
+        "delta_psnr_ci95": [
+          0.4615922554334005,
+          0.5487848969300587
+        ],
+        "ssim": 0.40816276570161186,
+        "bicubic_ssim": 0.392903287957112,
+        "delta_ssim": 0.015259477744499842,
+        "delta_ssim_ci95": [
+          0.013906626868993044,
+          0.016650462473432222
+        ],
+        "edge_mae": 0.03992471828435858,
+        "bicubic_edge_mae": 0.039799685745189585,
+        "delta_edge_mae": 0.00012503253916899362,
+        "delta_edge_mae_ci95": [
+          0.00010812482098117471,
+          0.00014170436421409246
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": false
+      },
+      {
+        "dataset": "internal",
+        "regime": "clean",
+        "input_side": 24,
+        "model": "adapted",
+        "count": 60,
+        "psnr": 21.07888666788737,
+        "bicubic_psnr": 20.548257923126222,
+        "delta_psnr": 0.5306287447611491,
+        "delta_psnr_ci95": [
+          0.4866371520360311,
+          0.5773333708445231
+        ],
+        "ssim": 0.4246267482638359,
+        "bicubic_ssim": 0.4034068581958612,
+        "delta_ssim": 0.021219890067974725,
+        "delta_ssim_ci95": [
+          0.01933890888467431,
+          0.023195299375802277
+        ],
+        "edge_mae": 0.03998140757903457,
+        "bicubic_edge_mae": 0.03980963348100583,
+        "delta_edge_mae": 0.00017177409802873929,
+        "delta_edge_mae_ci95": [
+          0.0001501414505764842,
+          0.00019266172622640925
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": false
+      },
+      {
+        "dataset": "internal",
+        "regime": "clean",
+        "input_side": 24,
+        "model": "old",
+        "count": 60,
+        "psnr": 21.103501669565837,
+        "bicubic_psnr": 20.548257923126222,
+        "delta_psnr": 0.5552437464396159,
+        "delta_psnr_ci95": [
+          0.5111485123634338,
+          0.6020990109443665
+        ],
+        "ssim": 0.42418060873945557,
+        "bicubic_ssim": 0.4034068581958612,
+        "delta_ssim": 0.02077375054359436,
+        "delta_ssim_ci95": [
+          0.01896152379612128,
+          0.022686161758999027
+        ],
+        "edge_mae": 0.039904549904167655,
+        "bicubic_edge_mae": 0.03980963348100583,
+        "delta_edge_mae": 9.491642316182455e-05,
+        "delta_edge_mae_ci95": [
+          7.617867241303125e-05,
+          0.00011333658903216321
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": false
+      },
+      {
+        "dataset": "internal",
+        "regime": "clean",
+        "input_side": 32,
+        "model": "adapted",
+        "count": 60,
+        "psnr": 21.911058775583903,
+        "bicubic_psnr": 21.344783115386964,
+        "delta_psnr": 0.5662756601969401,
+        "delta_psnr_ci95": [
+          0.5184081951777141,
+          0.6188004724184673
+        ],
+        "ssim": 0.457385112841924,
+        "bicubic_ssim": 0.42651983549197514,
+        "delta_ssim": 0.030865277349948882,
+        "delta_ssim_ci95": [
+          0.02852685524771611,
+          0.03331042163074017
+        ],
+        "edge_mae": 0.03984828203295668,
+        "bicubic_edge_mae": 0.03973668230076631,
+        "delta_edge_mae": 0.00011159973219037056,
+        "delta_edge_mae_ci95": [
+          8.583524497225881e-05,
+          0.00013682771939784285
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": false
+      },
+      {
+        "dataset": "internal",
+        "regime": "clean",
+        "input_side": 32,
+        "model": "old",
+        "count": 60,
+        "psnr": 21.942287000020347,
+        "bicubic_psnr": 21.344783115386964,
+        "delta_psnr": 0.5975038846333821,
+        "delta_psnr_ci95": [
+          0.5492377893129984,
+          0.6499388019243877
+        ],
+        "ssim": 0.4565330261985461,
+        "bicubic_ssim": 0.42651983549197514,
+        "delta_ssim": 0.030013190706570943,
+        "delta_ssim_ci95": [
+          0.02776584795365731,
+          0.032394565927485616
+        ],
+        "edge_mae": 0.03975160252302885,
+        "bicubic_edge_mae": 0.03973668230076631,
+        "delta_edge_mae": 1.4920222262541453e-05,
+        "delta_edge_mae_ci95": [
+          -9.802063771833976e-06,
+          3.820289159193634e-05
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": false
+      },
+      {
+        "dataset": "internal",
+        "regime": "clean",
+        "input_side": 48,
+        "model": "adapted",
+        "count": 60,
+        "psnr": 23.152599366505942,
+        "bicubic_psnr": 22.53470573425293,
+        "delta_psnr": 0.6178936322530111,
+        "delta_psnr_ci95": [
+          0.5637104717890421,
+          0.6751778737703958
+        ],
+        "ssim": 0.5208066989978154,
+        "bicubic_ssim": 0.47763006339470543,
+        "delta_ssim": 0.04317663560311,
+        "delta_ssim_ci95": [
+          0.040498153666655226,
+          0.04577315426121155
+        ],
+        "edge_mae": 0.03937352473537127,
+        "bicubic_edge_mae": 0.03948222793017824,
+        "delta_edge_mae": -0.00010870319480697314,
+        "delta_edge_mae_ci95": [
+          -0.00016128339727098745,
+          -5.826785073926052e-05
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "internal",
+        "regime": "clean",
+        "input_side": 48,
+        "model": "old",
+        "count": 60,
+        "psnr": 23.19208714167277,
+        "bicubic_psnr": 22.53470573425293,
+        "delta_psnr": 0.6573814074198405,
+        "delta_psnr_ci95": [
+          0.6031000487009684,
+          0.7151250410079956
+        ],
+        "ssim": 0.5192546417315801,
+        "bicubic_ssim": 0.47763006339470543,
+        "delta_ssim": 0.04162457833687464,
+        "delta_ssim_ci95": [
+          0.03902756265054147,
+          0.04412116528799137
+        ],
+        "edge_mae": 0.039250582146147885,
+        "bicubic_edge_mae": 0.03948222793017824,
+        "delta_edge_mae": -0.000231645784030358,
+        "delta_edge_mae_ci95": [
+          -0.0002844789034376542,
+          -0.0001806965889409185
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "internal",
+        "regime": "clean",
+        "input_side": 64,
+        "model": "adapted",
+        "count": 60,
+        "psnr": 24.057727495829266,
+        "bicubic_psnr": 23.409384282430015,
+        "delta_psnr": 0.6483432133992513,
+        "delta_psnr_ci95": [
+          0.5877929496765137,
+          0.716986448764801
+        ],
+        "ssim": 0.5778214206298192,
+        "bicubic_ssim": 0.5273090859254201,
+        "delta_ssim": 0.05051233470439911,
+        "delta_ssim_ci95": [
+          0.04788450766354799,
+          0.05310398403555155
+        ],
+        "edge_mae": 0.03873326908797026,
+        "bicubic_edge_mae": 0.03912301473319531,
+        "delta_edge_mae": -0.0003897456452250481,
+        "delta_edge_mae_ci95": [
+          -0.00047573481143141784,
+          -0.00030493307936315734
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "internal",
+        "regime": "clean",
+        "input_side": 64,
+        "model": "old",
+        "count": 60,
+        "psnr": 24.103037929534914,
+        "bicubic_psnr": 23.409384282430015,
+        "delta_psnr": 0.6936536471048991,
+        "delta_psnr_ci95": [
+          0.6327313860257466,
+          0.7623006709416706
+        ],
+        "ssim": 0.5757149358590444,
+        "bicubic_ssim": 0.5273090859254201,
+        "delta_ssim": 0.04840584993362427,
+        "delta_ssim_ci95": [
+          0.045849446803331376,
+          0.0509221376478672
+        ],
+        "edge_mae": 0.03858673019955556,
+        "bicubic_edge_mae": 0.03912301473319531,
+        "delta_edge_mae": -0.0005362845336397489,
+        "delta_edge_mae_ci95": [
+          -0.00062349458069851,
+          -0.0004510115250013769
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "internal",
+        "regime": "degraded",
+        "input_side": 16,
+        "model": "adapted",
+        "count": 60,
+        "psnr": 19.085841131210326,
+        "bicubic_psnr": 18.64911022186279,
+        "delta_psnr": 0.43673090934753417,
+        "delta_psnr_ci95": [
+          0.3832472519079844,
+          0.49540190895398456
+        ],
+        "ssim": 0.3815415146450202,
+        "bicubic_ssim": 0.37503998801112176,
+        "delta_ssim": 0.006501526633898417,
+        "delta_ssim_ci95": [
+          0.005510957743972539,
+          0.007501651694377261
+        ],
+        "edge_mae": 0.039781060473372536,
+        "bicubic_edge_mae": 0.039753676392138004,
+        "delta_edge_mae": 2.7384081234534582e-05,
+        "delta_edge_mae_ci95": [
+          1.361216651275754e-05,
+          4.240806369731824e-05
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": false
+      },
+      {
+        "dataset": "internal",
+        "regime": "degraded",
+        "input_side": 16,
+        "model": "old",
+        "count": 60,
+        "psnr": 19.02857163747152,
+        "bicubic_psnr": 18.64911022186279,
+        "delta_psnr": 0.379461415608724,
+        "delta_psnr_ci95": [
+          0.3282976647218068,
+          0.43567583243052166
+        ],
+        "ssim": 0.380901325494051,
+        "bicubic_ssim": 0.37503998801112176,
+        "delta_ssim": 0.00586133748292923,
+        "delta_ssim_ci95": [
+          0.0049023595576485005,
+          0.006838546792666118
+        ],
+        "edge_mae": 0.03976543309787909,
+        "bicubic_edge_mae": 0.039753676392138004,
+        "delta_edge_mae": 1.1756705741087595e-05,
+        "delta_edge_mae_ci95": [
+          1.7182047789295516e-06,
+          2.2768559089551354e-05
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": false
+      },
+      {
+        "dataset": "internal",
+        "regime": "degraded",
+        "input_side": 20,
+        "model": "adapted",
+        "count": 60,
+        "psnr": 19.646155802408853,
+        "bicubic_psnr": 19.173877016703287,
+        "delta_psnr": 0.4722787857055664,
+        "delta_psnr_ci95": [
+          0.4142481772104899,
+          0.5346409213542939
+        ],
+        "ssim": 0.3916228346526623,
+        "bicubic_ssim": 0.38218571320176126,
+        "delta_ssim": 0.009437121450901031,
+        "delta_ssim_ci95": [
+          0.008123454768210648,
+          0.010819491830964882
+        ],
+        "edge_mae": 0.03974779872223735,
+        "bicubic_edge_mae": 0.039734190236777066,
+        "delta_edge_mae": 1.3608485460281372e-05,
+        "delta_edge_mae_ci95": [
+          -1.3225013390183445e-06,
+          3.007848203803102e-05
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": false
+      },
+      {
+        "dataset": "internal",
+        "regime": "degraded",
+        "input_side": 20,
+        "model": "old",
+        "count": 60,
+        "psnr": 19.584002860387166,
+        "bicubic_psnr": 19.173877016703287,
+        "delta_psnr": 0.41012584368387855,
+        "delta_psnr_ci95": [
+          0.3542093698183696,
+          0.4686187791824341
+        ],
+        "ssim": 0.39069728925824165,
+        "bicubic_ssim": 0.38218571320176126,
+        "delta_ssim": 0.008511576056480407,
+        "delta_ssim_ci95": [
+          0.007225009389221669,
+          0.009868747368454932
+        ],
+        "edge_mae": 0.039728904018799464,
+        "bicubic_edge_mae": 0.039734190236777066,
+        "delta_edge_mae": -5.286217977603277e-06,
+        "delta_edge_mae_ci95": [
+          -1.5899141629536947e-05,
+          6.099375120053683e-06
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "internal",
+        "regime": "degraded",
+        "input_side": 24,
+        "model": "adapted",
+        "count": 60,
+        "psnr": 20.13996276855469,
+        "bicubic_psnr": 19.628531487782798,
+        "delta_psnr": 0.5114312807718913,
+        "delta_psnr_ci95": [
+          0.45067505478858944,
+          0.5753224678834279
+        ],
+        "ssim": 0.4023854513963064,
+        "bicubic_ssim": 0.3894313059747219,
+        "delta_ssim": 0.012954145421584446,
+        "delta_ssim_ci95": [
+          0.011115039698779583,
+          0.014973803994556265
+        ],
+        "edge_mae": 0.0397342512384057,
+        "bicubic_edge_mae": 0.03974237289900581,
+        "delta_edge_mae": -8.121660600105922e-06,
+        "delta_edge_mae_ci95": [
+          -2.3768690104285874e-05,
+          8.170737419277429e-06
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "internal",
+        "regime": "degraded",
+        "input_side": 24,
+        "model": "old",
+        "count": 60,
+        "psnr": 20.07127046585083,
+        "bicubic_psnr": 19.628531487782798,
+        "delta_psnr": 0.44273897806803386,
+        "delta_psnr_ci95": [
+          0.382917492389679,
+          0.5035231232643127
+        ],
+        "ssim": 0.4010443630317847,
+        "bicubic_ssim": 0.3894313059747219,
+        "delta_ssim": 0.011613057057062785,
+        "delta_ssim_ci95": [
+          0.009816002578785022,
+          0.013543657697737214
+        ],
+        "edge_mae": 0.03971536845589677,
+        "bicubic_edge_mae": 0.03974237289900581,
+        "delta_edge_mae": -2.700444310903549e-05,
+        "delta_edge_mae_ci95": [
+          -3.884168341755867e-05,
+          -1.5046625242879008e-05
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "internal",
+        "regime": "degraded",
+        "input_side": 32,
+        "model": "adapted",
+        "count": 60,
+        "psnr": 20.921780141194663,
+        "bicubic_psnr": 20.378571240107217,
+        "delta_psnr": 0.543208901087443,
+        "delta_psnr_ci95": [
+          0.47703322052955627,
+          0.6119928383827209
+        ],
+        "ssim": 0.4239282044271628,
+        "bicubic_ssim": 0.4052454598248005,
+        "delta_ssim": 0.018682744602362314,
+        "delta_ssim_ci95": [
+          0.016063658886899552,
+          0.021404068060219286
+        ],
+        "edge_mae": 0.039633804683883986,
+        "bicubic_edge_mae": 0.03968897309775154,
+        "delta_edge_mae": -5.516841386755307e-05,
+        "delta_edge_mae_ci95": [
+          -7.824176379169027e-05,
+          -3.2259818787376086e-05
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "internal",
+        "regime": "degraded",
+        "input_side": 32,
+        "model": "old",
+        "count": 60,
+        "psnr": 20.849933195114136,
+        "bicubic_psnr": 20.378571240107217,
+        "delta_psnr": 0.4713619550069173,
+        "delta_psnr_ci95": [
+          0.4081827449798584,
+          0.5357797145843506
+        ],
+        "ssim": 0.4220096493760745,
+        "bicubic_ssim": 0.4052454598248005,
+        "delta_ssim": 0.01676418955127398,
+        "delta_ssim_ci95": [
+          0.014229168016463518,
+          0.019386730020244915
+        ],
+        "edge_mae": 0.039613036625087264,
+        "bicubic_edge_mae": 0.03968897309775154,
+        "delta_edge_mae": -7.593647266427676e-05,
+        "delta_edge_mae_ci95": [
+          -9.638235205784441e-05,
+          -5.783045586819452e-05
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "internal",
+        "regime": "degraded",
+        "input_side": 48,
+        "model": "adapted",
+        "count": 60,
+        "psnr": 22.080490811665854,
+        "bicubic_psnr": 21.497380669911703,
+        "delta_psnr": 0.5831101417541504,
+        "delta_psnr_ci95": [
+          0.5167069546381632,
+          0.6545270999272664
+        ],
+        "ssim": 0.4672485997279485,
+        "bicubic_ssim": 0.4403270562489828,
+        "delta_ssim": 0.02692154347896576,
+        "delta_ssim_ci95": [
+          0.02336624788741271,
+          0.03038939156879981
+        ],
+        "edge_mae": 0.039337250590324405,
+        "bicubic_edge_mae": 0.039529169381906586,
+        "delta_edge_mae": -0.00019191879158218702,
+        "delta_edge_mae_ci95": [
+          -0.00023200671654194594,
+          -0.00015288564376533033
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "internal",
+        "regime": "degraded",
+        "input_side": 48,
+        "model": "old",
+        "count": 60,
+        "psnr": 22.00566110610962,
+        "bicubic_psnr": 21.497380669911703,
+        "delta_psnr": 0.5082804361979166,
+        "delta_psnr_ci95": [
+          0.443146432240804,
+          0.5747598640124003
+        ],
+        "ssim": 0.4643153245250384,
+        "bicubic_ssim": 0.4403270562489828,
+        "delta_ssim": 0.023988268276055654,
+        "delta_ssim_ci95": [
+          0.020601053622861704,
+          0.027306298104425267
+        ],
+        "edge_mae": 0.03931884312381347,
+        "bicubic_edge_mae": 0.039529169381906586,
+        "delta_edge_mae": -0.00021032625809311867,
+        "delta_edge_mae_ci95": [
+          -0.00025243915850296615,
+          -0.0001712357314924399
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "internal",
+        "regime": "degraded",
+        "input_side": 64,
+        "model": "adapted",
+        "count": 60,
+        "psnr": 22.933875783284506,
+        "bicubic_psnr": 22.330397669474284,
+        "delta_psnr": 0.6034781138102213,
+        "delta_psnr_ci95": [
+          0.5318586730957031,
+          0.6790678890546162
+        ],
+        "ssim": 0.5085424567262332,
+        "bicubic_ssim": 0.47659610360860827,
+        "delta_ssim": 0.03194635311762492,
+        "delta_ssim_ci95": [
+          0.02791240993887186,
+          0.03583121666063865
+        ],
+        "edge_mae": 0.03895211446409424,
+        "bicubic_edge_mae": 0.039301408392687635,
+        "delta_edge_mae": -0.00034929392859339714,
+        "delta_edge_mae_ci95": [
+          -0.0004158873118770619,
+          -0.00028518082341179253
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "internal",
+        "regime": "degraded",
+        "input_side": 64,
+        "model": "old",
+        "count": 60,
+        "psnr": 22.857993825276694,
+        "bicubic_psnr": 22.330397669474284,
+        "delta_psnr": 0.5275961558024088,
+        "delta_psnr_ci95": [
+          0.45955774466196697,
+          0.5995671264330545
+        ],
+        "ssim": 0.5047840242584546,
+        "bicubic_ssim": 0.47659610360860827,
+        "delta_ssim": 0.028187920649846394,
+        "delta_ssim_ci95": [
+          0.0243970367560784,
+          0.03190343798448642
+        ],
+        "edge_mae": 0.03893838829050462,
+        "bicubic_edge_mae": 0.039301408392687635,
+        "delta_edge_mae": -0.00036302010218302406,
+        "delta_edge_mae_ci95": [
+          -0.0004321843517633776,
+          -0.00029788820305839183
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      }
+    ],
+    "resisc45": [
+      {
+        "dataset": "resisc45",
+        "regime": "clean",
+        "input_side": 16,
+        "model": "adapted",
+        "count": 700,
+        "psnr": 21.98210817200797,
+        "bicubic_psnr": 21.551303193228584,
+        "delta_psnr": 0.43080497877938406,
+        "delta_psnr_ci95": [
+          0.40871097833769665,
+          0.4533941849640437
+        ],
+        "ssim": 0.573249050868409,
+        "bicubic_ssim": 0.5630490509952818,
+        "delta_ssim": 0.010199999873127256,
+        "delta_ssim_ci95": [
+          0.009423793973135097,
+          0.010979757127485106
+        ],
+        "edge_mae": 0.02820290749227362,
+        "bicubic_edge_mae": 0.02811158155224153,
+        "delta_edge_mae": 9.132594003209046e-05,
+        "delta_edge_mae_ci95": [
+          7.915875656596784e-05,
+          0.0001036545816043924
+        ],
+        "psnr_win_fraction": 0.9957142857142857,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": false
+      },
+      {
+        "dataset": "resisc45",
+        "regime": "clean",
+        "input_side": 16,
+        "model": "old",
+        "count": 700,
+        "psnr": 21.996637099129813,
+        "bicubic_psnr": 21.551303193228584,
+        "delta_psnr": 0.4453339059012277,
+        "delta_psnr_ci95": [
+          0.42304882758004325,
+          0.46801057083266123
+        ],
+        "ssim": 0.5738253068072455,
+        "bicubic_ssim": 0.5630490509952818,
+        "delta_ssim": 0.010776255811963762,
+        "delta_ssim_ci95": [
+          0.010032514075083392,
+          0.011525139339268206
+        ],
+        "edge_mae": 0.028145935095048376,
+        "bicubic_edge_mae": 0.02811158155224153,
+        "delta_edge_mae": 3.4353542806846754e-05,
+        "delta_edge_mae_ci95": [
+          2.3045595253019463e-05,
+          4.590913390607704e-05
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": false
+      },
+      {
+        "dataset": "resisc45",
+        "regime": "clean",
+        "input_side": 20,
+        "model": "adapted",
+        "count": 700,
+        "psnr": 22.567085176195416,
+        "bicubic_psnr": 22.050109808785574,
+        "delta_psnr": 0.5169753674098424,
+        "delta_psnr_ci95": [
+          0.49466157715661185,
+          0.5396398222105844
+        ],
+        "ssim": 0.5888176242368562,
+        "bicubic_ssim": 0.5731406720408372,
+        "delta_ssim": 0.015676952196019035,
+        "delta_ssim_ci95": [
+          0.014846444581236157,
+          0.01656020617218954
+        ],
+        "edge_mae": 0.02814296788735581,
+        "bicubic_edge_mae": 0.028068752269526678,
+        "delta_edge_mae": 7.421561782913549e-05,
+        "delta_edge_mae_ci95": [
+          5.8081081453045563e-05,
+          9.04104019116078e-05
+        ],
+        "psnr_win_fraction": 0.9971428571428571,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": false
+      },
+      {
+        "dataset": "resisc45",
+        "regime": "clean",
+        "input_side": 20,
+        "model": "old",
+        "count": 700,
+        "psnr": 22.58461642401559,
+        "bicubic_psnr": 22.050109808785574,
+        "delta_psnr": 0.5345066152300153,
+        "delta_psnr_ci95": [
+          0.5125381304877145,
+          0.5571613987854549
+        ],
+        "ssim": 0.5892823386192322,
+        "bicubic_ssim": 0.5731406720408372,
+        "delta_ssim": 0.016141666578395025,
+        "delta_ssim_ci95": [
+          0.01533414468861052,
+          0.01698753980706845
+        ],
+        "edge_mae": 0.02806915380193719,
+        "bicubic_edge_mae": 0.028068752269526678,
+        "delta_edge_mae": 4.0153241051094873e-07,
+        "delta_edge_mae_ci95": [
+          -1.4390764475267913e-05,
+          1.5212760107325642e-05
+        ],
+        "psnr_win_fraction": 0.9971428571428571,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": false
+      },
+      {
+        "dataset": "resisc45",
+        "regime": "clean",
+        "input_side": 24,
+        "model": "adapted",
+        "count": 700,
+        "psnr": 23.125229823248727,
+        "bicubic_psnr": 22.511811759131295,
+        "delta_psnr": 0.6134180641174316,
+        "delta_psnr_ci95": [
+          0.5909205162865775,
+          0.6369481328555516
+        ],
+        "ssim": 0.6064268120271818,
+        "bicubic_ssim": 0.5849660904066903,
+        "delta_ssim": 0.021460721620491573,
+        "delta_ssim_ci95": [
+          0.020560668108718736,
+          0.022361321507820064
+        ],
+        "edge_mae": 0.028023178718451943,
+        "bicubic_edge_mae": 0.027997187823057174,
+        "delta_edge_mae": 2.5990895394768035e-05,
+        "delta_edge_mae_ci95": [
+          5.481950822286308e-06,
+          4.543575135591839e-05
+        ],
+        "psnr_win_fraction": 0.9957142857142857,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": false
+      },
+      {
+        "dataset": "resisc45",
+        "regime": "clean",
+        "input_side": 24,
+        "model": "old",
+        "count": 700,
+        "psnr": 23.14451899119786,
+        "bicubic_psnr": 22.511811759131295,
+        "delta_psnr": 0.6327072320665632,
+        "delta_psnr_ci95": [
+          0.610169436454773,
+          0.6569249306065695
+        ],
+        "ssim": 0.6067033151643617,
+        "bicubic_ssim": 0.5849660904066903,
+        "delta_ssim": 0.021737224757671356,
+        "delta_ssim_ci95": [
+          0.02085775872319937,
+          0.022614605002105236
+        ],
+        "edge_mae": 0.02793470076750964,
+        "bicubic_edge_mae": 0.027997187823057174,
+        "delta_edge_mae": -6.248705554753542e-05,
+        "delta_edge_mae_ci95": [
+          -8.213991307586963e-05,
+          -4.410558651267951e-05
+        ],
+        "psnr_win_fraction": 0.9971428571428571,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "resisc45",
+        "regime": "clean",
+        "input_side": 32,
+        "model": "adapted",
+        "count": 700,
+        "psnr": 24.168116070883613,
+        "bicubic_psnr": 23.37361407961164,
+        "delta_psnr": 0.7945019912719726,
+        "delta_psnr_ci95": [
+          0.7694093837056841,
+          0.8197611637796675
+        ],
+        "ssim": 0.6459951970406941,
+        "bicubic_ssim": 0.6133086630702018,
+        "delta_ssim": 0.032686533970492225,
+        "delta_ssim_ci95": [
+          0.03162725556641817,
+          0.03374100123239415
+        ],
+        "edge_mae": 0.027634734174103608,
+        "bicubic_edge_mae": 0.027802385642592395,
+        "delta_edge_mae": -0.0001676514684887869,
+        "delta_edge_mae_ci95": [
+          -0.00019723718975936727,
+          -0.0001389817358160924
+        ],
+        "psnr_win_fraction": 0.9985714285714286,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "resisc45",
+        "regime": "clean",
+        "input_side": 32,
+        "model": "old",
+        "count": 700,
+        "psnr": 24.192971414838517,
+        "bicubic_psnr": 23.37361407961164,
+        "delta_psnr": 0.8193573352268764,
+        "delta_psnr_ci95": [
+          0.7938723399298532,
+          0.8452631100245884
+        ],
+        "ssim": 0.6458188482693263,
+        "bicubic_ssim": 0.6133086630702018,
+        "delta_ssim": 0.03251018519912447,
+        "delta_ssim_ci95": [
+          0.031491703017481734,
+          0.03353255789620536
+        ],
+        "edge_mae": 0.027522861449979244,
+        "bicubic_edge_mae": 0.027802385642592395,
+        "delta_edge_mae": -0.0002795241926131504,
+        "delta_edge_mae_ci95": [
+          -0.0003082978619495407,
+          -0.0002514735185707521
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "resisc45",
+        "regime": "clean",
+        "input_side": 48,
+        "model": "adapted",
+        "count": 700,
+        "psnr": 26.020415889195032,
+        "bicubic_psnr": 24.903661665235248,
+        "delta_psnr": 1.1167542239597865,
+        "delta_psnr_ci95": [
+          1.0889215510232109,
+          1.1450627336502075
+        ],
+        "ssim": 0.7249716608013426,
+        "bicubic_ssim": 0.6764893965210234,
+        "delta_ssim": 0.048482264280319216,
+        "delta_ssim_ci95": [
+          0.047187897140426295,
+          0.04970929401580776
+        ],
+        "edge_mae": 0.026429053213048195,
+        "bicubic_edge_mae": 0.027088098539970816,
+        "delta_edge_mae": -0.0006590453269226211,
+        "delta_edge_mae_ci95": [
+          -0.0007053440501580812,
+          -0.0006125333843519912
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "resisc45",
+        "regime": "clean",
+        "input_side": 48,
+        "model": "old",
+        "count": 700,
+        "psnr": 26.061019327981132,
+        "bicubic_psnr": 24.903661665235248,
+        "delta_psnr": 1.1573576627458846,
+        "delta_psnr_ci95": [
+          1.1288967453411647,
+          1.1866320714269367
+        ],
+        "ssim": 0.7239817850078856,
+        "bicubic_ssim": 0.6764893965210234,
+        "delta_ssim": 0.047492388486862186,
+        "delta_ssim_ci95": [
+          0.04626478991125311,
+          0.048693113362150535
+        ],
+        "edge_mae": 0.026271748915979904,
+        "bicubic_edge_mae": 0.027088098539970816,
+        "delta_edge_mae": -0.0008163496239909104,
+        "delta_edge_mae_ci95": [
+          -0.0008626429364916735,
+          -0.0007694827123112711
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "resisc45",
+        "regime": "clean",
+        "input_side": 64,
+        "model": "adapted",
+        "count": 700,
+        "psnr": 27.68796023777553,
+        "bicubic_psnr": 26.284850581032888,
+        "delta_psnr": 1.4031096567426409,
+        "delta_psnr_ci95": [
+          1.3730896791049412,
+          1.43380272599629
+        ],
+        "ssim": 0.7923848683493478,
+        "bicubic_ssim": 0.7378824455823217,
+        "delta_ssim": 0.05450242276702608,
+        "delta_ssim_ci95": [
+          0.05313239815831185,
+          0.05589703578395503
+        ],
+        "edge_mae": 0.024899588943725185,
+        "bicubic_edge_mae": 0.026100560022251945,
+        "delta_edge_mae": -0.001200971078526761,
+        "delta_edge_mae_ci95": [
+          -0.0012661052572241584,
+          -0.0011349051626665253
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      },
+      {
+        "dataset": "resisc45",
+        "regime": "clean",
+        "input_side": 64,
+        "model": "old",
+        "count": 700,
+        "psnr": 27.750741446358816,
+        "bicubic_psnr": 26.284850581032888,
+        "delta_psnr": 1.4658908653259277,
+        "delta_psnr_ci95": [
+          1.4349761775561742,
+          1.4974385466575622
+        ],
+        "ssim": 0.7910164696829659,
+        "bicubic_ssim": 0.7378824455823217,
+        "delta_ssim": 0.053134024100644245,
+        "delta_ssim_ci95": [
+          0.05183183320718152,
+          0.054459973141551016
+        ],
+        "edge_mae": 0.02470351867111666,
+        "bicubic_edge_mae": 0.026100560022251945,
+        "delta_edge_mae": -0.001397041351135288,
+        "delta_edge_mae_ci95": [
+          -0.0014608526456868277,
+          -0.0013310782522229212
+        ],
+        "psnr_win_fraction": 1.0,
+        "stable_gain_candidate": true,
+        "practical_gain_candidate": true
+      }
+    ]
+  },
+  "review": {
+    "reviewed_public_samples": 5,
+    "reviewed_public_ids": [
+      "airplane_001",
+      "airplane_108",
+      "airplane_172",
+      "airplane_433",
+      "airplane_648"
+    ],
+    "reviewed_sizes": [
+      16,
+      20,
+      24,
+      32,
+      48,
+      64
+    ],
+    "conclusion": "在本轮受控降采样中，16～20像素整图输入的评分虽有改善，五张展示样本仍主要是模糊形状，不能可靠看清细节。32像素开始较容易辨认整体飞机轮廓，48～64像素的机身、机翼轮廓改善更明显，适合作为下一步重点研究范围；发动机、尾翼等仍可能融合或变形。700张公开飞机中，微调模型从32像素起连续满足项目数值筛选，原模型从24像素起满足；内部60来源的干净输入，两者都到48、64像素才满足。因此不能认定存在统一的24或32像素下限。",
+    "limitations": "这里的尺寸指整幅输入，飞机实际只占其中一部分。五张示例在64像素整图中，飞机近似包围框也只有约17～30像素宽。48～64是本轮值得继续验证的区间，不是保证清晰的门槛，更不是20倍真实光学细节恢复。公开700张只测试了受控双三次降采样；真实传感器噪声、模糊和压缩可能更难。当前原模型与微调模型视觉上接近；干净输入下原模型的平均PSNR略高，不能宣称微调全面胜出。",
+    "visual_observations": {
+      "001": "16/20 aircraft parts merge;32 outline emerges;48/64 wings and fuselage clearer but small structures incomplete.",
+      "108": "16/20 ambiguity and wings/engines merge;32 recognizable planform;48/64 clearer but engine/tail shapes still simplified.",
+      "172": "Larger target more recognizable by24/32;48/64 improved outline, details smoothed.",
+      "433": "16/20 severe ambiguity;32 recognizable yet warped outline;48/64 improved but tail/engine structures imperfect.",
+      "648": "Small target16/20 little beyond color blob;32 basic shape;48/64 outline improves but detail remains soft."
+    }
+  },
+  "protocol": {
+    "scoring": "Quantize model native x20 output toRGB8, then Lanczos to fixed HR reference grid; bicubic x20 baseline follows identical final resizing. Direct bicubic-to-reference also recorded. Exclude internal padding; shave8 reference pixels. SSIM RGB11window. EdgeMAE mean absolute gradient difference.",
+    "interpretation": "Controlled synthetic downsampling, not native sensor GSD threshold. Current fixed-x20 pipeline is assessed after common-grid normalization; not proof of genuine20x optical resolution at every input size.",
+    "source_dependence": "Internal60 held-out sources have been examined in earlier experiments; exploratory benchmark, not a new untouched confirmation set. RESISC45 all700airplane chips may share geographic scenes; image bootstrap does not establish independent geographic generalization.",
+    "criteria": "Pointwise source-image bootstrap2000, not multiple-comparison corrected. Stable candidate: deltaPSNR anddeltaSSIM95%CI lower>0 andPSNRwin>=70%. Practical candidate additionally mean deltaPSNR>=0.2dB,deltaSSIM>=0.005,edgeMAE nonworse. Project screening conventions, not universal clarity standards. Any boundary requires visual review and at least2adjacent passing sizes."
+  }
+}
