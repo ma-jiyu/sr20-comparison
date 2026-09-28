@@ -1,0 +1,1023 @@
+{
+  "output_integrity_audit": {
+    "complete": true,
+    "total_native_outputs": 24000,
+    "arms": {
+      "old": {
+        "verified_count": 8000,
+        "size": [
+          400,
+          400
+        ],
+        "checkpoint_sha256": "c8bc112cf5674327daaa3d6363dff761a2d2ba1c11dcba5ef2b3260feca02e73"
+      },
+      "small": {
+        "verified_count": 8000,
+        "size": [
+          400,
+          400
+        ],
+        "checkpoint_sha256": "9c3c4b71cb1c2d85c6b9326d75ded65e0509222607319ff253f618fef1b0e532"
+      },
+      "medium": {
+        "verified_count": 8000,
+        "size": [
+          400,
+          400
+        ],
+        "checkpoint_sha256": "1654cff2b6aee9b0cb8d4db13812846b061b7c542fed8c9b4d0a006e85ba69f2"
+      }
+    },
+    "checks": [
+      "full shardSHA256",
+      "every PNG payloadSHA256",
+      "PNG dimensions and integrity",
+      "unique index exactmatch frozen test scope"
+    ]
+  },
+  "small": {
+    "completion": {
+      "complete": true,
+      "steps": 2000,
+      "best_step": 2000,
+      "best_score": 21.211680092756623,
+      "test_count": 458
+    },
+    "config": {
+      "steps": 2000,
+      "lr": 3e-05,
+      "accumulation": 4,
+      "seed": 928,
+      "init_sha256": "c8bc112cf5674327daaa3d6363dff761a2d2ba1c11dcba5ef2b3260feca02e73",
+      "manifest_sha256": "1f67697b41b3c767d19a6a291bd44c86a381f0e396c9de096c20ab65b02e84e4",
+      "code_sha256": "e1057d4a38204be52f07c365ecf416db0526b68d5beb7fcf074a0f49ec6bdb1e",
+      "model_config": {
+        "width": 48,
+        "blocks": 6,
+        "default_scale": 20
+      },
+      "parameters": 281233,
+      "sampling": "dataset probability DOTA.7 internal.3 Rare0; uniform source group then pair; same deterministic draws both arms. Rare excluded: only25feasible pairs from4train locations and none inpairedholdout.",
+      "selection": "Full validation, macro mean ROI PSNR by dataset/degradation; step0 eligible; no test selection",
+      "loss": "L1 valid*(1+2ROI), .1 intermediate, .05 cleanLR consistency, .05 first-difference; padding excluded; coarse ROI is not silhouette",
+      "budget": "2000 optimizer steps effectivebatch4; data+ROI-loss package. Two arms isolate capacity conditional on that package."
+    },
+    "validation_delta_roi": 0.08072192193532501,
+    "paired_test_count": 458,
+    "test_delta_roi_macro": 0.059315329701522757,
+    "by_dataset": {
+      "dota": {
+        "model_roi_psnr": 0.1047879521708657,
+        "model_full_psnr": 0.08191402698410054,
+        "source_group_count": 8,
+        "group_equal_roi_delta": 0.18634976805181025,
+        "group_bootstrap95": [
+          0.10041614887660388,
+          0.3051620328807205
+        ]
+      },
+      "internal": {
+        "model_roi_psnr": 0.01366006242987745,
+        "model_full_psnr": 0.008832419965772893,
+        "source_group_count": 60,
+        "group_equal_roi_delta": 0.01366006242987745,
+        "group_bootstrap95": [
+          0.0020388640484813873,
+          0.025677663142322445
+        ]
+      }
+    }
+  },
+  "medium": {
+    "completion": {
+      "complete": true,
+      "steps": 2000,
+      "best_step": 2000,
+      "best_score": 21.23033267426924,
+      "test_count": 458
+    },
+    "config": {
+      "steps": 2000,
+      "lr": 3e-05,
+      "accumulation": 4,
+      "seed": 928,
+      "init_sha256": "63ddc852eb87fa8cf8a27ed0f10ca94949ff1592a67ceb4159a37f35a8d330bd",
+      "manifest_sha256": "1f67697b41b3c767d19a6a291bd44c86a381f0e396c9de096c20ab65b02e84e4",
+      "code_sha256": "e1057d4a38204be52f07c365ecf416db0526b68d5beb7fcf074a0f49ec6bdb1e",
+      "model_config": {
+        "width": 96,
+        "blocks": 12,
+        "default_scale": 20
+      },
+      "parameters": 2070385,
+      "sampling": "dataset probability DOTA.7 internal.3 Rare0; uniform source group then pair; same deterministic draws both arms. Rare excluded: only25feasible pairs from4train locations and none inpairedholdout.",
+      "selection": "Full validation, macro mean ROI PSNR by dataset/degradation; step0 eligible; no test selection",
+      "loss": "L1 valid*(1+2ROI), .1 intermediate, .05 cleanLR consistency, .05 first-difference; padding excluded; coarse ROI is not silhouette",
+      "budget": "2000 optimizer steps effectivebatch4; data+ROI-loss package. Two arms isolate capacity conditional on that package."
+    },
+    "validation_delta_roi": 0.09937190925390027,
+    "paired_test_count": 458,
+    "test_delta_roi_macro": 0.07724022973438949,
+    "by_dataset": {
+      "dota": {
+        "model_roi_psnr": 0.14204281104790625,
+        "model_full_psnr": 0.11086893807282241,
+        "source_group_count": 8,
+        "group_equal_roi_delta": 0.23802110639513674,
+        "group_bootstrap95": [
+          0.1327513426245885,
+          0.3804740093594365
+        ]
+      },
+      "internal": {
+        "model_roi_psnr": 0.012172797165932402,
+        "model_full_psnr": 0.005406550547272422,
+        "source_group_count": 60,
+        "group_equal_roi_delta": 0.012172797165932402,
+        "group_bootstrap95": [
+          -0.0036204803223595476,
+          0.028447418467732986
+        ]
+      }
+    }
+  },
+  "native": {
+    "old": {
+      "complete": true,
+      "checkpoint_sha256": "c8bc112cf5674327daaa3d6363dff761a2d2ba1c11dcba5ef2b3260feca02e73",
+      "test_protocol_sha256": "43e83a8ac2d3d9c3aee5c1f26c07ee3ac00525935802c1e676122fcf39fda3e4",
+      "count": 8000,
+      "mode": "single FP32 no TTA",
+      "input_size": [
+        20,
+        20
+      ],
+      "output_size": [
+        400,
+        400
+      ],
+      "arm": "old",
+      "display_indices": [
+        24900,
+        27300,
+        27700,
+        28200,
+        30600
+      ]
+    },
+    "small": {
+      "complete": true,
+      "checkpoint_sha256": "9c3c4b71cb1c2d85c6b9326d75ded65e0509222607319ff253f618fef1b0e532",
+      "test_protocol_sha256": "43e83a8ac2d3d9c3aee5c1f26c07ee3ac00525935802c1e676122fcf39fda3e4",
+      "count": 8000,
+      "mode": "single FP32 no TTA",
+      "input_size": [
+        20,
+        20
+      ],
+      "output_size": [
+        400,
+        400
+      ],
+      "arm": "small",
+      "display_indices": [
+        24900,
+        27300,
+        27700,
+        28200,
+        30600
+      ]
+    },
+    "medium": {
+      "complete": true,
+      "checkpoint_sha256": "1654cff2b6aee9b0cb8d4db13812846b061b7c542fed8c9b4d0a006e85ba69f2",
+      "test_protocol_sha256": "43e83a8ac2d3d9c3aee5c1f26c07ee3ac00525935802c1e676122fcf39fda3e4",
+      "count": 8000,
+      "mode": "single FP32 no TTA",
+      "input_size": [
+        20,
+        20
+      ],
+      "output_size": [
+        400,
+        400
+      ],
+      "arm": "medium",
+      "display_indices": [
+        24900,
+        27300,
+        27700,
+        28200,
+        30600
+      ]
+    }
+  },
+  "scope": "Synthetic paired test458, realnativePlanesNet8000positive permodel; no nativeHR groundtruth; fixedfive examples. New data+ROI package, not pure data-only ablation.",
+  "planesnet_size_estimate": {
+    "sampled": 64,
+    "visually_estimated": 57,
+    "unresolved": 7,
+    "population_positive_images": 8000,
+    "sampling": "simple random sample seed928 first64 of128; selected before geometry inspection",
+    "long_side_bins": [
+      {
+        "bin": "(0,8]",
+        "count": 0,
+        "percent_of_all64": 0.0,
+        "wilson95_sampling_only_percent": [
+          0.0,
+          5.662602297115633
+        ],
+        "annotation_sensitivity_bounds_percent": [
+          0.0,
+          10.9375
+        ]
+      },
+      {
+        "bin": "(8,12]",
+        "count": 1,
+        "percent_of_all64": 1.5625,
+        "wilson95_sampling_only_percent": [
+          0.27634707504014044,
+          8.33429890029063
+        ],
+        "annotation_sensitivity_bounds_percent": [
+          0.0,
+          25.0
+        ]
+      },
+      {
+        "bin": "(12,16]",
+        "count": 24,
+        "percent_of_all64": 37.5,
+        "wilson95_sampling_only_percent": [
+          26.665803888105323,
+          49.74984668617358
+        ],
+        "annotation_sensitivity_bounds_percent": [
+          0.0,
+          79.6875
+        ]
+      },
+      {
+        "bin": "(16,20]",
+        "count": 32,
+        "percent_of_all64": 50.0,
+        "wilson95_sampling_only_percent": [
+          38.10188849321495,
+          61.89811150678505
+        ],
+        "annotation_sensitivity_bounds_percent": [
+          20.3125,
+          85.9375
+        ]
+      }
+    ],
+    "touches_border_estimates": 20,
+    "bbox_width_median": 15.0,
+    "bbox_height_median": 16.0,
+    "bbox_area_fraction_median": 0.6,
+    "not_full_population_annotation": true,
+    "warning": "Visible aircraft extents on20px are ambiguous. Sampling intervals exclude annotation error and sharedscene dependence. Sensitivity bounds separately vary each measured side by2px and allow unresolved cases in each bin. Border-touching sizes are lower bounds on complete-aircraft size. No pixel-mask percentage available."
+  },
+  "joint_width_height_distribution": {
+    "rareplanes_complete": {
+      "denominator": 18040,
+      "resolved": 18040,
+      "joint_width_height_bins": [
+        {
+          "width": "(12,16]",
+          "height": "(12,16]",
+          "count": 3,
+          "percent": 0.01662971175166297
+        },
+        {
+          "width": "(12,16]",
+          "height": "(16,20]",
+          "count": 2,
+          "percent": 0.011086474501108648
+        },
+        {
+          "width": "(12,16]",
+          "height": "(20,24]",
+          "count": 2,
+          "percent": 0.011086474501108648
+        },
+        {
+          "width": "(12,16]",
+          "height": "(8,12]",
+          "count": 1,
+          "percent": 0.005543237250554324
+        },
+        {
+          "width": "(128,256]",
+          "height": "(128,256]",
+          "count": 400,
+          "percent": 2.2172949002217295
+        },
+        {
+          "width": "(128,256]",
+          "height": "(32,48]",
+          "count": 1,
+          "percent": 0.005543237250554324
+        },
+        {
+          "width": "(128,256]",
+          "height": "(48,64]",
+          "count": 10,
+          "percent": 0.05543237250554324
+        },
+        {
+          "width": "(128,256]",
+          "height": "(64,96]",
+          "count": 438,
+          "percent": 2.4279379157427936
+        },
+        {
+          "width": "(128,256]",
+          "height": "(96,128]",
+          "count": 528,
+          "percent": 2.926829268292683
+        },
+        {
+          "width": "(16,20]",
+          "height": "(12,16]",
+          "count": 15,
+          "percent": 0.08314855875831485
+        },
+        {
+          "width": "(16,20]",
+          "height": "(16,20]",
+          "count": 57,
+          "percent": 0.31596452328159647
+        },
+        {
+          "width": "(16,20]",
+          "height": "(20,24]",
+          "count": 27,
+          "percent": 0.14966740576496673
+        },
+        {
+          "width": "(16,20]",
+          "height": "(24,32]",
+          "count": 43,
+          "percent": 0.23835920177383593
+        },
+        {
+          "width": "(16,20]",
+          "height": "(32,48]",
+          "count": 1,
+          "percent": 0.005543237250554324
+        },
+        {
+          "width": "(20,24]",
+          "height": "(12,16]",
+          "count": 9,
+          "percent": 0.04988913525498891
+        },
+        {
+          "width": "(20,24]",
+          "height": "(16,20]",
+          "count": 128,
+          "percent": 0.7095343680709535
+        },
+        {
+          "width": "(20,24]",
+          "height": "(20,24]",
+          "count": 296,
+          "percent": 1.6407982261640799
+        },
+        {
+          "width": "(20,24]",
+          "height": "(24,32]",
+          "count": 584,
+          "percent": 3.237250554323725
+        },
+        {
+          "width": "(20,24]",
+          "height": "(32,48]",
+          "count": 18,
+          "percent": 0.09977827050997783
+        },
+        {
+          "width": "(24,32]",
+          "height": "(12,16]",
+          "count": 26,
+          "percent": 0.14412416851441243
+        },
+        {
+          "width": "(24,32]",
+          "height": "(16,20]",
+          "count": 296,
+          "percent": 1.6407982261640799
+        },
+        {
+          "width": "(24,32]",
+          "height": "(20,24]",
+          "count": 1204,
+          "percent": 6.674057649667406
+        },
+        {
+          "width": "(24,32]",
+          "height": "(24,32]",
+          "count": 1951,
+          "percent": 10.814855875831485
+        },
+        {
+          "width": "(24,32]",
+          "height": "(32,48]",
+          "count": 471,
+          "percent": 2.6108647450110865
+        },
+        {
+          "width": "(256,512]",
+          "height": "(128,256]",
+          "count": 75,
+          "percent": 0.4157427937915743
+        },
+        {
+          "width": "(256,512]",
+          "height": "(96,128]",
+          "count": 2,
+          "percent": 0.011086474501108648
+        },
+        {
+          "width": "(32,48]",
+          "height": "(12,16]",
+          "count": 17,
+          "percent": 0.0942350332594235
+        },
+        {
+          "width": "(32,48]",
+          "height": "(16,20]",
+          "count": 337,
+          "percent": 1.8680709534368072
+        },
+        {
+          "width": "(32,48]",
+          "height": "(20,24]",
+          "count": 1387,
+          "percent": 7.688470066518847
+        },
+        {
+          "width": "(32,48]",
+          "height": "(24,32]",
+          "count": 1886,
+          "percent": 10.454545454545455
+        },
+        {
+          "width": "(32,48]",
+          "height": "(32,48]",
+          "count": 1536,
+          "percent": 8.51441241685144
+        },
+        {
+          "width": "(32,48]",
+          "height": "(48,64]",
+          "count": 75,
+          "percent": 0.4157427937915743
+        },
+        {
+          "width": "(32,48]",
+          "height": "(64,96]",
+          "count": 1,
+          "percent": 0.005543237250554324
+        },
+        {
+          "width": "(48,64]",
+          "height": "(12,16]",
+          "count": 4,
+          "percent": 0.022172949002217297
+        },
+        {
+          "width": "(48,64]",
+          "height": "(16,20]",
+          "count": 208,
+          "percent": 1.1529933481152994
+        },
+        {
+          "width": "(48,64]",
+          "height": "(20,24]",
+          "count": 576,
+          "percent": 3.1929046563192904
+        },
+        {
+          "width": "(48,64]",
+          "height": "(24,32]",
+          "count": 540,
+          "percent": 2.9933481152993346
+        },
+        {
+          "width": "(48,64]",
+          "height": "(32,48]",
+          "count": 947,
+          "percent": 5.249445676274944
+        },
+        {
+          "width": "(48,64]",
+          "height": "(48,64]",
+          "count": 644,
+          "percent": 3.5698447893569845
+        },
+        {
+          "width": "(48,64]",
+          "height": "(64,96]",
+          "count": 91,
+          "percent": 0.5044345898004434
+        },
+        {
+          "width": "(64,96]",
+          "height": "(128,256]",
+          "count": 1,
+          "percent": 0.005543237250554324
+        },
+        {
+          "width": "(64,96]",
+          "height": "(16,20]",
+          "count": 16,
+          "percent": 0.08869179600886919
+        },
+        {
+          "width": "(64,96]",
+          "height": "(20,24]",
+          "count": 37,
+          "percent": 0.20509977827050999
+        },
+        {
+          "width": "(64,96]",
+          "height": "(24,32]",
+          "count": 86,
+          "percent": 0.47671840354767187
+        },
+        {
+          "width": "(64,96]",
+          "height": "(32,48]",
+          "count": 214,
+          "percent": 1.1862527716186253
+        },
+        {
+          "width": "(64,96]",
+          "height": "(48,64]",
+          "count": 619,
+          "percent": 3.4312638580931263
+        },
+        {
+          "width": "(64,96]",
+          "height": "(64,96]",
+          "count": 842,
+          "percent": 4.66740576496674
+        },
+        {
+          "width": "(64,96]",
+          "height": "(96,128]",
+          "count": 107,
+          "percent": 0.5931263858093127
+        },
+        {
+          "width": "(96,128]",
+          "height": "(128,256]",
+          "count": 66,
+          "percent": 0.36585365853658536
+        },
+        {
+          "width": "(96,128]",
+          "height": "(20,24]",
+          "count": 1,
+          "percent": 0.005543237250554324
+        },
+        {
+          "width": "(96,128]",
+          "height": "(32,48]",
+          "count": 15,
+          "percent": 0.08314855875831485
+        },
+        {
+          "width": "(96,128]",
+          "height": "(48,64]",
+          "count": 125,
+          "percent": 0.6929046563192904
+        },
+        {
+          "width": "(96,128]",
+          "height": "(64,96]",
+          "count": 663,
+          "percent": 3.6751662971175167
+        },
+        {
+          "width": "(96,128]",
+          "height": "(96,128]",
+          "count": 411,
+          "percent": 2.278270509977827
+        }
+      ]
+    },
+    "resisc_detected_only": {
+      "denominator": 1112,
+      "resolved": 1112,
+      "joint_width_height_bins": [
+        {
+          "width": "(12,16]",
+          "height": "(20,24]",
+          "count": 1,
+          "percent": 0.08992805755395683
+        },
+        {
+          "width": "(128,256]",
+          "height": "(128,256]",
+          "count": 26,
+          "percent": 2.338129496402878
+        },
+        {
+          "width": "(128,256]",
+          "height": "(24,32]",
+          "count": 1,
+          "percent": 0.08992805755395683
+        },
+        {
+          "width": "(128,256]",
+          "height": "(32,48]",
+          "count": 1,
+          "percent": 0.08992805755395683
+        },
+        {
+          "width": "(128,256]",
+          "height": "(48,64]",
+          "count": 2,
+          "percent": 0.17985611510791366
+        },
+        {
+          "width": "(128,256]",
+          "height": "(64,96]",
+          "count": 12,
+          "percent": 1.079136690647482
+        },
+        {
+          "width": "(128,256]",
+          "height": "(96,128]",
+          "count": 27,
+          "percent": 2.4280575539568345
+        },
+        {
+          "width": "(16,20]",
+          "height": "(12,16]",
+          "count": 2,
+          "percent": 0.17985611510791366
+        },
+        {
+          "width": "(16,20]",
+          "height": "(16,20]",
+          "count": 1,
+          "percent": 0.08992805755395683
+        },
+        {
+          "width": "(16,20]",
+          "height": "(20,24]",
+          "count": 3,
+          "percent": 0.2697841726618705
+        },
+        {
+          "width": "(16,20]",
+          "height": "(32,48]",
+          "count": 1,
+          "percent": 0.08992805755395683
+        },
+        {
+          "width": "(20,24]",
+          "height": "(12,16]",
+          "count": 1,
+          "percent": 0.08992805755395683
+        },
+        {
+          "width": "(20,24]",
+          "height": "(16,20]",
+          "count": 5,
+          "percent": 0.44964028776978415
+        },
+        {
+          "width": "(20,24]",
+          "height": "(20,24]",
+          "count": 2,
+          "percent": 0.17985611510791366
+        },
+        {
+          "width": "(20,24]",
+          "height": "(24,32]",
+          "count": 3,
+          "percent": 0.2697841726618705
+        },
+        {
+          "width": "(20,24]",
+          "height": "(48,64]",
+          "count": 1,
+          "percent": 0.08992805755395683
+        },
+        {
+          "width": "(24,32]",
+          "height": "(12,16]",
+          "count": 1,
+          "percent": 0.08992805755395683
+        },
+        {
+          "width": "(24,32]",
+          "height": "(20,24]",
+          "count": 10,
+          "percent": 0.8992805755395683
+        },
+        {
+          "width": "(24,32]",
+          "height": "(24,32]",
+          "count": 28,
+          "percent": 2.5179856115107913
+        },
+        {
+          "width": "(24,32]",
+          "height": "(32,48]",
+          "count": 15,
+          "percent": 1.3489208633093526
+        },
+        {
+          "width": "(32,48]",
+          "height": "(12,16]",
+          "count": 1,
+          "percent": 0.08992805755395683
+        },
+        {
+          "width": "(32,48]",
+          "height": "(20,24]",
+          "count": 3,
+          "percent": 0.2697841726618705
+        },
+        {
+          "width": "(32,48]",
+          "height": "(24,32]",
+          "count": 41,
+          "percent": 3.6870503597122304
+        },
+        {
+          "width": "(32,48]",
+          "height": "(32,48]",
+          "count": 194,
+          "percent": 17.446043165467625
+        },
+        {
+          "width": "(32,48]",
+          "height": "(48,64]",
+          "count": 41,
+          "percent": 3.6870503597122304
+        },
+        {
+          "width": "(48,64]",
+          "height": "(20,24]",
+          "count": 1,
+          "percent": 0.08992805755395683
+        },
+        {
+          "width": "(48,64]",
+          "height": "(24,32]",
+          "count": 4,
+          "percent": 0.3597122302158273
+        },
+        {
+          "width": "(48,64]",
+          "height": "(32,48]",
+          "count": 91,
+          "percent": 8.183453237410072
+        },
+        {
+          "width": "(48,64]",
+          "height": "(48,64]",
+          "count": 121,
+          "percent": 10.881294964028777
+        },
+        {
+          "width": "(48,64]",
+          "height": "(64,96]",
+          "count": 28,
+          "percent": 2.5179856115107913
+        },
+        {
+          "width": "(48,64]",
+          "height": "(96,128]",
+          "count": 1,
+          "percent": 0.08992805755395683
+        },
+        {
+          "width": "(64,96]",
+          "height": "(12,16]",
+          "count": 1,
+          "percent": 0.08992805755395683
+        },
+        {
+          "width": "(64,96]",
+          "height": "(128,256]",
+          "count": 4,
+          "percent": 0.3597122302158273
+        },
+        {
+          "width": "(64,96]",
+          "height": "(32,48]",
+          "count": 12,
+          "percent": 1.079136690647482
+        },
+        {
+          "width": "(64,96]",
+          "height": "(48,64]",
+          "count": 69,
+          "percent": 6.205035971223022
+        },
+        {
+          "width": "(64,96]",
+          "height": "(64,96]",
+          "count": 167,
+          "percent": 15.017985611510792
+        },
+        {
+          "width": "(64,96]",
+          "height": "(96,128]",
+          "count": 39,
+          "percent": 3.5071942446043165
+        },
+        {
+          "width": "(96,128]",
+          "height": "(128,256]",
+          "count": 14,
+          "percent": 1.2589928057553956
+        },
+        {
+          "width": "(96,128]",
+          "height": "(48,64]",
+          "count": 6,
+          "percent": 0.539568345323741
+        },
+        {
+          "width": "(96,128]",
+          "height": "(64,96]",
+          "count": 70,
+          "percent": 6.294964028776978
+        },
+        {
+          "width": "(96,128]",
+          "height": "(96,128]",
+          "count": 61,
+          "percent": 5.485611510791367
+        }
+      ]
+    },
+    "planesnet_64sample": {
+      "denominator": 64,
+      "resolved": 57,
+      "joint_width_height_bins": [
+        {
+          "width": "(12,16]",
+          "height": "(12,16]",
+          "count": 18,
+          "percent": 28.125
+        },
+        {
+          "width": "(12,16]",
+          "height": "(16,20]",
+          "count": 10,
+          "percent": 15.625
+        },
+        {
+          "width": "(12,16]",
+          "height": "(8,12]",
+          "count": 2,
+          "percent": 3.125
+        },
+        {
+          "width": "(16,20]",
+          "height": "(12,16]",
+          "count": 12,
+          "percent": 18.75
+        },
+        {
+          "width": "(16,20]",
+          "height": "(16,20]",
+          "count": 10,
+          "percent": 15.625
+        },
+        {
+          "width": "(8,12]",
+          "height": "(12,16]",
+          "count": 4,
+          "percent": 6.25
+        },
+        {
+          "width": "(8,12]",
+          "height": "(8,12]",
+          "count": 1,
+          "percent": 1.5625
+        }
+      ]
+    }
+  },
+  "data_audit": {
+    "complete": true,
+    "pairs": 4596,
+    "files_verified": 22980,
+    "split_leakage_found": false,
+    "stats": {
+      "dota/train": {
+        "pairs": 1773,
+        "sources": 445,
+        "groups": 45,
+        "bands": {
+          "1": 810,
+          "2": 775,
+          "0": 188
+        },
+        "max_native_to_hr_scale": 0.9998614550604109,
+        "mean_padding": 0.0
+      },
+      "dota/val": {
+        "pairs": 264,
+        "sources": 66,
+        "groups": 9,
+        "bands": {
+          "1": 115,
+          "2": 118,
+          "0": 31
+        },
+        "max_native_to_hr_scale": 0.9997323782131157,
+        "mean_padding": 0.0
+      },
+      "dota/test": {
+        "pairs": 218,
+        "sources": 56,
+        "groups": 8,
+        "bands": {
+          "2": 111,
+          "0": 31,
+          "1": 76
+        },
+        "max_native_to_hr_scale": 0.9946558059425532,
+        "mean_padding": 0.0
+      },
+      "internal/train": {
+        "pairs": 1847,
+        "sources": 479,
+        "groups": 479,
+        "bands": {
+          "2": 1684,
+          "1": 163
+        },
+        "max_native_to_hr_scale": 0.4958632534315714,
+        "mean_padding": 0.25384808811586357
+      },
+      "internal/val": {
+        "pairs": 229,
+        "sources": 60,
+        "groups": 60,
+        "bands": {
+          "2": 215,
+          "1": 13,
+          "0": 1
+        },
+        "max_native_to_hr_scale": 0.42259645833311715,
+        "mean_padding": 0.2703066593886463
+      },
+      "internal/test": {
+        "pairs": 240,
+        "sources": 60,
+        "groups": 60,
+        "bands": {
+          "2": 201,
+          "1": 38,
+          "0": 1
+        },
+        "max_native_to_hr_scale": 0.4973198912098229,
+        "mean_padding": 0.22204002604166667
+      },
+      "rareplanes-real/train": {
+        "pairs": 25,
+        "sources": 20,
+        "groups": 4,
+        "bands": {
+          "1": 15,
+          "0": 8,
+          "2": 2
+        },
+        "max_native_to_hr_scale": 0.9966315691370273,
+        "mean_padding": 4.999999999988347e-07
+      },
+      "rareplanes-real/val": {
+        "pairs": 0,
+        "sources": 0,
+        "groups": 0,
+        "bands": {},
+        "max_native_to_hr_scale": 0,
+        "mean_padding": null
+      },
+      "rareplanes-real/test": {
+        "pairs": 0,
+        "sources": 0,
+        "groups": 0,
+        "bands": {},
+        "max_native_to_hr_scale": 0,
+        "mean_padding": null
+      }
+    },
+    "manifest_sha256": "1f67697b41b3c767d19a6a291bd44c86a381f0e396c9de096c20ab65b02e84e4"
+  }
+}
