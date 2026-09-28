@@ -1,0 +1,648 @@
+{
+  "audit": {
+    "complete": true,
+    "new_native_outputs": 32000,
+    "arms": {
+      "A20_pair": {
+        "verified_count": 8000,
+        "output_size": [
+          400,
+          400
+        ],
+        "checkpoint_sha256": "6b157596e429f588b10de832347f5e1f8bf14d16425a723d8aebfffa863c45ae"
+      },
+      "B20_matched": {
+        "verified_count": 8000,
+        "output_size": [
+          400,
+          400
+        ],
+        "checkpoint_sha256": "80c3a15a9cc04570bcb637eeecbd3f883455d5cf8c166a4a243656a99fc9b590"
+      },
+      "C20_sensor": {
+        "verified_count": 8000,
+        "output_size": [
+          400,
+          400
+        ],
+        "checkpoint_sha256": "6a302b5dd0e64a254d62ef1ed0e832534f2991c61f85aded19a703fe21b99ac1"
+      },
+      "D40_pair": {
+        "verified_count": 8000,
+        "output_size": [
+          800,
+          800
+        ],
+        "checkpoint_sha256": "d0784592f69cc66fb8fa74e46db92545f30b4c44e9acef4fd6da682e80bedad6"
+      }
+    },
+    "baseline": "Previousmedium8000outputs reused, alreadyindependentlyaudited;nochangeininputs",
+    "checks": "AllshardSHA,allPNGpayloadSHA,PNGintegrityanddimensions,uniqueindicesexactmatchtestscope"
+  },
+  "arms": {
+    "A20_pair": {
+      "completion": {
+        "complete": true,
+        "arm": "A20_pair",
+        "steps": 1000,
+        "selected_step": 1000,
+        "test_sources": 60,
+        "test_predictions": 120,
+        "best_validation": 21.460628873024554
+      },
+      "config": {
+        "arm": "A20_pair",
+        "scale": 20,
+        "schedule": [
+          2,
+          2.5,
+          4
+        ],
+        "model_config": {
+          "width": 96,
+          "blocks": 12,
+          "default_scale": 20
+        },
+        "parameters": 2070385,
+        "steps": 1000,
+        "batch_effective": 4,
+        "lr": 3e-05,
+        "manifest_sha256": "34dedd3c66687c578db986f40d31d7ec96c1c98ca513f2fcdec6396125e959da",
+        "sampling_sha256": "243a1fb0424a2baba6bc87812d103b7223c69efc9147ac04e3a4f32b42507a92",
+        "init_sha256": "1654cff2b6aee9b0cb8d4db13812846b061b7c542fed8c9b4d0a006e85ba69f2",
+        "code_sha256": "454f8bbaaf7cf4d49cceb14b284b385e76f0d7907c8f2823cf77f229ea5dfa1c",
+        "activation_checkpointing": true,
+        "sensor_probability": 0.75,
+        "selection": "common40 ROI",
+        "scope": "Exploratory1000additionalstep pilot, not convergenceproof. A20/D40 identicalLRandorder, differenttarget andschedule;B20/C20 identicalHRandorder, differentLRdegradation."
+      },
+      "test": {
+        "count": 120,
+        "means": {
+          "pair/clean": {
+            "common20_full": 21.08210053498639,
+            "common20_roi": 21.522868039533652,
+            "common40_full": 20.557054689630977,
+            "common40_roi": 20.997725481227473
+          },
+          "pair/sensor": {
+            "common20_full": 20.917033488616163,
+            "common20_roi": 21.316636160940575,
+            "common40_full": 20.4097740867109,
+            "common40_roi": 20.813180641366184
+          }
+        }
+      },
+      "initial_means": {
+        "pair/clean": {
+          "common20_full": 21.082753260758462,
+          "common20_roi": 21.52267486740087,
+          "common40_full": 20.557640339548765,
+          "common40_roi": 20.997511460716062
+        },
+        "pair/sensor": {
+          "common20_full": 20.891109508635655,
+          "common20_roi": 21.28250676349098,
+          "common40_full": 20.38662776388372,
+          "common40_roi": 20.782624776936512
+        }
+      },
+      "native": {
+        "complete": true,
+        "arm": "A20_pair",
+        "checkpoint_sha256": "6b157596e429f588b10de832347f5e1f8bf14d16425a723d8aebfffa863c45ae",
+        "scale": 20,
+        "output_size": [
+          400,
+          400
+        ],
+        "input_size": [
+          20,
+          20
+        ],
+        "count": 8000,
+        "mode": "single FP32 noTTA",
+        "input_array_sha256": "eed391b9bd96ea91037acf3e210fad46174a7d541f272debb9a580749597b451",
+        "display_indices": [
+          24900,
+          27300,
+          27700,
+          28200,
+          30600
+        ],
+        "display_note": "20x native400 saved;common800 display isbicubicupsampled2x forcomparisonwithnative40x800. SameFOV,notextra detail."
+      }
+    },
+    "B20_matched": {
+      "completion": {
+        "complete": true,
+        "arm": "B20_matched",
+        "steps": 1000,
+        "selected_step": 1000,
+        "test_sources": 398,
+        "test_predictions": 796,
+        "best_validation": 21.225430266153005
+      },
+      "config": {
+        "arm": "B20_matched",
+        "scale": 20,
+        "schedule": [
+          2,
+          2.5,
+          4
+        ],
+        "model_config": {
+          "width": 96,
+          "blocks": 12,
+          "default_scale": 20
+        },
+        "parameters": 2070385,
+        "steps": 1000,
+        "batch_effective": 4,
+        "lr": 3e-05,
+        "manifest_sha256": "34dedd3c66687c578db986f40d31d7ec96c1c98ca513f2fcdec6396125e959da",
+        "sampling_sha256": "d246f6644eabde8d8b1260ab9a6dec649c60aa06e0b079b27cf94615c9c2e2e4",
+        "init_sha256": "1654cff2b6aee9b0cb8d4db13812846b061b7c542fed8c9b4d0a006e85ba69f2",
+        "code_sha256": "454f8bbaaf7cf4d49cceb14b284b385e76f0d7907c8f2823cf77f229ea5dfa1c",
+        "activation_checkpointing": true,
+        "sensor_probability": 0,
+        "selection": ".8targetROI+.2wholeROI;bothregimes",
+        "scope": "Exploratory1000additionalstep pilot, not convergenceproof. A20/D40 identicalLRandorder, differenttarget andschedule;B20/C20 identicalHRandorder, differentLRdegradation."
+      },
+      "test": {
+        "count": 796,
+        "means": {
+          "whole/clean": {
+            "full": 20.625575314092675,
+            "roi": 20.83754184590016,
+            "bicubic_full": 20.16663076161512,
+            "bicubic_roi": 20.269615379414322
+          },
+          "whole/sensor": {
+            "full": 20.296571284868932,
+            "roi": 20.459759265679764,
+            "bicubic_full": 19.78056769441624,
+            "bicubic_roi": 19.848114977860742
+          },
+          "target/clean": {
+            "full": 21.113928325977923,
+            "roi": 19.893428811080742,
+            "bicubic_full": 20.275965299929517,
+            "bicubic_roi": 18.93198117714572
+          },
+          "target/sensor": {
+            "full": 20.62637251186684,
+            "roi": 19.347008887634065,
+            "bicubic_full": 19.919190782458486,
+            "bicubic_roi": 18.550686791539835
+          }
+        }
+      },
+      "initial_means": {
+        "whole/clean": {
+          "full": 20.56557789696568,
+          "roi": 20.77597921751018,
+          "bicubic_full": 20.16663076161512,
+          "bicubic_roi": 20.269615379414322
+        },
+        "whole/sensor": {
+          "full": 20.33452858473561,
+          "roi": 20.507954779953813,
+          "bicubic_full": 19.78056769441624,
+          "bicubic_roi": 19.848114977860742
+        },
+        "target/clean": {
+          "full": 21.06840026955847,
+          "roi": 19.840942921006178,
+          "bicubic_full": 20.275965299929517,
+          "bicubic_roi": 18.93198117714572
+        },
+        "target/sensor": {
+          "full": 20.661690839505905,
+          "roi": 19.384388599758303,
+          "bicubic_full": 19.919190782458486,
+          "bicubic_roi": 18.550686791539835
+        }
+      },
+      "native": {
+        "complete": true,
+        "arm": "B20_matched",
+        "checkpoint_sha256": "80c3a15a9cc04570bcb637eeecbd3f883455d5cf8c166a4a243656a99fc9b590",
+        "scale": 20,
+        "output_size": [
+          400,
+          400
+        ],
+        "input_size": [
+          20,
+          20
+        ],
+        "count": 8000,
+        "mode": "single FP32 noTTA",
+        "input_array_sha256": "eed391b9bd96ea91037acf3e210fad46174a7d541f272debb9a580749597b451",
+        "display_indices": [
+          24900,
+          27300,
+          27700,
+          28200,
+          30600
+        ],
+        "display_note": "20x native400 saved;common800 display isbicubicupsampled2x forcomparisonwithnative40x800. SameFOV,notextra detail."
+      }
+    },
+    "C20_sensor": {
+      "completion": {
+        "complete": true,
+        "arm": "C20_sensor",
+        "steps": 1000,
+        "selected_step": 1000,
+        "test_sources": 398,
+        "test_predictions": 796,
+        "best_validation": 21.252962985574285
+      },
+      "config": {
+        "arm": "C20_sensor",
+        "scale": 20,
+        "schedule": [
+          2,
+          2.5,
+          4
+        ],
+        "model_config": {
+          "width": 96,
+          "blocks": 12,
+          "default_scale": 20
+        },
+        "parameters": 2070385,
+        "steps": 1000,
+        "batch_effective": 4,
+        "lr": 3e-05,
+        "manifest_sha256": "34dedd3c66687c578db986f40d31d7ec96c1c98ca513f2fcdec6396125e959da",
+        "sampling_sha256": "d246f6644eabde8d8b1260ab9a6dec649c60aa06e0b079b27cf94615c9c2e2e4",
+        "init_sha256": "1654cff2b6aee9b0cb8d4db13812846b061b7c542fed8c9b4d0a006e85ba69f2",
+        "code_sha256": "454f8bbaaf7cf4d49cceb14b284b385e76f0d7907c8f2823cf77f229ea5dfa1c",
+        "activation_checkpointing": true,
+        "sensor_probability": 0.75,
+        "selection": ".8targetROI+.2wholeROI;bothregimes",
+        "scope": "Exploratory1000additionalstep pilot, not convergenceproof. A20/D40 identicalLRandorder, differenttarget andschedule;B20/C20 identicalHRandorder, differentLRdegradation."
+      },
+      "test": {
+        "count": 796,
+        "means": {
+          "whole/clean": {
+            "full": 20.48388207689803,
+            "roi": 20.686187136985936,
+            "bicubic_full": 20.16663076161512,
+            "bicubic_roi": 20.269615379414322
+          },
+          "whole/sensor": {
+            "full": 20.352374509635325,
+            "roi": 20.52822663046724,
+            "bicubic_full": 19.78056769441624,
+            "bicubic_roi": 19.848114977860742
+          },
+          "target/clean": {
+            "full": 21.0643126555977,
+            "roi": 19.851417294979615,
+            "bicubic_full": 20.275965299929517,
+            "bicubic_roi": 18.93198117714572
+          },
+          "target/sensor": {
+            "full": 20.72925646929511,
+            "roi": 19.469491041917383,
+            "bicubic_full": 19.919190782458486,
+            "bicubic_roi": 18.550686791539835
+          }
+        }
+      },
+      "initial_means": {
+        "whole/clean": {
+          "full": 20.565574094313412,
+          "roi": 20.775973639899167,
+          "bicubic_full": 20.16663076161512,
+          "bicubic_roi": 20.269615379414322
+        },
+        "whole/sensor": {
+          "full": 20.334529893243925,
+          "roi": 20.507957016942473,
+          "bicubic_full": 19.78056769441624,
+          "bicubic_roi": 19.848114977860742
+        },
+        "target/clean": {
+          "full": 21.068398788257397,
+          "roi": 19.84094202613442,
+          "bicubic_full": 20.275965299929517,
+          "bicubic_roi": 18.93198117714572
+        },
+        "target/sensor": {
+          "full": 20.661688766989645,
+          "roi": 19.38438626802291,
+          "bicubic_full": 19.919190782458486,
+          "bicubic_roi": 18.550686791539835
+        }
+      },
+      "native": {
+        "complete": true,
+        "arm": "C20_sensor",
+        "checkpoint_sha256": "6a302b5dd0e64a254d62ef1ed0e832534f2991c61f85aded19a703fe21b99ac1",
+        "scale": 20,
+        "output_size": [
+          400,
+          400
+        ],
+        "input_size": [
+          20,
+          20
+        ],
+        "count": 8000,
+        "mode": "single FP32 noTTA",
+        "input_array_sha256": "eed391b9bd96ea91037acf3e210fad46174a7d541f272debb9a580749597b451",
+        "display_indices": [
+          24900,
+          27300,
+          27700,
+          28200,
+          30600
+        ],
+        "display_note": "20x native400 saved;common800 display isbicubicupsampled2x forcomparisonwithnative40x800. SameFOV,notextra detail."
+      }
+    },
+    "D40_pair": {
+      "completion": {
+        "complete": true,
+        "arm": "D40_pair",
+        "steps": 1000,
+        "selected_step": 1000,
+        "test_sources": 60,
+        "test_predictions": 120,
+        "best_validation": 21.45274525959369
+      },
+      "config": {
+        "arm": "D40_pair",
+        "scale": 40,
+        "schedule": [
+          2,
+          2,
+          2.5,
+          4
+        ],
+        "model_config": {
+          "width": 96,
+          "blocks": 12,
+          "default_scale": 40
+        },
+        "parameters": 2070385,
+        "steps": 1000,
+        "batch_effective": 4,
+        "lr": 3e-05,
+        "manifest_sha256": "34dedd3c66687c578db986f40d31d7ec96c1c98ca513f2fcdec6396125e959da",
+        "sampling_sha256": "243a1fb0424a2baba6bc87812d103b7223c69efc9147ac04e3a4f32b42507a92",
+        "init_sha256": "1654cff2b6aee9b0cb8d4db13812846b061b7c542fed8c9b4d0a006e85ba69f2",
+        "code_sha256": "454f8bbaaf7cf4d49cceb14b284b385e76f0d7907c8f2823cf77f229ea5dfa1c",
+        "activation_checkpointing": true,
+        "sensor_probability": 0.75,
+        "selection": "common40 ROI",
+        "scope": "Exploratory1000additionalstep pilot, not convergenceproof. A20/D40 identicalLRandorder, differenttarget andschedule;B20/C20 identicalHRandorder, differentLRdegradation."
+      },
+      "test": {
+        "count": 120,
+        "means": {
+          "pair/clean": {
+            "common20_full": 21.063267332887758,
+            "common20_roi": 21.50205935088686,
+            "common40_full": 20.543047264467283,
+            "common40_roi": 20.981695273060257
+          },
+          "pair/sensor": {
+            "common20_full": 20.909755813465804,
+            "common20_roi": 21.309307557435382,
+            "common40_full": 20.406176683234175,
+            "common40_roi": 20.809360025571877
+          }
+        }
+      },
+      "initial_means": {
+        "pair/clean": {
+          "common20_full": 21.049351909841164,
+          "common20_roi": 21.48530655306967,
+          "common40_full": 20.527354632301847,
+          "common40_roi": 20.963486680546747
+        },
+        "pair/sensor": {
+          "common20_full": 20.88008190337686,
+          "common20_roi": 21.272188032038976,
+          "common40_full": 20.376516760081373,
+          "common40_roi": 20.773110879872608
+        }
+      },
+      "native": {
+        "complete": true,
+        "arm": "D40_pair",
+        "checkpoint_sha256": "d0784592f69cc66fb8fa74e46db92545f30b4c44e9acef4fd6da682e80bedad6",
+        "scale": 40,
+        "output_size": [
+          800,
+          800
+        ],
+        "input_size": [
+          20,
+          20
+        ],
+        "count": 8000,
+        "mode": "single FP32 noTTA",
+        "input_array_sha256": "eed391b9bd96ea91037acf3e210fad46174a7d541f272debb9a580749597b451",
+        "display_indices": [
+          24900,
+          27300,
+          27700,
+          28200,
+          30600
+        ],
+        "display_note": "20x native400 saved;common800 display isbicubicupsampled2x forcomparisonwithnative40x800. SameFOV,notextra detail."
+      }
+    }
+  },
+  "contrasts": {
+    "D40_pair-minus-A20_pair/pair/both/common20_roi": {
+      "group_equal_mean_delta": -0.014068646075993178,
+      "bootstrap95": [
+        -0.01628723908230995,
+        -0.011938083290649971
+      ],
+      "source_groups": 60
+    },
+    "D40_pair-minus-A20_pair/pair/both/common40_roi": {
+      "group_equal_mean_delta": -0.009925411980765197,
+      "bootstrap95": [
+        -0.012200459451996666,
+        -0.0077344511932538355
+      ],
+      "source_groups": 60
+    },
+    "D40_pair-minus-A20_pair/pair/clean/common20_roi": {
+      "group_equal_mean_delta": -0.02080868864679045,
+      "bootstrap95": [
+        -0.0230482009360558,
+        -0.018567370489225528
+      ],
+      "source_groups": 60
+    },
+    "D40_pair-minus-A20_pair/pair/clean/common40_roi": {
+      "group_equal_mean_delta": -0.016030208167215676,
+      "bootstrap95": [
+        -0.01837187315312868,
+        -0.013605796392941611
+      ],
+      "source_groups": 60
+    },
+    "D40_pair-minus-A20_pair/pair/sensor/common20_roi": {
+      "group_equal_mean_delta": -0.007328603505195907,
+      "bootstrap95": [
+        -0.010481992359437422,
+        -0.0042822615402324715
+      ],
+      "source_groups": 60
+    },
+    "D40_pair-minus-A20_pair/pair/sensor/common40_roi": {
+      "group_equal_mean_delta": -0.003820615794314719,
+      "bootstrap95": [
+        -0.0068721124969794,
+        -0.0010107457399390711
+      ],
+      "source_groups": 60
+    },
+    "C20_sensor-minus-B20_matched/target/both/roi": {
+      "group_equal_mean_delta": 0.055258718662668745,
+      "bootstrap95": [
+        0.03553704673600507,
+        0.07583189364832559
+      ],
+      "source_groups": 8
+    },
+    "C20_sensor-minus-B20_matched/target/clean/roi": {
+      "group_equal_mean_delta": -0.03751303818105425,
+      "bootstrap95": [
+        -0.08082824984581952,
+        0.0001646896657920687
+      ],
+      "source_groups": 8
+    },
+    "C20_sensor-minus-B20_matched/target/sensor/roi": {
+      "group_equal_mean_delta": 0.14803047550639173,
+      "bootstrap95": [
+        0.1102248467893371,
+        0.18665296139949322
+      ],
+      "source_groups": 8
+    },
+    "C20_sensor-minus-B20_matched/whole/both/roi": {
+      "group_equal_mean_delta": -0.041443672063373134,
+      "bootstrap95": [
+        -0.05400046057215919,
+        -0.029210620497713325
+      ],
+      "source_groups": 60
+    },
+    "C20_sensor-minus-B20_matched/whole/clean/roi": {
+      "group_equal_mean_delta": -0.15135470891422567,
+      "bootstrap95": [
+        -0.16596646039432827,
+        -0.13735277231011742
+      ],
+      "source_groups": 60
+    },
+    "C20_sensor-minus-B20_matched/whole/sensor/roi": {
+      "group_equal_mean_delta": 0.06846736478747942,
+      "bootstrap95": [
+        0.0478779540202287,
+        0.08918894524494111
+      ],
+      "source_groups": 60
+    }
+  },
+  "data_audit": {
+    "complete": true,
+    "records": 4651,
+    "verified_files": 25052,
+    "paired_reference_native_pixels_verified": 599,
+    "paired_train_sampling_identical": true,
+    "matched_sampling_identical": true,
+    "manifest_sha256": "34dedd3c66687c578db986f40d31d7ec96c1c98ca513f2fcdec6396125e959da",
+    "tar_sha256": "fc51305af58ac2717fad2928b52e1d46e13a8457c621340c808e1cb84e02c8c0"
+  },
+  "distribution_diagnostic": {
+    "old8000draws_all20square": {
+      "large/high": 3343,
+      "mid/mid": 2211,
+      "large/mid": 1326,
+      "mid/low": 568,
+      "small/low": 552
+    },
+    "new3557draws_target20square_only": {
+      "large/mid": 379,
+      "large/high": 1622,
+      "mid/mid": 1295,
+      "mid/low": 199,
+      "small/low": 62
+    },
+    "new443wholevariable_inputs_excluded_from_primary_fit": true,
+    "target_empirical_estimate": {
+      "mid/mid": 0.3684210526315789,
+      "large/high": 0.45614035087719296,
+      "mid/low": 0.05263157894736842,
+      "large/mid": 0.10526315789473684,
+      "small/low": 0.017543859649122806
+    },
+    "old_total_variation_distance_to_estimate": 0.13031140350877193,
+    "new_target_total_variation_distance_to_estimate": 0.004601748960537376,
+    "warning": "Conditionalgeometryfitdiagnostic, not modelquality. Target is uncertain57example estimate."
+  },
+  "actual_sampling": {
+    "A20_pair": {
+      "manifest_sha256": "34dedd3c66687c578db986f40d31d7ec96c1c98ca513f2fcdec6396125e959da",
+      "cohort_counts": {
+        "pair": 4000
+      },
+      "target_cells": {},
+      "source_group_count": 479
+    },
+    "B20_matched": {
+      "manifest_sha256": "34dedd3c66687c578db986f40d31d7ec96c1c98ca513f2fcdec6396125e959da",
+      "cohort_counts": {
+        "target": 3557,
+        "whole": 443
+      },
+      "target_cells": {
+        "large/mid": 379,
+        "large/high": 1622,
+        "mid/mid": 1295,
+        "mid/low": 199,
+        "small/low": 62
+      },
+      "source_group_count": 352
+    },
+    "C20_sensor": {
+      "manifest_sha256": "34dedd3c66687c578db986f40d31d7ec96c1c98ca513f2fcdec6396125e959da",
+      "cohort_counts": {
+        "target": 3557,
+        "whole": 443
+      },
+      "target_cells": {
+        "large/mid": 379,
+        "large/high": 1622,
+        "mid/mid": 1295,
+        "mid/low": 199,
+        "small/low": 62
+      },
+      "source_group_count": 352
+    },
+    "D40_pair": {
+      "manifest_sha256": "34dedd3c66687c578db986f40d31d7ec96c1c98ca513f2fcdec6396125e959da",
+      "cohort_counts": {
+        "pair": 4000
+      },
+      "target_cells": {},
+      "source_group_count": 479
+    }
+  }
+}
