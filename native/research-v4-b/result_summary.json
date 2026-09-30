@@ -1,0 +1,56 @@
+{
+  "scope": "B路线阶段结果；C路线仍在训练，整个三路线实验尚未完成",
+  "native_outputs": 16000,
+  "fixed_ids": [
+    24900,
+    27300,
+    27700,
+    28200,
+    30600
+  ],
+  "candidates": [
+    {
+      "arm": "B_real",
+      "label": "新重建模型 · 实拍",
+      "means": {
+        "full": 23.632323598787078,
+        "roi": 22.003162190497733,
+        "ssim_roi": 0.5264995535369963,
+        "edge_mae": 0.022857436651247554,
+        "lpips_roi": 0.5751229389260213,
+        "lowfreq_mae": 0.007579298573788643
+      },
+      "training_steps": 30000,
+      "selected_step": 20000,
+      "checkpoint_sha256": "d4d40ed8168bd57d0758e0cdffb7366f0e3475c2d20d3b65d8213dcbad14ac1c"
+    },
+    {
+      "arm": "B_mix",
+      "label": "新重建模型 · 实拍＋约10% AI",
+      "means": {
+        "full": 23.674758565485337,
+        "roi": 22.02470719803121,
+        "ssim_roi": 0.5252812772523612,
+        "edge_mae": 0.022784967651144447,
+        "lpips_roi": 0.5756697736370067,
+        "lowfreq_mae": 0.007406439191254321
+      },
+      "training_steps": 30000,
+      "selected_step": 20000,
+      "checkpoint_sha256": "c3baf22b06b454f30c8f45e151f7e7795a91f7bf1a094ba41472ff69dd5a0507"
+    }
+  ],
+  "old_control_means": {
+    "full": 23.399932910536116,
+    "roi": 21.72560473219461,
+    "ssim_roi": 0.499121310794726,
+    "edge_mae": 0.02260998644439193,
+    "lpips_roi": 0.6098530489951373,
+    "lowfreq_mae": 0.006967554440173747
+  },
+  "visual_conclusion": "新重建模型能让部分飞机轮廓更锐、对比更强，但机身内部仍平滑，部分暗斑与尖角也更突出。实拍与AI混合组在固定五张上的观感非常接近，尚未看到AI带来一致明显的新细节；当前仍未实现从20×20可靠恢复高清飞机细节。",
+  "ai_numeric_gate_pass": false,
+  "validation_ai_relative_lpips_gain": 0.0022985516167198794,
+  "protocol_sha256": "5f17ab9995a341390e77802063571d730b8499273e5b407b05a0e336e3bf40d5",
+  "native_has_photographic_hr_truth": false
+}
