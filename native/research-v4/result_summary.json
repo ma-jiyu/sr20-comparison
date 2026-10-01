@@ -1,0 +1,88 @@
+{
+  "complete": true,
+  "meaning": "Audited initial long-budget comparison",
+  "native_outputs": 32000,
+  "fixed_ids": [
+    24900,
+    27300,
+    27700,
+    28200,
+    30600
+  ],
+  "old_control_means": {
+    "full": 23.399932910536116,
+    "roi": 21.72560473219461,
+    "ssim_roi": 0.499121310794726,
+    "edge_mae": 0.02260998644439193,
+    "lpips_roi": 0.6098530489951373,
+    "lowfreq_mae": 0.006967554440173747
+  },
+  "candidates": [
+    {
+      "label": "重建模型 · 实拍",
+      "arm": "B_real",
+      "training_steps": 30000,
+      "selected_step": 20000,
+      "policy": "perceptual",
+      "means": {
+        "full": 23.632323598787078,
+        "roi": 22.003162190497733,
+        "ssim_roi": 0.5264995535369963,
+        "edge_mae": 0.022857436651247554,
+        "lpips_roi": 0.5751229389260213,
+        "lowfreq_mae": 0.007579298573788643
+      },
+      "checkpoint_sha256": "d4d40ed8168bd57d0758e0cdffb7366f0e3475c2d20d3b65d8213dcbad14ac1c"
+    },
+    {
+      "label": "重建模型 · 实拍＋AI",
+      "arm": "B_mix",
+      "training_steps": 30000,
+      "selected_step": 20000,
+      "policy": "perceptual",
+      "means": {
+        "full": 23.674758565485337,
+        "roi": 22.02470719803121,
+        "ssim_roi": 0.5252812772523612,
+        "edge_mae": 0.022784967651144447,
+        "lpips_roi": 0.5756697736370067,
+        "lowfreq_mae": 0.007406439191254321
+      },
+      "checkpoint_sha256": "c3baf22b06b454f30c8f45e151f7e7795a91f7bf1a094ba41472ff69dd5a0507"
+    },
+    {
+      "label": "官方适配 · 实拍",
+      "arm": "C_real",
+      "training_steps": 10000,
+      "selected_step": 5000,
+      "policy": "fidelity",
+      "means": {
+        "full": 21.323191840468127,
+        "roi": 19.75280837657663,
+        "ssim_roi": 0.4294771916698664,
+        "edge_mae": 0.02500314501376124,
+        "lpips_roi": 0.5273013290793945,
+        "lowfreq_mae": 0.029107485165392667
+      },
+      "checkpoint_sha256": "aed18ba3a7c92f9974109cd96c07a6d11663eeb5295cd64fb88aafbaa36756e0"
+    },
+    {
+      "label": "官方适配 · 实拍＋AI",
+      "arm": "C_mix",
+      "training_steps": 10000,
+      "selected_step": 5000,
+      "policy": "fidelity",
+      "means": {
+        "full": 21.302492276446138,
+        "roi": 19.749670798389467,
+        "ssim_roi": 0.42668812352543073,
+        "edge_mae": 0.025504591788436906,
+        "lpips_roi": 0.5267457080849757,
+        "lowfreq_mae": 0.029062562288405994
+      },
+      "checkpoint_sha256": "a42c72f55b0ec7d8cbb95d814c1748831aec7779cbfac0bc7c64c0223727406b"
+    }
+  ],
+  "visual_conclusion": "固定五张完整视野的可见标签目视比较显示：重建路线的边缘和对比度更强，但飞机内部仍大多平滑，暗点和尖角也可能被强化，没有证明恢复了可信的精细机型细节。官方适配结果出现重复斜纹、轮廓简化和形状变化，28200的飞机形状尤其明显改变；其LPIPS降低不能抵消保真度退化。两条路线中实拍与AI混合结果外观都十分接近，未见稳定的AI额外收益。原生低清没有高清真值，且这五张不是盲评或全数据观感统计；当前不替换旧模型，也不扩大AI批量。",
+  "data_note": "Reused3499realpairs/1185annotatedinstances and8AIreferences/64variants; no new independent real aircraft added this round."
+}

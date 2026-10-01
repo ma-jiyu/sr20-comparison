@@ -1,0 +1,299 @@
+{
+  "protocol_sha256": "5f17ab9995a341390e77802063571d730b8499273e5b407b05a0e336e3bf40d5",
+  "architectures": {
+    "B": {
+      "policies": {
+        "fidelity": {
+          "available": true,
+          "real_step": 12000,
+          "mix_step": 11000,
+          "contrast": {
+            "groups": [
+              "dota_P0168",
+              "dota_P0215",
+              "dota_P1483",
+              "dota_P1869",
+              "dota_P2235",
+              "dota_P2551",
+              "dota_P2797",
+              "dota_P2802"
+            ],
+            "metrics": {
+              "roi": {
+                "mix_minus_real": 0.03364921587598868,
+                "ci95": [
+                  -0.056580471783555686,
+                  0.13370483836554714
+                ],
+                "real_mean": 20.110971242791862,
+                "mix_mean": 20.144620458667852,
+                "mix_better_group_fraction": 0.375
+              },
+              "ssim_roi": {
+                "mix_minus_real": 0.004153589307818388,
+                "ci95": [
+                  0.00103478765647326,
+                  0.007740339319709515
+                ],
+                "real_mean": 0.5151796489953995,
+                "mix_mean": 0.5193332383032179,
+                "mix_better_group_fraction": 0.875
+              },
+              "edge_mae": {
+                "mix_minus_real": -1.0264643822855551e-08,
+                "ci95": [
+                  -7.316281040576104e-05,
+                  8.769713098271976e-05
+                ],
+                "real_mean": 0.026158450034147664,
+                "mix_mean": 0.026158439769503838,
+                "mix_better_group_fraction": 0.625
+              },
+              "lpips_roi": {
+                "mix_minus_real": -0.0006913171770671911,
+                "ci95": [
+                  -0.003500628965862431,
+                  0.002384799760433708
+                ],
+                "real_mean": 0.5702508090596115,
+                "mix_mean": 0.5695594918825442,
+                "mix_better_group_fraction": 0.625
+              },
+              "lowfreq_mae": {
+                "mix_minus_real": 0.00019966422145703934,
+                "ci95": [
+                  -0.00013577200055200022,
+                  0.0005057959036397126
+                ],
+                "real_mean": 0.00889033211950889,
+                "mix_mean": 0.009089996340965929,
+                "mix_better_group_fraction": 0.25
+              }
+            },
+            "resampling": "10000 paired scene-group bootstrap draws; exploratory8-group uncertainty"
+          },
+          "gate": {
+            "checks": {
+              "lpips_relative_gain": false,
+              "roi_psnr_guard": true,
+              "ssim_guard": true,
+              "edge_guard": true,
+              "lowfreq_guard": false,
+              "group_consistency": true,
+              "paired_ci_excludes_worsening": false
+            },
+            "numeric_pass": false,
+            "visual_complete": false,
+            "visual_pass": false,
+            "ai_expansion_authorized": false
+          },
+          "native_candidate": "best_fidelity.pt"
+        },
+        "perceptual": {
+          "available": true,
+          "real_step": 20000,
+          "mix_step": 20000,
+          "contrast": {
+            "groups": [
+              "dota_P0168",
+              "dota_P0215",
+              "dota_P1483",
+              "dota_P1869",
+              "dota_P2235",
+              "dota_P2551",
+              "dota_P2797",
+              "dota_P2802"
+            ],
+            "metrics": {
+              "roi": {
+                "mix_minus_real": 0.06286517320045437,
+                "ci95": [
+                  -0.008961591329782314,
+                  0.14616429047064416
+                ],
+                "real_mean": 20.03565781347466,
+                "mix_mean": 20.098522986675114,
+                "mix_better_group_fraction": 0.75
+              },
+              "ssim_roi": {
+                "mix_minus_real": 0.0038671039510518312,
+                "ci95": [
+                  0.0007341359741985798,
+                  0.007461901835631579
+                ],
+                "real_mean": 0.5179878436472444,
+                "mix_mean": 0.5218549475982962,
+                "mix_better_group_fraction": 0.75
+              },
+              "edge_mae": {
+                "mix_minus_real": -2.3143648009170403e-05,
+                "ci95": [
+                  -7.769099777630954e-05,
+                  3.49115882099363e-05
+                ],
+                "real_mean": 0.02635373627847349,
+                "mix_mean": 0.02633059263046432,
+                "mix_better_group_fraction": 0.75
+              },
+              "lpips_roi": {
+                "mix_minus_real": -0.0013003110042995036,
+                "ci95": [
+                  -0.004038707197954253,
+                  0.001274265104993469
+                ],
+                "real_mean": 0.5657088554552978,
+                "mix_mean": 0.5644085444509983,
+                "mix_better_group_fraction": 0.625
+              },
+              "lowfreq_mae": {
+                "mix_minus_real": -2.6429145128488343e-05,
+                "ci95": [
+                  -0.0001854733266208358,
+                  0.00012740629260536362
+                ],
+                "real_mean": 0.009352380892821765,
+                "mix_mean": 0.009325951747693278,
+                "mix_better_group_fraction": 0.375
+              }
+            },
+            "resampling": "10000 paired scene-group bootstrap draws; exploratory8-group uncertainty"
+          },
+          "gate": {
+            "checks": {
+              "lpips_relative_gain": false,
+              "roi_psnr_guard": true,
+              "ssim_guard": true,
+              "edge_guard": true,
+              "lowfreq_guard": true,
+              "group_consistency": true,
+              "paired_ci_excludes_worsening": false
+            },
+            "numeric_pass": false,
+            "visual_complete": false,
+            "visual_pass": false,
+            "ai_expansion_authorized": false
+          },
+          "native_candidate": "best_perceptual.pt"
+        }
+      },
+      "primary_policy": "perceptual",
+      "extension_eligibility": {}
+    },
+    "C": {
+      "policies": {
+        "fidelity": {
+          "available": true,
+          "real_step": 5000,
+          "mix_step": 5000,
+          "contrast": {
+            "groups": [
+              "dota_P0168",
+              "dota_P0215",
+              "dota_P1483",
+              "dota_P1869",
+              "dota_P2235",
+              "dota_P2551",
+              "dota_P2797",
+              "dota_P2802"
+            ],
+            "metrics": {
+              "roi": {
+                "mix_minus_real": 0.0039826987004600856,
+                "ci95": [
+                  -0.05376856853201929,
+                  0.04917138233753238
+                ],
+                "real_mean": 17.673920546373566,
+                "mix_mean": 17.677903245074027,
+                "mix_better_group_fraction": 0.625
+              },
+              "ssim_roi": {
+                "mix_minus_real": -0.002851876197382801,
+                "ci95": [
+                  -0.005529502074101134,
+                  -0.0004955883512073802
+                ],
+                "real_mean": 0.407163881624694,
+                "mix_mean": 0.4043120054273112,
+                "mix_better_group_fraction": 0.375
+              },
+              "edge_mae": {
+                "mix_minus_real": 0.0003936917304859641,
+                "ci95": [
+                  0.0002007225952443811,
+                  0.0005892950866837072
+                ],
+                "real_mean": 0.028024753455177968,
+                "mix_mean": 0.028418445185663933,
+                "mix_better_group_fraction": 0.125
+              },
+              "lpips_roi": {
+                "mix_minus_real": -0.0011229673622264874,
+                "ci95": [
+                  -0.004626503551290169,
+                  0.0020931618055328727
+                ],
+                "real_mean": 0.5390058360949513,
+                "mix_mean": 0.5378828687327248,
+                "mix_better_group_fraction": 0.5
+              },
+              "lowfreq_mae": {
+                "mix_minus_real": -0.00021042758141577795,
+                "ci95": [
+                  -0.0004949891088645447,
+                  7.585771555092093e-05
+                ],
+                "real_mean": 0.034259187505258956,
+                "mix_mean": 0.03404875992384318,
+                "mix_better_group_fraction": 0.625
+              }
+            },
+            "resampling": "10000 paired scene-group bootstrap draws; exploratory8-group uncertainty"
+          },
+          "gate": {
+            "checks": {
+              "lpips_relative_gain": false,
+              "roi_psnr_guard": true,
+              "ssim_guard": true,
+              "edge_guard": true,
+              "lowfreq_guard": true,
+              "group_consistency": false,
+              "paired_ci_excludes_worsening": false
+            },
+            "numeric_pass": false,
+            "visual_complete": false,
+            "visual_pass": false,
+            "ai_expansion_authorized": false
+          },
+          "native_candidate": "best_fidelity.pt"
+        },
+        "perceptual": {
+          "available": false,
+          "reason": "No eligible checkpoint in one/both arms"
+        }
+      },
+      "primary_policy": "fidelity",
+      "extension_eligibility": {
+        "real": {
+          "eligible": false,
+          "lpips_8000_9000_10000": [
+            0.534503359225623,
+            0.5337605874298053,
+            0.5334822572878606
+          ],
+          "note": "Conditional continuation at most20000totalupdates; keep first10000results"
+        },
+        "mix": {
+          "eligible": false,
+          "lpips_8000_9000_10000": [
+            0.5338694656689075,
+            0.5328214120762866,
+            0.5322470178029367
+          ],
+          "note": "Conditional continuation at most20000totalupdates; keep first10000results"
+        }
+      }
+    }
+  },
+  "complete": true
+}
