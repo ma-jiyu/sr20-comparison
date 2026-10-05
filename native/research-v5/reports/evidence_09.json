@@ -1,0 +1,16 @@
+{
+  "recorded_at_utc": "2026-10-05T12:53:39.652498+00:00",
+  "scope": "Environment read after training from the same interpreter path; not a contemporaneous training lockfile",
+  "python": "3.10.21 (main, Aug 27 2026, 14:42:07) [GCC 14.3.0]",
+  "platform": "Linux-5.15.0-191.201-thln-x86_64-with-glibc2.35",
+  "packages": {
+    "torch": "2.5.1",
+    "torchvision": "0.20.1",
+    "timm": "1.0.15",
+    "numpy": "1.26.4",
+    "Pillow": "10.4.0",
+    "scipy": "1.11.1",
+    "scikit-image": "0.24.0",
+    "lpips": "0.1.4"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "version": 5,
+  "frozen": true,
+  "frozen_at_utc": "2026-10-05T12:41:30.689262+00:00",
+  "test_used_for_selection": false,
+  "checkpoint": {
+    "file": "best_perceptual.pt",
+    "sha256": "889e5b7dce5caf4352c66699c1498988632f841d57d9b5c05a640527b5a0b25e",
+    "model": "swinir_real_psnr_x4",
+    "step": 6000
+  },
+  "training_run": "training/swinir_real_psnr_x4",
+  "training_protocol": "swinir_real_psnr_x4_training_protocol.json",
+  "training_config_sha256": "f186844f2d9b407abe95f68dd02f36123c98b9ec97dc1b3b4aba27a9e348d452",
+  "training_complete_sha256": "b509e3147aace1f7633fc70dc60ef6c9c3df0866914a0011642a7810b3dea29c",
+  "training_protocol_sha256": "1f2d66b96177fd79ea339e63f7b1b06ada4329788353d75bdf0f182e2f8fd3b7",
+  "data_manifest_sha256": "344914c935fc08b757ccb23adb176d3f0bf00a5500aa21565f97697c8d4c2d86",
+  "native_protocol_sha256": "43e83a8ac2d3d9c3aee5c1f26c07ee3ac00525935802c1e676122fcf39fda3e4",
+  "visual_panel_sha256": "dcb3536c16f307723312474b4594507818b0c79063b239202a8c2b88511c6254",
+  "native_panel_ids": [
+    24018,
+    24188,
+    24259,
+    24282,
+    24289,
+    24336,
+    24372,
+    24403,
+    24900,
+    24938,
+    24954,
+    25028,
+    25357,
+    25550,
+    26074,
+    26162,
+    26236,
+    27175,
+    27300,
+    27426,
+    27561,
+    27700,
+    27740,
+    27792,
+    28080,
+    28200,
+    29529,
+    30079,
+    30600
+  ],
+  "visual_review_sha256": "91babbe93c9aaf9d3177d527a4b5622440164d2c978c80a3bf8fffd86728a540",
+  "visual_gate": {
+    "reviewed": true,
+    "validation_reviewed": true,
+    "native_reviewed": true,
+    "checkpoint_sha256": "889e5b7dce5caf4352c66699c1498988632f841d57d9b5c05a640527b5a0b25e",
+    "no_obvious_new_grid_or_shape_collapse": true,
+    "native_count": 29,
+    "validation_count": 8,
+    "step": 6000,
+    "reviewer": "label-visible model-assisted actual image inspection; independent child review and root spot checks",
+    "notes": "原real-PSNR6000：沿用已完成实际29原生+8验证的独立复核，未见新的明显周期网格或整体形状塌陷；低对比28080/29529仍难辨，val8细机身和98小亮部件仍错误，机身内部平滑。通过狭义视觉门槛不等于所有图像改善。"
+  },
+  "selected_validation_sha256": "0aa14b177699fd1af3157a214459ad7ae6a46f423286b09644c37e21e9473a6e",
+  "validation_gate": {
+    "passed": true,
+    "checks": {
+      "roi": true,
+      "ssim": true,
+      "edge": true
+    },
+    "observed": {
+      "roi_psnr_drop_db": -2.1258960080034193,
+      "ssim_drop": -0.04063962422238265,
+      "edge_mae": 0.05607149680807054
+    },
+    "limits": {
+      "roi_psnr_drop_db": 0.15,
+      "ssim_drop": 0.01,
+      "edge_mae": 0.07045856965687491
+    }
+  },
+  "selection_policy": "Lowest guard-eligible source-group-macro validation LPIPS across step0,500,...,6000; tie earliest; actual visual veto; no fallback",
+  "role": "Final scientific comparison candidate; default model not automatically replaced",
+  "limitations": "61 validation aircraft in4 locations; coarse diamond ROI; label-visible visual review; native panel has no HR truth. These two final candidates have different training loss schedules and architectures."
+}

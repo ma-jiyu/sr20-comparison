@@ -1,0 +1,86 @@
+{
+  "version": 5,
+  "frozen": true,
+  "frozen_at_utc": "2026-10-05T12:41:30.689262+00:00",
+  "test_used_for_selection": false,
+  "checkpoint": {
+    "file": "best_fidelity.pt",
+    "sha256": "103e97dc8044c03cba7f7c6a606d65941a7de56c2f29eff6b3c3cfab27643048",
+    "model": "swinir_classical_x4",
+    "step": 5500
+  },
+  "training_run": "training/swinir_classical_reconstruction_x4",
+  "training_protocol": "swinir_classical_reconstruction_x4_training_protocol.json",
+  "training_config_sha256": "55f52ca950d190b2e2479e1b44bf8bef63638e24b783e0bf256f5fc9be87203f",
+  "training_complete_sha256": "da62d5b91218f4d59a802d488dab9f00ea33d41bf6ac3f98512a68f399b094cc",
+  "training_protocol_sha256": "30697d8425b24d18960634511a10302b7a2802ebe6f00145a2b8ebc7d7c09dc0",
+  "data_manifest_sha256": "344914c935fc08b757ccb23adb176d3f0bf00a5500aa21565f97697c8d4c2d86",
+  "native_protocol_sha256": "43e83a8ac2d3d9c3aee5c1f26c07ee3ac00525935802c1e676122fcf39fda3e4",
+  "visual_panel_sha256": "dcb3536c16f307723312474b4594507818b0c79063b239202a8c2b88511c6254",
+  "native_panel_ids": [
+    24018,
+    24188,
+    24259,
+    24282,
+    24289,
+    24336,
+    24372,
+    24403,
+    24900,
+    24938,
+    24954,
+    25028,
+    25357,
+    25550,
+    26074,
+    26162,
+    26236,
+    27175,
+    27300,
+    27426,
+    27561,
+    27700,
+    27740,
+    27792,
+    28080,
+    28200,
+    29529,
+    30079,
+    30600
+  ],
+  "visual_review_sha256": "91babbe93c9aaf9d3177d527a4b5622440164d2c978c80a3bf8fffd86728a540",
+  "visual_gate": {
+    "reviewed": true,
+    "validation_reviewed": true,
+    "native_reviewed": true,
+    "checkpoint_sha256": "103e97dc8044c03cba7f7c6a606d65941a7de56c2f29eff6b3c3cfab27643048",
+    "no_obvious_new_grid_or_shape_collapse": true,
+    "native_count": 29,
+    "validation_count": 8,
+    "step": 5500,
+    "reviewer": "label-visible model-assisted actual image inspection; independent child review and root spot checks",
+    "notes": "纯重建best5500：实际复核29原生和8验证，未见原感知候选新增细密周期斜纹或整体塌陷。44/73/98 sensor相对初始化粗轮廓更清楚；8滑翔机仍弯曲/断连，98小部件合并。固定五张原生主体轮廓保留，内部仍平滑；无HR不能确认真实细节。"
+  },
+  "selected_validation_sha256": "7f574eb933a15a8671a995ecd7d4db3915f10a7fba6625785e8433446003bc72",
+  "validation_gate": {
+    "passed": true,
+    "checks": {
+      "roi": true,
+      "ssim": true,
+      "edge": true
+    },
+    "observed": {
+      "roi_psnr_drop_db": -1.8946282859555161,
+      "ssim_drop": -0.07885328013376858,
+      "edge_mae": 0.05054573252176245
+    },
+    "limits": {
+      "roi_psnr_drop_db": 0.15,
+      "ssim_drop": 0.01,
+      "edge_mae": 0.0665955663058569
+    }
+  },
+  "selection_policy": "Highest source-group-macro validation ROI PSNR at step0,500,...,6000; tie earliest; then original structural and actual visual veto; no fallback",
+  "role": "Final scientific comparison candidate; default model not automatically replaced",
+  "limitations": "61 validation aircraft in4 locations; coarse diamond ROI; label-visible visual review; native panel has no HR truth. These two final candidates have different training loss schedules and architectures."
+}

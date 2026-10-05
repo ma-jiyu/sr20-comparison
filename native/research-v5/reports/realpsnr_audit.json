@@ -1,0 +1,238 @@
+{
+  "complete": true,
+  "selection_sha256": "cf4d6cc31bc0c1643efedad9684f8804ed07ce1ff3660b55f738b760dbf38d53",
+  "config_sha256": "c127ac187a473ec37abe43fdf12761e216b44d3355833a1e0f0050a65709faf0",
+  "checkpoint": {
+    "file": "best_perceptual.pt",
+    "sha256": "889e5b7dce5caf4352c66699c1498988632f841d57d9b5c05a640527b5a0b25e",
+    "model": "swinir_real_psnr_x4",
+    "step": 6000
+  },
+  "native_exact_ids": true,
+  "verified_native_pngs": 16000,
+  "verified_paired_output_pngs": 312,
+  "verified_paired_source_files": 390,
+  "verified_panel_pngs": 145,
+  "native_learned_size": [
+    80,
+    80
+  ],
+  "native_display_size": [
+    400,
+    400
+  ],
+  "all_displays_verified_as_interpolation": true,
+  "paired_group_macro": {
+    "full": 24.735684339517597,
+    "roi": 21.866760668490283,
+    "ssim_roi": 0.861605417507167,
+    "edge_mae": 0.055788292227341024,
+    "lpips_roi": 0.34019859403536734,
+    "same_operator_lr_mae": 0.007142605225919946
+  },
+  "contrasts": [],
+  "archives": [
+    {
+      "file": "shard_000.tar",
+      "sha256": "974477b828379a0b88646405064b11a6cdf4dfb9af8966d94f31ec45825e5a6f",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_001.tar",
+      "sha256": "bd66198eebbec18700f43f6e20474c9251bda98a2549e7b0959f4c220072afc9",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_002.tar",
+      "sha256": "acca3baf80addd8b4b245244a31e954073f82acfae3b2b6cf3e8dbfb1c6c2e6e",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_003.tar",
+      "sha256": "a3eea207e0e853d8c312c8aa035a38d906464579e7344911173684751c612b95",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_004.tar",
+      "sha256": "023f83e250cc8006bf73ae4263dd47a08f62feebb0ab565deddbbe9e0926c6ee",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_005.tar",
+      "sha256": "7c7182aef265978d3756a5180e84c8406427ad98e0a61e0c45c28fb62c0c042b",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_006.tar",
+      "sha256": "ef634323610cb86ac0bc12ecd346ccab64557178435b7e9d477ecb39b9bd7690",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_007.tar",
+      "sha256": "cf41216bb16231a4e6062a7925d82f3799d0417aad114175c352c23e85c1fcc1",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_008.tar",
+      "sha256": "9d0c5dd86830a6c43c0b38b79a255c5519445a4b8ebd933c816b0be2988c310a",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_009.tar",
+      "sha256": "718210c4f7cd7a13e379545b33b9230c8dbd009ac373ecadbd5cfb717d650df8",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_010.tar",
+      "sha256": "a80f23591415bf8c9e2ded77acc93e66d0c4a2a93a2628c655e8fffa2f00c0ac",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_011.tar",
+      "sha256": "ea7b5669d6b6a77881c534f754ec0176bc0e6c5a5983bb69be692b8fcb2c14c5",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_012.tar",
+      "sha256": "eccba973181371182d719c16c5d99d11bb1b65550b33a7dd130477f0d446293d",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_013.tar",
+      "sha256": "cff7b8669fdb39c6f7f5f03139ee0f04439178d761969fac78f42bd280e55959",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_014.tar",
+      "sha256": "71d2148a114f20eb078dfa15a471b61d6322c5c6569970c80532ec949eef18d7",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_015.tar",
+      "sha256": "578f837aa64707483906fe496e04699f904bc0b08442db7b52ae04369ac086a4",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_016.tar",
+      "sha256": "95020584771012b60a0c514177685e6c0199c047e62c7371a0905ae49c0fc69d",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_017.tar",
+      "sha256": "7298ae748cbb42c50637dffaf00656647a33b2b65b4e6aae3d08dbce2a9db7ea",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_018.tar",
+      "sha256": "b1b857d9142067201b2c68ed6842aa08946962e06028c3c439be8f1a1c187fd5",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_019.tar",
+      "sha256": "689882aca1c775e95a0262912f43f1e3a39c5cfd4a0fb8160574adb820e2090f",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_020.tar",
+      "sha256": "eac77e5d15e3824fd4d26bf766ab865628759f5cdd3cd5c7dc3c62eb795e3e0c",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_021.tar",
+      "sha256": "3ba89a8797d53cb3a73e9c0da78416ea96bc8dfa0a48cb7af3accf9d62c52bc9",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_022.tar",
+      "sha256": "3ee0e5c2fbd98672a68dbede471a7b7902a861255769bcfe67e194fe1cd783f3",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_023.tar",
+      "sha256": "3e6a5df5f89b407651e4c6fc2ca13d56b33001f5c809e8fb22971386772c83d0",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_024.tar",
+      "sha256": "17c911c67d9af256345b4349a9c668bce376cdfe8a6817eb037023ac8fc0984e",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_025.tar",
+      "sha256": "69631aa96d50f326201aa235ef24a16849997acf6180c6474a1675c171e40b7d",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_026.tar",
+      "sha256": "bbfe612178bc02590df6ed8e65e083bb436e46847b422af65afc24958db15430",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_027.tar",
+      "sha256": "f5db81d2038365fbadaf0a603132def37abca1566ae11fd7bcd0315e213b1938",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_028.tar",
+      "sha256": "62d60ebe261c1e98f45c83470284c47111fb37cca405a6646f8c7989b197c017",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_029.tar",
+      "sha256": "d6c5271d4ebec0eafc9e957e5fa8361f3322340a412f4b62794d10dbc8da6659",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_030.tar",
+      "sha256": "f8e31b1878109a1b0f8bdd5b1c487becaadb3697859d8e91fbbdde04e66e8d30",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_031.tar",
+      "sha256": "2ead6d0bbeaa5ebc302e07845770417bd89aefa1243777c82303f464a487035b",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_032.tar",
+      "sha256": "0f8feae92c531ce8118f095bfa99b01366e3e171dcf7887ade216bb72796639d",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_033.tar",
+      "sha256": "ddb0db225ec354eddc2a783a8d61da86d68710d116285b0be2ff35f7d601c372",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_034.tar",
+      "sha256": "c63683c3d0e52d70f90895c29cf47c1cbb5b91678fa6157c2257e14c2183ed4e",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_035.tar",
+      "sha256": "b44d560c47b23fed34181654aa814996a1d6ae8860aea8af44c40d0a73410321",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_036.tar",
+      "sha256": "857f861c31bf2f280a13b2cdc25659c33c76b4547d4102a582e45f23bad67290",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_037.tar",
+      "sha256": "a1725e7066569c8ab38269dda439af6d5ea1a41b96600ad355262ca33949ea3e",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_038.tar",
+      "sha256": "615a57929d22ec6bb35da9328f8e16fcb6ff706a082247e6a427b4c1cd091175",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_039.tar",
+      "sha256": "8924403b672cf6ce4e5758e8576e2df89e5e6375f21a0ac29047e1da3d8d1e6b",
+      "verified_pngs": 400
+    }
+  ],
+  "audit_code_sha256": "0dcfad26335e3f9f980f4f6c81e01994f9d7856b304d0c2c5907f12545ce2027",
+  "scope": "Every payload SHA, PNG decode, dimensions, exact identity and grouped arithmetic checked. No visual-quality claim; LPIPS forward not rerun by this CPU auditor."
+}

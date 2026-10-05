@@ -1,0 +1,943 @@
+{
+  "version": 5,
+  "frozen": true,
+  "frozen_at_utc": "2026-10-05T12:41:30.689262+00:00",
+  "pre_test_scan_passed": true,
+  "test_images_read": false,
+  "test_used_for_selection": false,
+  "default_model_replaced": false,
+  "visual_review_sha256": "91babbe93c9aaf9d3177d527a4b5622440164d2c978c80a3bf8fffd86728a540",
+  "data_manifest_sha256": "344914c935fc08b757ccb23adb176d3f0bf00a5500aa21565f97697c8d4c2d86",
+  "rejected_predecessor": {
+    "model": "swinir_classical_x4",
+    "checkpoint_file": "training/swinir_classical_x4/best_perceptual.pt",
+    "checkpoint_sha256": "4a12ad7204bd144f64bc480afdd6e1174997d0094adf1b1ebc9498e8cd8c92ea",
+    "review_file": "independent_visual_review.json",
+    "review_sha256": "baa709df710a934b33268abbd9723360ca0e0127b737bb09ef04290f85b8ac73",
+    "training_complete_sha256": "138642e167f8b0e0ccee5257c969e79046c19e362f1e1d65af9664998371ab66",
+    "visual_observations": {
+      "reviewed": true,
+      "checkpoint_sha256": "4a12ad7204bd144f64bc480afdd6e1174997d0094adf1b1ebc9498e8cd8c92ea",
+      "no_obvious_new_grid_or_shape_collapse": false,
+      "notes": "24018 的机体和右侧背景出现初始化没有的明显细密重复斜纹；24900、24938、26236、28200、30600 等也可见同类方向性细纹。即便验证主体清晰，仍应否决此 checkpoint 的该视觉门槛。",
+      "original_schema": "v5.independent_visual_review.1",
+      "original_classical_proposal": {
+        "checkpoint_sha256": "4a12ad7204bd144f64bc480afdd6e1174997d0094adf1b1ebc9498e8cd8c92ea",
+        "step": 6000,
+        "review_complete": true,
+        "no_new_obvious_periodic_artifact": false,
+        "no_new_global_shape_collapse": true,
+        "pass_narrow_visual_gate": false,
+        "reason_zh": "24018 的机体和右侧背景出现初始化没有的明显细密重复斜纹；24900、24938、26236、28200、30600 等也可见同类方向性细纹。即便验证主体清晰，仍应否决此 checkpoint 的该视觉门槛。",
+        "decisive_native_evidence_ids": [
+          "24018",
+          "24900",
+          "28200"
+        ],
+        "texture_caveat_zh": "没有把全部颗粒或原有长条边缘都当作周期网格；24289/24372 的长斜线初始化已有。拒绝依据是适配新增的重复细方向纹。"
+      }
+    },
+    "role": "Rejected exploratory predecessor, not a final candidate; no full8000/test claim required or made"
+  },
+  "candidates": [
+    {
+      "arm": "classical",
+      "file": "selection_classical.json",
+      "sha256": "317071774aac17263834376e1c738bab68cd5c9fb28f9554031daa46e9f027ba",
+      "checkpoint": {
+        "file": "best_fidelity.pt",
+        "sha256": "103e97dc8044c03cba7f7c6a606d65941a7de56c2f29eff6b3c3cfab27643048",
+        "model": "swinir_classical_x4",
+        "step": 5500
+      },
+      "training_run": "training/swinir_classical_reconstruction_x4",
+      "training_protocol": "swinir_classical_reconstruction_x4_training_protocol.json",
+      "training_final6000_sha256": "12374354d12685132b54eaf9f0a6c2adcb89cae554bea0dd62e6b23440a8556f",
+      "validation_anchor": {
+        "full": 25.56046565625885,
+        "roi": 20.497895502236243,
+        "ssim_roi": 0.8459023565930479,
+        "edge_mae": 0.06054142391441536,
+        "lpips_roi": 0.3196074730232723,
+        "same_operator_lr_mae": 0.006174868742888137
+      },
+      "selected_validation": {
+        "step": 5500,
+        "sha256": "7f574eb933a15a8671a995ecd7d4db3915f10a7fba6625785e8433446003bc72",
+        "means": {
+          "full": 27.321964087330123,
+          "roi": 22.39252378819176,
+          "ssim_roi": 0.9247556367268165,
+          "edge_mae": 0.05054573252176245,
+          "lpips_roi": 0.26718526092887507,
+          "same_operator_lr_mae": 0.003972020145067968
+        },
+        "gate": {
+          "passed": true,
+          "checks": {
+            "roi": true,
+            "ssim": true,
+            "edge": true
+          },
+          "observed": {
+            "roi_psnr_drop_db": -1.8946282859555161,
+            "ssim_drop": -0.07885328013376858,
+            "edge_mae": 0.05054573252176245
+          },
+          "limits": {
+            "roi_psnr_drop_db": 0.15,
+            "ssim_drop": 0.01,
+            "edge_mae": 0.0665955663058569
+          }
+        }
+      },
+      "validation_history": [
+        {
+          "step": 0,
+          "sha256": "1bd5fea32fb9ce846df468c48cb4d18a04d3dc38fc00b4482f33d51f375b98de",
+          "means": {
+            "full": 25.56046565625885,
+            "roi": 20.497895502236243,
+            "ssim_roi": 0.8459023565930479,
+            "edge_mae": 0.06054142391441536,
+            "lpips_roi": 0.3196074730232723,
+            "same_operator_lr_mae": 0.006174868742888137
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": 0.0,
+              "ssim_drop": 0.0,
+              "edge_mae": 0.06054142391441536
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.0665955663058569
+            }
+          }
+        },
+        {
+          "step": 500,
+          "sha256": "5335320630b0fcacba46eebea35c9c3955ae419f5ce5d17d2e01d6e6894491f7",
+          "means": {
+            "full": 26.973378785267062,
+            "roi": 21.983736638779916,
+            "ssim_roi": 0.9131984252007861,
+            "edge_mae": 0.053091413732252866,
+            "lpips_roi": 0.28124712425393655,
+            "same_operator_lr_mae": 0.004301386524593017
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -1.485841136543673,
+              "ssim_drop": -0.06729606860773818,
+              "edge_mae": 0.053091413732252866
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.0665955663058569
+            }
+          }
+        },
+        {
+          "step": 1000,
+          "sha256": "a96d3e2b4594c7990c06e67c2c69cf7422272f7712cddc075879a18d3061dc8e",
+          "means": {
+            "full": 27.155366339278203,
+            "roi": 22.203184141506345,
+            "ssim_roi": 0.9180866358436498,
+            "edge_mae": 0.05196101609663125,
+            "lpips_roi": 0.27600121712312103,
+            "same_operator_lr_mae": 0.004084275052150142
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -1.7052886392701012,
+              "ssim_drop": -0.07218427925060189,
+              "edge_mae": 0.05196101609663125
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.0665955663058569
+            }
+          }
+        },
+        {
+          "step": 1500,
+          "sha256": "5782c103d0bcabd5fa316482931f99edd53af01dd1ff8195284d5ee8b8e66846",
+          "means": {
+            "full": 27.199155076712145,
+            "roi": 22.26727045046453,
+            "ssim_roi": 0.9214060495991041,
+            "edge_mae": 0.051146938555015654,
+            "lpips_roi": 0.2728646318117778,
+            "same_operator_lr_mae": 0.004165149195386238
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -1.7693749482282861,
+              "ssim_drop": -0.0755036930060562,
+              "edge_mae": 0.051146938555015654
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.0665955663058569
+            }
+          }
+        },
+        {
+          "step": 2000,
+          "sha256": "438982359a2535219efe9dc4131fba2e8e9ec4793dad7cb23dc417d1f68a3ec4",
+          "means": {
+            "full": 27.188305570247948,
+            "roi": 22.26047005798003,
+            "ssim_roi": 0.9212436241444711,
+            "edge_mae": 0.05135144674442891,
+            "lpips_roi": 0.2711835388623762,
+            "same_operator_lr_mae": 0.00409357830734128
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -1.762574555743786,
+              "ssim_drop": -0.07534126755142323,
+              "edge_mae": 0.05135144674442891
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.0665955663058569
+            }
+          }
+        },
+        {
+          "step": 2500,
+          "sha256": "61c62f5c1d4f88393e2f1f2d02b8c416f65db8922108b8ffe64c5360d0421d90",
+          "means": {
+            "full": 27.178893557503727,
+            "roi": 22.240727967457303,
+            "ssim_roi": 0.9229752230987537,
+            "edge_mae": 0.051174313218478915,
+            "lpips_roi": 0.26950820715385765,
+            "same_operator_lr_mae": 0.004358605828141056
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -1.7428324652210598,
+              "ssim_drop": -0.07707286650570577,
+              "edge_mae": 0.051174313218478915
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.0665955663058569
+            }
+          }
+        },
+        {
+          "step": 3000,
+          "sha256": "1df979a7531b356149927610a954a4bc576144d475a2766e09bed2ba3d5ffa80",
+          "means": {
+            "full": 27.297423785223017,
+            "roi": 22.373669106692923,
+            "ssim_roi": 0.9244238485746523,
+            "edge_mae": 0.05039696147523857,
+            "lpips_roi": 0.26863695681369043,
+            "same_operator_lr_mae": 0.00400808373204057
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -1.875773604456679,
+              "ssim_drop": -0.07852149198160441,
+              "edge_mae": 0.05039696147523857
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.0665955663058569
+            }
+          }
+        },
+        {
+          "step": 3500,
+          "sha256": "23a447527e60f367d7cd23a588a65afc9ece17713d03a0a449ce4942633db81f",
+          "means": {
+            "full": 27.2707817964451,
+            "roi": 22.329871191636826,
+            "ssim_roi": 0.9229361738096558,
+            "edge_mae": 0.05106627517425474,
+            "lpips_roi": 0.268717729008994,
+            "same_operator_lr_mae": 0.003991232120468197
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -1.8319756894005828,
+              "ssim_drop": -0.07703381721660785,
+              "edge_mae": 0.05106627517425474
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.0665955663058569
+            }
+          }
+        },
+        {
+          "step": 4000,
+          "sha256": "04eceeb3f2b62d548c8ab52c1a4ff3be06b02c6a9f0b029d5477f3cfbd02a6bb",
+          "means": {
+            "full": 27.307434935412832,
+            "roi": 22.370873457553987,
+            "ssim_roi": 0.9242954794755753,
+            "edge_mae": 0.05059511267041386,
+            "lpips_roi": 0.2678569526877254,
+            "same_operator_lr_mae": 0.003982266361344955
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -1.8729779553177437,
+              "ssim_drop": -0.07839312288252742,
+              "edge_mae": 0.05059511267041386
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.0665955663058569
+            }
+          }
+        },
+        {
+          "step": 4500,
+          "sha256": "5ace32dc668dfdd6cddcb502489a6badc394e2000ae869c8077f41be2bb8067f",
+          "means": {
+            "full": 27.291293181261388,
+            "roi": 22.36098430191764,
+            "ssim_roi": 0.9246050817015417,
+            "edge_mae": 0.050614114491013336,
+            "lpips_roi": 0.26704827784925844,
+            "same_operator_lr_mae": 0.003999503850144381
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -1.863088799681396,
+              "ssim_drop": -0.07870272510849374,
+              "edge_mae": 0.050614114491013336
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.0665955663058569
+            }
+          }
+        },
+        {
+          "step": 5000,
+          "sha256": "89944e97d8aff2afcc546c910e945c6ce5b9938676b17741403d6ea3e6151186",
+          "means": {
+            "full": 27.258098210343547,
+            "roi": 22.321719704394678,
+            "ssim_roi": 0.9240103092482861,
+            "edge_mae": 0.05075851618882963,
+            "lpips_roi": 0.2669810053581993,
+            "same_operator_lr_mae": 0.004111381897168673
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -1.823824202158434,
+              "ssim_drop": -0.07810795265523818,
+              "edge_mae": 0.05075851618882963
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.0665955663058569
+            }
+          }
+        },
+        {
+          "step": 5500,
+          "sha256": "7f574eb933a15a8671a995ecd7d4db3915f10a7fba6625785e8433446003bc72",
+          "means": {
+            "full": 27.321964087330123,
+            "roi": 22.39252378819176,
+            "ssim_roi": 0.9247556367268165,
+            "edge_mae": 0.05054573252176245,
+            "lpips_roi": 0.26718526092887507,
+            "same_operator_lr_mae": 0.003972020145067968
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -1.8946282859555161,
+              "ssim_drop": -0.07885328013376858,
+              "edge_mae": 0.05054573252176245
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.0665955663058569
+            }
+          }
+        },
+        {
+          "step": 6000,
+          "sha256": "2f1b18981d7357a77cbdc459ef656f9c16bedbac432ba1efeef47bbbfa9ee125",
+          "means": {
+            "full": 27.28096821691164,
+            "roi": 22.35025553533167,
+            "ssim_roi": 0.9248539895367096,
+            "edge_mae": 0.05053047194332797,
+            "lpips_roi": 0.26675264635305923,
+            "same_operator_lr_mae": 0.004133954735384488
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -1.852360033095426,
+              "ssim_drop": -0.0789516329436617,
+              "edge_mae": 0.05053047194332797
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.0665955663058569
+            }
+          }
+        }
+      ]
+    },
+    {
+      "arm": "realpsnr",
+      "file": "selection_realpsnr.json",
+      "sha256": "cf4d6cc31bc0c1643efedad9684f8804ed07ce1ff3660b55f738b760dbf38d53",
+      "checkpoint": {
+        "file": "best_perceptual.pt",
+        "sha256": "889e5b7dce5caf4352c66699c1498988632f841d57d9b5c05a640527b5a0b25e",
+        "model": "swinir_real_psnr_x4",
+        "step": 6000
+      },
+      "training_run": "training/swinir_real_psnr_x4",
+      "training_protocol": "swinir_real_psnr_x4_training_protocol.json",
+      "training_final6000_sha256": "ab00ee400e6d100da7c280c0a9a8fb641bc79f259ebe45ca8b399f1dee6b1f44",
+      "validation_anchor": {
+        "full": 24.133681711831013,
+        "roi": 19.078308764912382,
+        "ssim_roi": 0.8620677278760601,
+        "edge_mae": 0.06405324514261355,
+        "lpips_roi": 0.3572616553737544,
+        "same_operator_lr_mae": 0.014071279207664524
+      },
+      "selected_validation": {
+        "step": 6000,
+        "sha256": "0aa14b177699fd1af3157a214459ad7ae6a46f423286b09644c37e21e9473a6e",
+        "means": {
+          "full": 26.226724619978874,
+          "roi": 21.2042047729158,
+          "ssim_roi": 0.9027073520984428,
+          "edge_mae": 0.05607149680807054,
+          "lpips_roi": 0.28159322783935303,
+          "same_operator_lr_mae": 0.0053529147099242455
+        },
+        "gate": {
+          "passed": true,
+          "checks": {
+            "roi": true,
+            "ssim": true,
+            "edge": true
+          },
+          "observed": {
+            "roi_psnr_drop_db": -2.1258960080034193,
+            "ssim_drop": -0.04063962422238265,
+            "edge_mae": 0.05607149680807054
+          },
+          "limits": {
+            "roi_psnr_drop_db": 0.15,
+            "ssim_drop": 0.01,
+            "edge_mae": 0.07045856965687491
+          }
+        }
+      },
+      "validation_history": [
+        {
+          "step": 0,
+          "sha256": "8b47b92aeae342acae92362e382f0b3e3d80fdc802de2bfa9346eca35cda5e42",
+          "means": {
+            "full": 24.133681711831013,
+            "roi": 19.078308764912382,
+            "ssim_roi": 0.8620677278760601,
+            "edge_mae": 0.06405324514261355,
+            "lpips_roi": 0.3572616553737544,
+            "same_operator_lr_mae": 0.014071279207664524
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": 0.0,
+              "ssim_drop": 0.0,
+              "edge_mae": 0.06405324514261355
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.07045856965687491
+            }
+          }
+        },
+        {
+          "step": 500,
+          "sha256": "5721033acfc53ead9cbc98974459eebcfdfa02eacfc0ff5eddc3355f7f2fa16c",
+          "means": {
+            "full": 25.946904780522317,
+            "roi": 20.931265485550192,
+            "ssim_roi": 0.8957288408323246,
+            "edge_mae": 0.057189731486598214,
+            "lpips_roi": 0.3147611378582523,
+            "same_operator_lr_mae": 0.006328438870111188
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -1.8529567206378097,
+              "ssim_drop": -0.033661112956264505,
+              "edge_mae": 0.057189731486598214
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.07045856965687491
+            }
+          }
+        },
+        {
+          "step": 1000,
+          "sha256": "91b25bd3346a49677d8d2650b5c09a0ca9d5f5b2c00423f2fbf4f8fadc5a0527",
+          "means": {
+            "full": 26.038065258412487,
+            "roi": 21.009849123402557,
+            "ssim_roi": 0.8986170693611105,
+            "edge_mae": 0.05690274397162355,
+            "lpips_roi": 0.30877809816076623,
+            "same_operator_lr_mae": 0.005925673156561256
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -1.9315403584901745,
+              "ssim_drop": -0.0365493414850504,
+              "edge_mae": 0.05690274397162355
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.07045856965687491
+            }
+          }
+        },
+        {
+          "step": 1500,
+          "sha256": "f7c65bf7972d819b96658b3e9bcc71a11beae596e24539c29d28f701453dae88",
+          "means": {
+            "full": 26.16578754256427,
+            "roi": 21.124767014536285,
+            "ssim_roi": 0.8977208060413306,
+            "edge_mae": 0.056603177729765794,
+            "lpips_roi": 0.30694069754259257,
+            "same_operator_lr_mae": 0.005519255901419776
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -2.046458249623903,
+              "ssim_drop": -0.035653078165270524,
+              "edge_mae": 0.056603177729765794
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.07045856965687491
+            }
+          }
+        },
+        {
+          "step": 2000,
+          "sha256": "6e56e5dbf7c979e09898df9b5e94a4ab786ccbcde190a201759f9631411f9064",
+          "means": {
+            "full": 26.098137343434924,
+            "roi": 21.067700680810646,
+            "ssim_roi": 0.9004149450025722,
+            "edge_mae": 0.056653478914442675,
+            "lpips_roi": 0.30157007042355105,
+            "same_operator_lr_mae": 0.005700582423599497
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -1.9893919158982634,
+              "ssim_drop": -0.03834721712651212,
+              "edge_mae": 0.056653478914442675
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.07045856965687491
+            }
+          }
+        },
+        {
+          "step": 2500,
+          "sha256": "0a57e776f89384b924907a53a2100cac8d5acaf3ec062e534feda89f81d0b20a",
+          "means": {
+            "full": 26.22281934773422,
+            "roi": 21.198363723111456,
+            "ssim_roi": 0.9020317783469662,
+            "edge_mae": 0.05595659176937724,
+            "lpips_roi": 0.30118375817478144,
+            "same_operator_lr_mae": 0.005429638211781447
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -2.1200549581990735,
+              "ssim_drop": -0.03996405047090612,
+              "edge_mae": 0.05595659176937724
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.07045856965687491
+            }
+          }
+        },
+        {
+          "step": 3000,
+          "sha256": "6993df1b1f79391263c027f252a070ec508c5edd47dd3d4baf0f496b1e18b076",
+          "means": {
+            "full": 26.240200271226605,
+            "roi": 21.206684491129558,
+            "ssim_roi": 0.9026703639869013,
+            "edge_mae": 0.055901855758309145,
+            "lpips_roi": 0.29942845435466103,
+            "same_operator_lr_mae": 0.005380062984505796
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -2.1283757262171754,
+              "ssim_drop": -0.04060263611084114,
+              "edge_mae": 0.055901855758309145
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.07045856965687491
+            }
+          }
+        },
+        {
+          "step": 3500,
+          "sha256": "98a3ed204954536220db1e1bd05f082358954f213827cf09ac93a2d027ab33af",
+          "means": {
+            "full": 26.166626275955373,
+            "roi": 21.11216137412599,
+            "ssim_roi": 0.9005180117838523,
+            "edge_mae": 0.056552025381311335,
+            "lpips_roi": 0.29916457652625644,
+            "same_operator_lr_mae": 0.0053761586429911905
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -2.033852609213607,
+              "ssim_drop": -0.03845028390779215,
+              "edge_mae": 0.056552025381311335
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.07045856965687491
+            }
+          }
+        },
+        {
+          "step": 4000,
+          "sha256": "e41057e6cc22a34ba482fff6a64d4d0c2de0827446bb5c9c1ba4150219eba0c0",
+          "means": {
+            "full": 26.274248973143344,
+            "roi": 21.22848782498962,
+            "ssim_roi": 0.9020721074120671,
+            "edge_mae": 0.055728818250445684,
+            "lpips_roi": 0.29900082698566655,
+            "same_operator_lr_mae": 0.005214356779084911
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -2.150179060077239,
+              "ssim_drop": -0.040004379536006995,
+              "edge_mae": 0.055728818250445684
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.07045856965687491
+            }
+          }
+        },
+        {
+          "step": 4500,
+          "sha256": "2e46572188728c2997c626f86938dc365bfade89b212d94259bf0d3d902e3292",
+          "means": {
+            "full": 26.22185761288483,
+            "roi": 21.188997839313252,
+            "ssim_roi": 0.9019893300701298,
+            "edge_mae": 0.05619519919627255,
+            "lpips_roi": 0.2873779088277004,
+            "same_operator_lr_mae": 0.005365467898966516
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -2.11068907440087,
+              "ssim_drop": -0.039921602194069705,
+              "edge_mae": 0.05619519919627255
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.07045856965687491
+            }
+          }
+        },
+        {
+          "step": 5000,
+          "sha256": "98551becf25818023616aa7a981e46a7f6eb20a811fa3ce4a909a3b4b617b717",
+          "means": {
+            "full": 26.204166501970054,
+            "roi": 21.170588127851122,
+            "ssim_roi": 0.9012994424275615,
+            "edge_mae": 0.05643091249558162,
+            "lpips_roi": 0.2847358937649166,
+            "same_operator_lr_mae": 0.00534908223728017
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -2.09227936293874,
+              "ssim_drop": -0.03923171455150143,
+              "edge_mae": 0.05643091249558162
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.07045856965687491
+            }
+          }
+        },
+        {
+          "step": 5500,
+          "sha256": "b6e226bae9774baac56a7af97b481a594b260d0f5a0ff9a29f6dbd9d8730ac89",
+          "means": {
+            "full": 26.26757954667526,
+            "roi": 21.239006836621943,
+            "ssim_roi": 0.9021828244641131,
+            "edge_mae": 0.056096444492611815,
+            "lpips_roi": 0.28336469291471966,
+            "same_operator_lr_mae": 0.005226093627953007
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -2.160698071709561,
+              "ssim_drop": -0.04011509658805301,
+              "edge_mae": 0.056096444492611815
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.07045856965687491
+            }
+          }
+        },
+        {
+          "step": 6000,
+          "sha256": "0aa14b177699fd1af3157a214459ad7ae6a46f423286b09644c37e21e9473a6e",
+          "means": {
+            "full": 26.226724619978874,
+            "roi": 21.2042047729158,
+            "ssim_roi": 0.9027073520984428,
+            "edge_mae": 0.05607149680807054,
+            "lpips_roi": 0.28159322783935303,
+            "same_operator_lr_mae": 0.0053529147099242455
+          },
+          "gate": {
+            "passed": true,
+            "checks": {
+              "roi": true,
+              "ssim": true,
+              "edge": true
+            },
+            "observed": {
+              "roi_psnr_drop_db": -2.1258960080034193,
+              "ssim_drop": -0.04063962422238265,
+              "edge_mae": 0.05607149680807054
+            },
+            "limits": {
+              "roi_psnr_drop_db": 0.15,
+              "ssim_drop": 0.01,
+              "edge_mae": 0.07045856965687491
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "freeze_code_sha256": "5d0c042be5887b3e734f4be37d88884b2d82ef059fc3272d8d165d413b8753fb",
+  "scope": "Revised prospective comparison: reconstruction-only classical fidelity candidate vs original real-PSNR perceptual candidate. Rejected classical perceptual result retained separately. No test-based reselection.",
+  "sample_limit": {
+    "training_aircraft": 385,
+    "training_locations": 20,
+    "validation_aircraft": 61,
+    "validation_locations": 4,
+    "native_panel_count": 29,
+    "native_hr_truth_available": false,
+    "blind_visual_review": false
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "completed": true,
+  "reviewed_at_utc": "2026-10-05T13:20:19.547207+00:00",
+  "blind_review": false,
+  "reviewer": "root actual model-assisted image inspection",
+  "test_used_for_selection": false,
+  "reviewed_fixed_ids": [
+    24900,
+    27300,
+    27700,
+    28200,
+    30600
+  ],
+  "summary": "先在29张固定原生与8张验证全图复核两候选，再对最终GPU输出的固定五张与测试前选定的4地点×2退化完整图实际查看。配对测试的总体指标有提升，固定原生五张主要是轮廓、平滑度和伪纹理变化，相对B20并非每张肉眼明显更好。无原生高清真值，不认定新增细节真实。",
+  "per_sample": [
+    {
+      "id": 24900,
+      "observation": "三种方法均保留斜向机身及右侧明暗边界；纯重建没有原感知路线的细斜纹。相对B20未见稳定的细节优势，机身内部仍平滑。"
+    },
+    {
+      "id": 27300,
+      "observation": "完整翼身轮廓保留。纯重建右下暗点更强，real-PSNR尾端更柔和；这些变化没有高清真值可认证，不能把暗点解释成真实部件。"
+    },
+    {
+      "id": 27700,
+      "observation": "纯重建翼缘和尾翼较整齐，real-PSNR尾端略软；与B20相比锐度提升不一致。白色机身内部仍接近均匀色块。"
+    },
+    {
+      "id": 28200,
+      "observation": "长机身与横向翼面连续，纯重建较原初始化清楚；B20也保留了主要轮廓。real-PSNR下方亮区略膨胀，不认定新纹理为真。"
+    },
+    {
+      "id": 30600,
+      "observation": "主机体、机翼和右下邻机均保持在完整视野；三者主要区别在轮廓、阴影和平滑程度。没有证据证明恢复了舱窗、发动机等真实细节。"
+    }
+  ],
+  "paired_test_observations": {
+    "rare_location_52": "新模型与B20均改善双三次的主体边缘；新模型地面与机体更平滑，HR中的地面细纹仍大量缺失。",
+    "rare_location_53": "B20部分边缘更锐；新模型的亮机身及暗投影较平滑，不能因均值更高就称这一例视觉全面胜出。",
+    "rare_location_6": "白色主体和细长部分可辨性优于双三次，但主体内部仍平滑，小部件与HR有差别。",
+    "rare_location_97": "尾翼及机翼边界较双三次清楚，B20也有类似改进；新模型没有补全HR的全部细节。"
+  },
+  "test_selection_rule": "one lexicographically first object per test location, fixed before test",
+  "figure_sha256": {
+    "v5_paired_test_clean.png": "0b0ba1ab8e9700fdfd5a20c3154a26efb5bc5ca1778c36e957dbc5bea1394190",
+    "v5_paired_test_sensor.png": "2ba58b80a5ab9b1070877a4fd3288090593a4daa026a6acdc444739e0839c6ac",
+    "v5_loss_visual_ablation.png": "6bb1cfea5f90d881b2652073aa092f701f78097ae33c67547e1841c59b9f14d4"
+  },
+  "native_preview_gpu_agreement": {
+    "classical_24900": {
+      "max_uint8_difference": 0,
+      "mean_uint8_difference": 0.0
+    },
+    "realpsnr_24900": {
+      "max_uint8_difference": 0,
+      "mean_uint8_difference": 0.0
+    },
+    "classical_27300": {
+      "max_uint8_difference": 0,
+      "mean_uint8_difference": 0.0
+    },
+    "realpsnr_27300": {
+      "max_uint8_difference": 0,
+      "mean_uint8_difference": 0.0
+    },
+    "classical_27700": {
+      "max_uint8_difference": 1,
+      "mean_uint8_difference": 5.208333333333334e-05
+    },
+    "realpsnr_27700": {
+      "max_uint8_difference": 0,
+      "mean_uint8_difference": 0.0
+    },
+    "classical_28200": {
+      "max_uint8_difference": 0,
+      "mean_uint8_difference": 0.0
+    },
+    "realpsnr_28200": {
+      "max_uint8_difference": 0,
+      "mean_uint8_difference": 0.0
+    },
+    "classical_30600": {
+      "max_uint8_difference": 0,
+      "mean_uint8_difference": 0.0
+    },
+    "realpsnr_30600": {
+      "max_uint8_difference": 1,
+      "mean_uint8_difference": 0.00010416666666666667
+    }
+  }
+}

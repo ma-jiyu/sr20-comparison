@@ -1,0 +1,17 @@
+{
+  "schema_version": "v5.source_archive_verification.1",
+  "zip": "D:\\超分实验\\飞机超分突破诊断_20261005\\reproduction.zip",
+  "zip_sha256": "02d349ccb7eccf341d418e27b47bfe513aa891ec16c63b1f05206eaa749af048",
+  "zip_bytes": 2108007,
+  "manifest_sha256": "958977ec7b791310cde6af4c6979a3cde228dd670210e68d03f711cd6bdb58f1",
+  "member_count": 94,
+  "payload_member_count": 93,
+  "zip_crc_all_passed": true,
+  "all_extracted_bytes_sha256_passed": true,
+  "source_files_unchanged": true,
+  "training_code_bindings_verified": 25,
+  "credential_pattern_scan_passed": true,
+  "scan_limit": "Bounded allowlist plus private-key/common-token-pattern checks; not a universal secret detector.",
+  "clean_environment_reproduction_performed": false,
+  "test_image_payloads_read": false
+}

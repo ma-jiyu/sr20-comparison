@@ -1,0 +1,269 @@
+{
+  "version": 5,
+  "complete": true,
+  "target_column": "native/research-v5",
+  "not_published": true,
+  "final_summary_sha256": "514dcab7ef28f4ca1506d6315414c5e47328e04334a16c291d7ef8e2164fc773",
+  "test_used_for_selection": false,
+  "test_pairs": 78,
+  "test_cases": 156,
+  "test_locations": 4,
+  "metric_spec": "trainer_v5:RGB80;shave4;valid/diamondROI;structural_gray11;VGG_plane_crop224;samePILbicubicLR;prePNG_float_prediction",
+  "data_manifest_sha256": "344914c935fc08b757ccb23adb176d3f0bf00a5500aa21565f97697c8d4c2d86",
+  "input_size": [
+    20,
+    20
+  ],
+  "effective_grid": [
+    80,
+    80
+  ],
+  "display_only_grid": [
+    400,
+    400
+  ],
+  "native_images_per_candidate": 8000,
+  "verified_native_pngs_per_candidate": 16000,
+  "fixed_ids": [
+    24900,
+    27300,
+    27700,
+    28200,
+    30600
+  ],
+  "rows": [
+    {
+      "method": "bicubic",
+      "label": "双三次插值",
+      "training_steps": 0,
+      "weight_node": "无学习参数",
+      "means": {
+        "full": 21.854746107652545,
+        "roi": 18.942319085316075,
+        "ssim_roi": 0.7145180371066245,
+        "edge_mae": 0.06843711408729966,
+        "lpips_roi": 0.4443881797621059,
+        "same_operator_lr_mae": 0.01676619504754819
+      }
+    },
+    {
+      "method": "old",
+      "label": "原有 C20 模型",
+      "training_steps": 0,
+      "weight_node": "历史固定权重",
+      "means": {
+        "full": 23.522576624421834,
+        "roi": 20.589638566130027,
+        "ssim_roi": 0.8210381909122106,
+        "edge_mae": 0.06242300956738688,
+        "lpips_roi": 0.3854386927175377,
+        "same_operator_lr_mae": 0.009665242383886576
+      }
+    },
+    {
+      "method": "B20",
+      "label": "B_real · 20,000步",
+      "training_steps": 0,
+      "weight_node": "历史第 20,000 步",
+      "means": {
+        "full": 23.93951242208292,
+        "roi": 21.02999464031148,
+        "ssim_roi": 0.8499297437073211,
+        "edge_mae": 0.05995409156423423,
+        "lpips_roi": 0.35255087248299755,
+        "same_operator_lr_mae": 0.009797925402191283
+      }
+    },
+    {
+      "method": "B30",
+      "label": "B_real · 30,000步",
+      "training_steps": 0,
+      "weight_node": "历史第 30,000 步",
+      "means": {
+        "full": 23.73558746502118,
+        "roi": 20.831533754275817,
+        "ssim_roi": 0.8437211573068305,
+        "edge_mae": 0.06133355124910794,
+        "lpips_roi": 0.33857923690871133,
+        "same_operator_lr_mae": 0.010229996386592194
+      }
+    },
+    {
+      "method": "swinir_classical_x4_init",
+      "label": "SwinIR classical x4 · 官方初始",
+      "training_steps": 0,
+      "weight_node": "官方初始",
+      "means": {
+        "full": 24.50184309484468,
+        "roi": 21.66093024134488,
+        "ssim_roi": 0.8403834683146315,
+        "edge_mae": 0.05745372671815484,
+        "lpips_roi": 0.3535726816085181,
+        "same_operator_lr_mae": 0.00738984861574883
+      }
+    },
+    {
+      "method": "swinir_real_psnr_x4_init",
+      "label": "SwinIR real-PSNR x4 · 官方初始",
+      "training_steps": 0,
+      "weight_node": "官方初始",
+      "means": {
+        "full": 23.114465825822847,
+        "roi": 20.18349856290768,
+        "ssim_roi": 0.8300371663947042,
+        "edge_mae": 0.06158070383399576,
+        "lpips_roi": 0.4011618692454316,
+        "same_operator_lr_mae": 0.016930496972836506
+      }
+    },
+    {
+      "method": "classical",
+      "label": "SwinIR classical x4 · 实拍适配",
+      "training_steps": 6000,
+      "selected_step": 5500,
+      "weight_node": "本轮第 5,500 步",
+      "checkpoint_sha256": "103e97dc8044c03cba7f7c6a606d65941a7de56c2f29eff6b3c3cfab27643048",
+      "means": {
+        "full": 25.61441593505382,
+        "roi": 22.805340326314262,
+        "ssim_roi": 0.8810614049794283,
+        "edge_mae": 0.05186007072719341,
+        "lpips_roi": 0.3145270418444873,
+        "same_operator_lr_mae": 0.005253423675521188
+      }
+    },
+    {
+      "method": "realpsnr",
+      "label": "SwinIR real-PSNR x4 · 实拍适配",
+      "training_steps": 6000,
+      "selected_step": 6000,
+      "weight_node": "本轮第 6,000 步",
+      "checkpoint_sha256": "889e5b7dce5caf4352c66699c1498988632f841d57d9b5c05a640527b5a0b25e",
+      "means": {
+        "full": 24.735684339517597,
+        "roi": 21.866760668490283,
+        "ssim_roi": 0.861605417507167,
+        "edge_mae": 0.055788292227341024,
+        "lpips_roi": 0.34019859403536734,
+        "same_operator_lr_mae": 0.007142605225919946
+      }
+    }
+  ],
+  "conclusion": "本轮更值得继续采用的是 SwinIR classical x4 实拍纯重建适配：在4个留出地点、78个真实参考对象的同80像素网格测试上，相比上一轮B20，区域PSNR提高1.775 dB、LPIPS误差下降10.79%、边缘误差下降13.50%；相比原有C20，区域PSNR提高2.216 dB。原感知支路因新增条纹被否决，完整保留负例。原生固定五张尚无一致的明显细节优势，不能将上述配对测试收益等同于真实20倍细节恢复。",
+  "visual_review": {
+    "completed": true,
+    "reviewed_at_utc": "2026-10-05T13:20:19.547207+00:00",
+    "blind_review": false,
+    "reviewer": "root actual model-assisted image inspection",
+    "test_used_for_selection": false,
+    "reviewed_fixed_ids": [
+      24900,
+      27300,
+      27700,
+      28200,
+      30600
+    ],
+    "summary": "先在29张固定原生与8张验证全图复核两候选，再对最终GPU输出的固定五张与测试前选定的4地点×2退化完整图实际查看。配对测试的总体指标有提升，固定原生五张主要是轮廓、平滑度和伪纹理变化，相对B20并非每张肉眼明显更好。无原生高清真值，不认定新增细节真实。",
+    "per_sample": [
+      {
+        "id": 24900,
+        "observation": "三种方法均保留斜向机身及右侧明暗边界；纯重建没有原感知路线的细斜纹。相对B20未见稳定的细节优势，机身内部仍平滑。"
+      },
+      {
+        "id": 27300,
+        "observation": "完整翼身轮廓保留。纯重建右下暗点更强，real-PSNR尾端更柔和；这些变化没有高清真值可认证，不能把暗点解释成真实部件。"
+      },
+      {
+        "id": 27700,
+        "observation": "纯重建翼缘和尾翼较整齐，real-PSNR尾端略软；与B20相比锐度提升不一致。白色机身内部仍接近均匀色块。"
+      },
+      {
+        "id": 28200,
+        "observation": "长机身与横向翼面连续，纯重建较原初始化清楚；B20也保留了主要轮廓。real-PSNR下方亮区略膨胀，不认定新纹理为真。"
+      },
+      {
+        "id": 30600,
+        "observation": "主机体、机翼和右下邻机均保持在完整视野；三者主要区别在轮廓、阴影和平滑程度。没有证据证明恢复了舱窗、发动机等真实细节。"
+      }
+    ],
+    "paired_test_observations": {
+      "rare_location_52": "新模型与B20均改善双三次的主体边缘；新模型地面与机体更平滑，HR中的地面细纹仍大量缺失。",
+      "rare_location_53": "B20部分边缘更锐；新模型的亮机身及暗投影较平滑，不能因均值更高就称这一例视觉全面胜出。",
+      "rare_location_6": "白色主体和细长部分可辨性优于双三次，但主体内部仍平滑，小部件与HR有差别。",
+      "rare_location_97": "尾翼及机翼边界较双三次清楚，B20也有类似改进；新模型没有补全HR的全部细节。"
+    },
+    "test_selection_rule": "one lexicographically first object per test location, fixed before test",
+    "figure_sha256": {
+      "v5_paired_test_clean.png": "0b0ba1ab8e9700fdfd5a20c3154a26efb5bc5ca1778c36e957dbc5bea1394190",
+      "v5_paired_test_sensor.png": "2ba58b80a5ab9b1070877a4fd3288090593a4daa026a6acdc444739e0839c6ac",
+      "v5_loss_visual_ablation.png": "6bb1cfea5f90d881b2652073aa092f701f78097ae33c67547e1841c59b9f14d4"
+    },
+    "native_preview_gpu_agreement": {
+      "classical_24900": {
+        "max_uint8_difference": 0,
+        "mean_uint8_difference": 0.0
+      },
+      "realpsnr_24900": {
+        "max_uint8_difference": 0,
+        "mean_uint8_difference": 0.0
+      },
+      "classical_27300": {
+        "max_uint8_difference": 0,
+        "mean_uint8_difference": 0.0
+      },
+      "realpsnr_27300": {
+        "max_uint8_difference": 0,
+        "mean_uint8_difference": 0.0
+      },
+      "classical_27700": {
+        "max_uint8_difference": 1,
+        "mean_uint8_difference": 5.208333333333334e-05
+      },
+      "realpsnr_27700": {
+        "max_uint8_difference": 0,
+        "mean_uint8_difference": 0.0
+      },
+      "classical_28200": {
+        "max_uint8_difference": 0,
+        "mean_uint8_difference": 0.0
+      },
+      "realpsnr_28200": {
+        "max_uint8_difference": 0,
+        "mean_uint8_difference": 0.0
+      },
+      "classical_30600": {
+        "max_uint8_difference": 0,
+        "mean_uint8_difference": 0.0
+      },
+      "realpsnr_30600": {
+        "max_uint8_difference": 1,
+        "mean_uint8_difference": 0.00010416666666666667
+      }
+    }
+  },
+  "data_summary": [
+    "使用 RarePlanes 实拍影像，按场景及全球坐标去重后得到524个标注对象，剔除69个重叠切片重复记录。4倍任务划分为385训练、61验证、78测试对象，分别来自20、4、4个不重叠地点。",
+    "高清参考为原生影像裁切或缩小形成的80×80图像，再计算生成20×20低清输入；飞机长边约占13–18个输入像素。本轮不使用AI生成图。按地点均衡采样，再按对象均衡采样；在线旋转、翻转及曝光变化不算新增独立样本。",
+    "本轮排除了旧RarePlanes九个地点及官方测试地点，但未完全排除与旧DOTA/PlanesNet的地理交叉，也不能保证跨日期标注来自不同实体飞机。官方菱形标注包含背景，且边缘可能留有少量邻机片段。"
+  ],
+  "method_summary": [
+    "比较官方 SwinIR classical x4 与 real-PSNR x4 初始化，固定 FP32、有效批量8、随机种子1005、Adam起始学习率3e-5及余弦衰减，每500步验证。每个运行完成6000次优化更新；这是受控领域适配试验，不声称已充分收敛。",
+    "最初两组采用4000步重建与2000步感知适配；经典模型的验证LPIPS改善，但29张原生固定样本复核发现新增细密斜纹，因此该候选被否决并保留全部记录。随后另行冻结6000步纯重建对照，保持数据、初始化、采样、增强和学习率不变，只移除后2000步训练中的感知项。",
+    "所有低清输入由真实高清参考计算得到。训练目标为有效区域与飞机ROI加权L1及0.05倍边缘损失；原感知阶段附加0.03倍VGG-LPIPS。新纯重建候选按验证ROI-PSNR选择，real-PSNR候选按结构门槛内的验证LPIPS选择，均需实际目视门槛后再冻结。测试不用于重选或改权重。",
+    "学习输出为80×80。网站400×400图仅将80×80结果双三次插值用于展示，不能称为恢复了20倍真实细节。旧C20和B模型先按原流程生成，再统一缩至80×80进行同网格比较。",
+    "独立测试结果按地点等权，四个地点的主比较ROI与LPIPS方向均改善。相对B20：clean区域PSNR +2.073 dB、LPIPS下降13.55%；sensor +1.478 dB、LPIPS下降8.17%。合并ROI差的地点bootstrap 95%区间约[1.279,2.074] dB；只有4地点，该区间仅作描述性估计。",
+    "相对同架构官方初始化，测试区域PSNR提高1.144 dB、LPIPS下降11.04%；但clean同算子低清误差增加0.000885，故不声称所有指标都变好。",
+    "旧测量审计显示：生成低清采用PIL bicubic，而部分旧一致性检查采用area，完美高清参考也产生非零误差。新评估统一算子；历史数据完整保留，不改写原实验结论。",
+    "6000步同预算损失对照的前4000步逐例指标和训练日志完全一致；去掉最后2000步感知项后，已发现的四个条纹负例明显减轻，验证LPIPS反而变差约0.02821。该结果支持结构保真与感知分数分开判断，不证明所有伪影均来自某一种算子。"
+  ],
+  "limitations": [
+    "独立模型测试仅覆盖4个留出地点、78个实拍参考对象。clean与sensor两种退化相关，156次结果不能视为156个独立样本。地点bootstrap仅作描述性不确定性估计。",
+    "计算退化的sensor模型未经过PlanetScope真实光学PSF标定。有真实高清参考的计算降采样结果，不能直接等价为原生PlanesNet影像的真实超分精度。",
+    "原生20×20飞机没有对应高清真值。完整8000张推理和逐文件审计证明交付覆盖与文件完整性，不能证明8000张都改善；固定29张的目视复核有标签可见，属于模型辅助评审而非盲测或人工专家结论。",
+    "两个官方SwinIR预训练模型的上采样结构也不同，因此它们的差异不能仅归因于退化先验。纯重建对照与同初始化的原感知组才用于检验训练损失变化。",
+    "旧实验协议、训练预算与结果完整保留。未把旧验证或测试样本加入训练，未将在线增强或重复切片视作新增独立飞机。",
+    "单随机种子试验，尚未在新环境重新完整复现；代码与数据清单归档不等于跨环境重复实验证明。",
+    "网站遵守已有浏览器安全阻断，采用静态内容、图片、链接与线上字节核验；不声称完成浏览器交互渲染测试。"
+  ],
+  "display_note": "400px is bicubic presentation interpolation of the learned80px result; native20px has no HR ground truth."
+}

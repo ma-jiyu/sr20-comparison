@@ -1,0 +1,601 @@
+{
+  "complete": true,
+  "selection_sha256": "317071774aac17263834376e1c738bab68cd5c9fb28f9554031daa46e9f027ba",
+  "config_sha256": "fac7fb1edd29d8fa67944eca1f2c46e3f42c0f2102891629d5df2b789a82832d",
+  "checkpoint": {
+    "file": "best_fidelity.pt",
+    "sha256": "103e97dc8044c03cba7f7c6a606d65941a7de56c2f29eff6b3c3cfab27643048",
+    "model": "swinir_classical_x4",
+    "step": 5500
+  },
+  "native_exact_ids": true,
+  "verified_native_pngs": 16000,
+  "verified_paired_output_pngs": 312,
+  "verified_paired_source_files": 390,
+  "verified_panel_pngs": 145,
+  "native_learned_size": [
+    80,
+    80
+  ],
+  "native_display_size": [
+    400,
+    400
+  ],
+  "all_displays_verified_as_interpolation": true,
+  "paired_group_macro": {
+    "full": 25.61441593505382,
+    "roi": 22.805340326314262,
+    "ssim_roi": 0.8810614049794283,
+    "edge_mae": 0.05186007072719341,
+    "lpips_roi": 0.3145270418444873,
+    "same_operator_lr_mae": 0.005253423675521188
+  },
+  "contrasts": [
+    {
+      "reference_file": "/XYAIFS00/HDD_POOL/sysu_xhuang/sysu_xhuang_3/majy68/sr20_20260918/research_v5_20261005/test_controls/B20/paired_test.json",
+      "reference_sha256": "9dff9046d1b3f886559b49c8d4b2f47f46cc3dbfb0df868e96dedd9de0968cb1",
+      "identity": {
+        "method": "B20",
+        "model_receipt": {
+          "name": "B20",
+          "new_training": false,
+          "weight_sha256": "d4d40ed8168bd57d0758e0cdffb7366f0e3475c2d20d3b65d8213dcbad14ac1c",
+          "checkpoint_step": 20000,
+          "strict_load": true,
+          "architecture_initial_asset_sha256": "a820b9bde89a874d7599d545567308ce6c128fc8754a53208eda016d40aa81df",
+          "prediction": "Original x20 forward, then antialiased bicubic resize to the effective GT grid"
+        },
+        "config_sha256": "a5d0d2dfe2137db1588b39f38eb247a8d1314b20518b67e613a75931f90f5562",
+        "complete_sha256": "6f8afd6b80b05f04a63fd259351d23a3ce6693203fd1899aac0002823f632d92"
+      },
+      "groups": [
+        "rare_location_52",
+        "rare_location_53",
+        "rare_location_6",
+        "rare_location_97"
+      ],
+      "draws": 10000,
+      "seed": 10052026,
+      "metrics": {
+        "full": {
+          "candidate_minus_control": 1.6749035129708991,
+          "ci95": [
+            1.1027119564231045,
+            2.0644096457400796
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "higher is better",
+          "group_differences": {
+            "rare_location_52": 0.8298973315378966,
+            "rare_location_53": 1.9211558310787282,
+            "rare_location_6": 2.1545388468466733,
+            "rare_location_97": 1.7940220424202984
+          }
+        },
+        "roi": {
+          "candidate_minus_control": 1.7753456860027867,
+          "ci95": [
+            1.279493031877446,
+            2.0736445549664806
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "higher is better",
+          "group_differences": {
+            "rare_location_52": 1.0324931553832286,
+            "rare_location_53": 2.020492661360098,
+            "rare_location_6": 2.123090646299051,
+            "rare_location_97": 1.925306280968769
+          }
+        },
+        "ssim_roi": {
+          "candidate_minus_control": 0.03113166127210723,
+          "ci95": [
+            0.027767544675182998,
+            0.03449577786903146
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "higher is better",
+          "group_differences": {
+            "rare_location_52": 0.027073700319636962,
+            "rare_location_53": 0.034859989818773696,
+            "rare_location_6": 0.03413156591928923,
+            "rare_location_97": 0.028461389030729034
+          }
+        },
+        "edge_mae": {
+          "candidate_minus_control": -0.008094020837040812,
+          "ci95": [
+            -0.009510130527337176,
+            -0.006677911146744448
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "lower is better",
+          "group_differences": {
+            "rare_location_52": -0.005947832695462493,
+            "rare_location_53": -0.007407989598026403,
+            "rare_location_6": -0.00948779170329754,
+            "rare_location_97": -0.009532469351376811
+          }
+        },
+        "lpips_roi": {
+          "candidate_minus_control": -0.038023830638510225,
+          "ci95": [
+            -0.043059249149453374,
+            -0.03159928657896037
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "lower is better",
+          "group_differences": {
+            "rare_location_52": -0.02856003425338055,
+            "rare_location_53": -0.038108868818534036,
+            "rare_location_6": -0.04071704355569983,
+            "rare_location_97": -0.04470937592642649
+          }
+        },
+        "same_operator_lr_mae": {
+          "candidate_minus_control": -0.004544501726670095,
+          "ci95": [
+            -0.006546502311142501,
+            -0.0032646751587508717
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "lower is better",
+          "group_differences": {
+            "rare_location_52": -0.003325606071898206,
+            "rare_location_53": -0.007620134390890599,
+            "rare_location_6": -0.003203744245603537,
+            "rare_location_97": -0.004028522198288037
+          }
+        }
+      },
+      "scope": "Descriptive frozen-candidate test contrast, not test-based model selection; only4heldout locations."
+    },
+    {
+      "reference_file": "/XYAIFS00/HDD_POOL/sysu_xhuang/sysu_xhuang_3/majy68/sr20_20260918/research_v5_20261005/test_controls/old/paired_test.json",
+      "reference_sha256": "bc6b39bfb9b3a4d22fa117634ed50d58faa2c6386e4ce692bae54d71a9a7087e",
+      "identity": {
+        "method": "old",
+        "model_receipt": {
+          "name": "old",
+          "new_training": false,
+          "weight_sha256": "6a302b5dd0e64a254d62ef1ed0e832534f2991c61f85aded19a703fe21b99ac1",
+          "checkpoint_step": null,
+          "strict_load": true,
+          "prediction": "Original x20 forward, then antialiased bicubic resize to the effective GT grid"
+        },
+        "config_sha256": "eddefa8b3b16d7987aa30a0193caa20048b30e70011693fe77900171e57d1d5a",
+        "complete_sha256": "6f8afd6b80b05f04a63fd259351d23a3ce6693203fd1899aac0002823f632d92"
+      },
+      "groups": [
+        "rare_location_52",
+        "rare_location_53",
+        "rare_location_6",
+        "rare_location_97"
+      ],
+      "draws": 10000,
+      "seed": 10052026,
+      "metrics": {
+        "full": {
+          "candidate_minus_control": 2.0918393106319844,
+          "ci95": [
+            1.3135417196653592,
+            2.8701369015986096
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "higher is better",
+          "group_differences": {
+            "rare_location_52": 1.1863392410413311,
+            "rare_location_53": 1.4407441982893872,
+            "rare_location_6": 3.2126467377318733,
+            "rare_location_97": 2.527627065465346
+          }
+        },
+        "roi": {
+          "candidate_minus_control": 2.215701760184234,
+          "ci95": [
+            1.4241619149185638,
+            3.007241605449904
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "higher is better",
+          "group_differences": {
+            "rare_location_52": 1.4144431750344353,
+            "rare_location_53": 1.4338806548026923,
+            "rare_location_6": 3.323604503773158,
+            "rare_location_97": 2.6908787071266502
+          }
+        },
+        "ssim_roi": {
+          "candidate_minus_control": 0.06002321406721764,
+          "ci95": [
+            0.04636608620294541,
+            0.07574929427225277
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "higher is better",
+          "group_differences": {
+            "rare_location_52": 0.05099301446567883,
+            "rare_location_53": 0.04173915794021199,
+            "rare_location_6": 0.08400138754111075,
+            "rare_location_97": 0.06335929632186899
+          }
+        },
+        "edge_mae": {
+          "candidate_minus_control": -0.010562938840193464,
+          "ci95": [
+            -0.01451242356509953,
+            -0.006613454115287399
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "lower is better",
+          "group_differences": {
+            "rare_location_52": -0.007714447311379699,
+            "rare_location_53": -0.005512460919195099,
+            "rare_location_6": -0.01561755070892664,
+            "rare_location_97": -0.013407296421272419
+          }
+        },
+        "lpips_roi": {
+          "candidate_minus_control": -0.07091165087305037,
+          "ci95": [
+            -0.0834744149348238,
+            -0.05830978266113289
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "lower is better",
+          "group_differences": {
+            "rare_location_52": -0.05069881000302057,
+            "rare_location_53": -0.06599896361953334,
+            "rare_location_6": -0.08114270063546986,
+            "rare_location_97": -0.08580612923417774
+          }
+        },
+        "same_operator_lr_mae": {
+          "candidate_minus_control": -0.0044118187083653886,
+          "ci95": [
+            -0.005128073830838504,
+            -0.003695563585892274
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "lower is better",
+          "group_differences": {
+            "rare_location_52": -0.0038658629531379447,
+            "rare_location_53": -0.005263757628486737,
+            "rare_location_6": -0.0035252642186466036,
+            "rare_location_97": -0.004992390033190271
+          }
+        }
+      },
+      "scope": "Descriptive frozen-candidate test contrast, not test-based model selection; only4heldout locations."
+    },
+    {
+      "reference_file": "/XYAIFS00/HDD_POOL/sysu_xhuang/sysu_xhuang_3/majy68/sr20_20260918/research_v5_20261005/test_controls/swinir_classical_x4_init/paired_test.json",
+      "reference_sha256": "b101f93c9417753c4e967b40b6d68cb788abe8f69ecc03f0aaf9a7fe6fe3e3e6",
+      "identity": {
+        "method": "swinir_classical_x4_init",
+        "model_receipt": {
+          "name": "swinir_classical_x4",
+          "learned_scale": 4,
+          "commit": "6545850fbf8df298df73d81f3e8cba638787c8bd",
+          "architecture_sha256": "9e143898679ebeebc5d2fc94ad1b89c38aa4a4d43da4e0fcba0f93e476994913",
+          "checkpoint_sha256": "4e78e33f22c1aa8a773db0cf4a7381bae97c2362c717f155439ebc690cbd9215",
+          "state_key": "params",
+          "strict_load": true,
+          "state_entries": 550,
+          "parameters": 11900199,
+          "training_distribution": "DF2K bicubic classical SR; not aircraft-specific",
+          "padding": "Official main_test_swinir.py right/bottom flipped-concatenation padding to the next window, including one extra window when divisible; crop exact original field afterward",
+          "adapted": false,
+          "prediction": "Official pretrained x4 output on the native effective80px grid"
+        },
+        "config_sha256": "037211ed33fab8d43b45cbf969baa5890fcc8adba67ab911d65e0d81db78cd5c",
+        "complete_sha256": "6f8afd6b80b05f04a63fd259351d23a3ce6693203fd1899aac0002823f632d92"
+      },
+      "groups": [
+        "rare_location_52",
+        "rare_location_53",
+        "rare_location_6",
+        "rare_location_97"
+      ],
+      "draws": 10000,
+      "seed": 10052026,
+      "metrics": {
+        "full": {
+          "candidate_minus_control": 1.112572840209137,
+          "ci95": [
+            0.5310748073405325,
+            1.6940708730777416
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "higher is better",
+          "group_differences": {
+            "rare_location_52": 0.4181709659587547,
+            "rare_location_53": 0.6439786487223103,
+            "rare_location_6": 1.9206184657875554,
+            "rare_location_97": 1.467523280367928
+          }
+        },
+        "roi": {
+          "candidate_minus_control": 1.1444100849693823,
+          "ci95": [
+            0.5140061843274175,
+            1.7748139856113472
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "higher is better",
+          "group_differences": {
+            "rare_location_52": 0.44271713313499106,
+            "rare_location_53": 0.585295235519844,
+            "rare_location_6": 1.9871102310871187,
+            "rare_location_97": 1.5625177401355757
+          }
+        },
+        "ssim_roi": {
+          "candidate_minus_control": 0.04067793666479674,
+          "ci95": [
+            0.026026947147538226,
+            0.056058059699139656
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "higher is better",
+          "group_differences": {
+            "rare_location_52": 0.022992965849963132,
+            "rare_location_53": 0.02906092844511332,
+            "rare_location_6": 0.06505710345048177,
+            "rare_location_97": 0.04560074891362875
+          }
+        },
+        "edge_mae": {
+          "candidate_minus_control": -0.0055936559909614166,
+          "ci95": [
+            -0.008560538249970467,
+            -0.0026267737319523657
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "lower is better",
+          "group_differences": {
+            "rare_location_52": -0.0020259578119624783,
+            "rare_location_53": -0.003227589651942253,
+            "rare_location_6": -0.009280853474942542,
+            "rare_location_97": -0.007840223024998393
+          }
+        },
+        "lpips_roi": {
+          "candidate_minus_control": -0.03904563976403082,
+          "ci95": [
+            -0.04876542544135681,
+            -0.025413249326231624
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "lower is better",
+          "group_differences": {
+            "rare_location_52": -0.01819122514941479,
+            "rare_location_53": -0.04046048302399485,
+            "rare_location_6": -0.04707932185668212,
+            "rare_location_97": -0.050451529026031505
+          }
+        },
+        "same_operator_lr_mae": {
+          "candidate_minus_control": -0.002136424940227642,
+          "ci95": [
+            -0.0025539097643978975,
+            -0.0017500296583216474
+          ],
+          "better_group_fraction": 1.0,
+          "direction": "lower is better",
+          "group_differences": {
+            "rare_location_52": -0.0015762046519243577,
+            "rare_location_53": -0.0022715046775135164,
+            "rare_location_6": -0.0019391661184132462,
+            "rare_location_97": -0.002758824313059448
+          }
+        }
+      },
+      "scope": "Descriptive frozen-candidate test contrast, not test-based model selection; only4heldout locations."
+    }
+  ],
+  "archives": [
+    {
+      "file": "shard_000.tar",
+      "sha256": "6874a98039f5f48fa11274f4b7ace8b6f7fca039ded9f095dc5a9e5b36524da3",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_001.tar",
+      "sha256": "5063118ffd391c0bd5d328b721ed4dba44cf6b96d9841c08592c32dbb0460070",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_002.tar",
+      "sha256": "ba089dcf9ccfad662e56c2c45daf2892ce998602d446be1deaa43d27bc63a0da",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_003.tar",
+      "sha256": "3d0b19b0effa0047267dddcde5b9fa184d80b940d42377f9d34be41f6f1cec3b",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_004.tar",
+      "sha256": "ba024bc7fe8eacf5ed5f3b3ccd528fdf8f015c1e4c0f077ea76a5fb4c3a4017d",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_005.tar",
+      "sha256": "288a30add42c9868733bec4d86ebfab3a0d07d6714255212e058ce9c1be44be8",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_006.tar",
+      "sha256": "8045656cf367ba102b6e85ea0b51757aad6e3a4205948d3323735d8812a0b46e",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_007.tar",
+      "sha256": "b19de2a6e5066426dd2fba6772a81b4077ef95acba65700766daa4ae4a66b5bb",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_008.tar",
+      "sha256": "0a64b8e5c348d835714c103a87760cbc0f42ab1709adb5a56782607e977bf3b9",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_009.tar",
+      "sha256": "e565eee6bc9e1c0801e7650df31824951f09c9b73d826715ea2100483a2d091d",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_010.tar",
+      "sha256": "e86f1a71cf088f426605274f519188d7eed2c6b8c931e03c5eacf6d839b640cf",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_011.tar",
+      "sha256": "b364f504c72efae827001521c67f4b330236cdce5550a539b98825c412ec33c7",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_012.tar",
+      "sha256": "b87863502227eeddd78e05ecb30c56fb97d7031a3a0a58303121ec8e016dce30",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_013.tar",
+      "sha256": "b8b01347ac09bb7b69ea6f75a00569b993d399478dc75070aec7f2f6f0a9c0a3",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_014.tar",
+      "sha256": "9db54bd160bc5e9388012bdb7aea7beb837a6b506b4f851e4a6293bc303a9a4c",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_015.tar",
+      "sha256": "89d78d0d75bcee6707bf95f9ce5accbf8b7ba111c603539e3e9d84f913392aec",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_016.tar",
+      "sha256": "0f85c2a5faeb94de422dae587e41c2dc8bae9adf0f177c7994d67d9e959b7307",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_017.tar",
+      "sha256": "812b4c44c01e4700ce1fc2c1ff15f816e3eda92113597cb10403337b72e14492",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_018.tar",
+      "sha256": "bb97775af036e159e2028ab52ce9b0405ba8c49e82780b98cae59a551997e01d",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_019.tar",
+      "sha256": "15f6cff0bd192c80a8aa9641487a13898f8a5b9a182eae6f916aaf545815157a",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_020.tar",
+      "sha256": "d3f03ef4f17bd3dd913a5140b4b1c3b462004621938355b70876d228be35228b",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_021.tar",
+      "sha256": "a3def098e31bd59ea8a5405cdcaef0fce6a4e1461e6eb24f55a1a547057ad4a0",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_022.tar",
+      "sha256": "67e1dd286b053d657c26fa9010c1194eda53900ce159e38b56e62607efb976b2",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_023.tar",
+      "sha256": "a973507c28a3224e4f8ef424e78ccfc77274810f76a584d8b47a0474070cf3b1",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_024.tar",
+      "sha256": "f2e0a2b0380931a813ad8da74e49fd70dcdfc9d15b69d41229ba99791bed5779",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_025.tar",
+      "sha256": "3faedabd69bd74274eef9ac1783e63824194c1e211e79bfb8839e2e4bba0a5df",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_026.tar",
+      "sha256": "f6fa9503b774dcfd18fc5ed4eed0b815a3e2841902dabbd8c73bac0092cfb3db",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_027.tar",
+      "sha256": "7e4f0d938f65cb65a408f00468f832a0c82ea28cad65700f4b3cb732be1a653c",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_028.tar",
+      "sha256": "a02543a5598dfe69defe7c9992f4adf544ec7273d6eca820fca763aa1f5ec17d",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_029.tar",
+      "sha256": "6aed22429bbe33321668974c22682c3eebdcfe27c2011cab8bbca3f97b286751",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_030.tar",
+      "sha256": "bbe900220ce7ead0061e56f38af3788fbeb9f8a9be9295325a574d13a57e9a75",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_031.tar",
+      "sha256": "83014f5d21848cef39d5282f6a462ebd6de34021b6bf780ae207b52a13d19e44",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_032.tar",
+      "sha256": "2e1dd7b34871dd747b2ed51d49535925de783b45960025e733e29f98fccfc5ff",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_033.tar",
+      "sha256": "ef97ff82c3eb6e00eed3603d4549f82039f30a03bc133a4e7375ba2f62353d48",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_034.tar",
+      "sha256": "88e609aead87ff1f018cada83495b591272140eb6573801fda54c9d4c02a17dd",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_035.tar",
+      "sha256": "564b63746e51e8dee3bd6dd834ec6f501d313fdcdfe54d18a007418356c936d1",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_036.tar",
+      "sha256": "0aa7bbe10ce7a1ee860d318bfa6b5f632200344021120a3e626064117b62466f",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_037.tar",
+      "sha256": "22072466315933b1a9ad952c3a9727eee5b9f0fc140ab23af57ee4506e1f30d1",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_038.tar",
+      "sha256": "03573599c05d0c9b307140089784334c5d23d26e6714f232c0e550a60d28a1fa",
+      "verified_pngs": 400
+    },
+    {
+      "file": "shard_039.tar",
+      "sha256": "4817eefebe8b5962296d71dae3ed12e0e24d166d4d1e4314caac5d1dddb2e710",
+      "verified_pngs": 400
+    }
+  ],
+  "audit_code_sha256": "0dcfad26335e3f9f980f4f6c81e01994f9d7856b304d0c2c5907f12545ce2027",
+  "scope": "Every payload SHA, PNG decode, dimensions, exact identity and grouped arithmetic checked. No visual-quality claim; LPIPS forward not rerun by this CPU auditor."
+}

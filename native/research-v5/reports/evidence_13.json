@@ -1,0 +1,919 @@
+{
+  "complete": true,
+  "measured_at_utc": "2026-10-05T12:54:18.678482+00:00",
+  "identity": {
+    "version": 5,
+    "arm": "classical",
+    "selection_sha256": "317071774aac17263834376e1c738bab68cd5c9fb28f9554031daa46e9f027ba",
+    "joint_freeze_sha256": "8f6352aad288ad20f11dedb8c9d1323d6086dfb95a9fc99dd1ec85341f8b8fed",
+    "checkpoint": {
+      "file": "best_fidelity.pt",
+      "sha256": "103e97dc8044c03cba7f7c6a606d65941a7de56c2f29eff6b3c3cfab27643048",
+      "model": "swinir_classical_x4",
+      "step": 5500
+    },
+    "training_run": "training/swinir_classical_reconstruction_x4",
+    "training_config_sha256": "55f52ca950d190b2e2479e1b44bf8bef63638e24b783e0bf256f5fc9be87203f",
+    "input_array_sha256": "eed391b9bd96ea91037acf3e210fad46174a7d541f272debb9a580749597b451",
+    "native_protocol_sha256": "43e83a8ac2d3d9c3aee5c1f26c07ee3ac00525935802c1e676122fcf39fda3e4",
+    "input_records": [
+      {
+        "index": 24000,
+        "pixels_sha256": "1981e82b49ef84559de084239cb186f87edbdcb8f87c3ace5d8e63346e07eb1d"
+      },
+      {
+        "index": 24001,
+        "pixels_sha256": "e04e59adfd007abd58e1a59f0232f4afcd25e543a6a9b6752945f8352a647461"
+      },
+      {
+        "index": 24002,
+        "pixels_sha256": "a8ca1ca7bc9463bc79dcbca95518b1e6d4b020a7bdd46b172fe84e7a2b9af89a"
+      },
+      {
+        "index": 24003,
+        "pixels_sha256": "8334827bd448ddf0803132f397b7773616a63ff594d9933c51f2383bcba6bd31"
+      },
+      {
+        "index": 24004,
+        "pixels_sha256": "2526af5d1529c3af34eeb3d6e72cd34a0701f542f8f4372f7ec05f851ad3cc86"
+      },
+      {
+        "index": 24005,
+        "pixels_sha256": "26ae8f12ea73a24f5f02bb32053c7d4782dc9a68210986508df70d5b4eb27d8b"
+      },
+      {
+        "index": 24006,
+        "pixels_sha256": "701cfda962a80774a41b399e956950ffb5e538e95a4c7d7b6bf047dbcbf55531"
+      },
+      {
+        "index": 24007,
+        "pixels_sha256": "268b9601c6128cfbf3b4e594719d396b3c81fc9508b84d4211080b2386d1b289"
+      },
+      {
+        "index": 24008,
+        "pixels_sha256": "a354c2df1ea98cda970b8381ae5271587eea204ee2760e1cafb664780d039f0d"
+      },
+      {
+        "index": 24009,
+        "pixels_sha256": "bd427bba7b5c1c857674348a87e25756ce6a6fcfec14e6f9b0e6d27026a930a5"
+      },
+      {
+        "index": 24010,
+        "pixels_sha256": "5666a6e5a4ae93805aa01c533befb027f95635cbf1ec2f47fd74a104f0d2ed97"
+      },
+      {
+        "index": 24011,
+        "pixels_sha256": "e8e53e855e926c1b31221e93ed0f4d73559d8c4f5f102f29fb2b8de3c3f4f3c6"
+      },
+      {
+        "index": 24012,
+        "pixels_sha256": "5cc5c8cccef41eb1dc34c34ca2a4aa2ed37df31ff2d7eca3db37487e9d621964"
+      },
+      {
+        "index": 24013,
+        "pixels_sha256": "34b848a560c3a2c40e037fabb097272a0d1b5680a1c2e022d100af063f988746"
+      },
+      {
+        "index": 24014,
+        "pixels_sha256": "311791ef48874ec80f1d636fceb99786caf9243095f84b6efd47c7100dc8fca4"
+      },
+      {
+        "index": 24015,
+        "pixels_sha256": "040a59678b4f26af401031aab9cfbabd2e12b2be397cfcd00539b6c81e1f3da5"
+      },
+      {
+        "index": 24016,
+        "pixels_sha256": "70fdd560954b6a5318eee10826a2f14c0954d25a0d15fe1d365185866d7125c7"
+      },
+      {
+        "index": 24017,
+        "pixels_sha256": "1ed9f10dc5a19a2416ed9fa180369a878c303f804410b0897bd19871ab6fb1f3"
+      },
+      {
+        "index": 24018,
+        "pixels_sha256": "fd56b491804849780f07217e27b48075c893c4e62594143f8ffbef9e75cebb3c"
+      },
+      {
+        "index": 24019,
+        "pixels_sha256": "0f00353fcd45d5e61ce46c119cdddf57228ac9993b6981d1264c994548eb4bec"
+      },
+      {
+        "index": 24020,
+        "pixels_sha256": "b68385cef02a702d10fa2f62a1fa8238d671daa196b501d79522a82cb707511b"
+      },
+      {
+        "index": 24021,
+        "pixels_sha256": "e4538e41a354a8ce8768ef56d0675696429a8fdd4869a59b3b52df9f60ceace3"
+      },
+      {
+        "index": 24022,
+        "pixels_sha256": "78e9d01707e3ee0071fafff146edde25e05f952c1baa6d7a08719fdddca9e80f"
+      },
+      {
+        "index": 24023,
+        "pixels_sha256": "77d0f7a5c7c6c6922146f3f31f6804196c1405a0be46054d0b540f68e5f80816"
+      },
+      {
+        "index": 24024,
+        "pixels_sha256": "ae3867184e0d2d1c9b19624df770a0d376767e7bfbcc0d4681427e4932f50e1e"
+      },
+      {
+        "index": 24025,
+        "pixels_sha256": "3d25a91e08cc653d83fb04ae14f6ddd1262fec4baf17793534dfb20720ce495a"
+      },
+      {
+        "index": 24026,
+        "pixels_sha256": "80920cc92c757cac13106cbf724c9a7b2d1204fe22affe0bcfc90cbb60bdda35"
+      },
+      {
+        "index": 24027,
+        "pixels_sha256": "fbe8a4e8ae262b729654bd58f6dcdb9e38f3db11346d97da00416fe63e0e6220"
+      },
+      {
+        "index": 24028,
+        "pixels_sha256": "219fb17e4263b40e45df1b1c6823990515976db4527105a45bdea4b07979b769"
+      },
+      {
+        "index": 24029,
+        "pixels_sha256": "d44e991e2a12a388d7540e682ffd5615bca41011b5ad20fd628d1de87454f809"
+      },
+      {
+        "index": 24030,
+        "pixels_sha256": "8cc07fe40e77a42093161cf66f61ff23c2416c4b778e23765b183434e554bb61"
+      },
+      {
+        "index": 24031,
+        "pixels_sha256": "fd24f8f72970e759fc7dc617cd23a7a19e05c3bc004ddf720c8e17bd7c0bd1cf"
+      },
+      {
+        "index": 24032,
+        "pixels_sha256": "eebdf6fd6be8ece91d0b9cd829acbad78de173e7c68798d20144a8179b3fa503"
+      },
+      {
+        "index": 24033,
+        "pixels_sha256": "3aa08eeadb55ee0ac6ee2a05c03c241dfd4b6fe0e7d7de8497456115aefdab66"
+      },
+      {
+        "index": 24034,
+        "pixels_sha256": "ad953d631f1238c566a01b6d1f4b26339734e62548888ab9e2e3cff883ce9924"
+      },
+      {
+        "index": 24035,
+        "pixels_sha256": "27718258d7ed398d8058162e41ce50ab5f8e26c23f722aeab807f5961fa6cdbd"
+      },
+      {
+        "index": 24036,
+        "pixels_sha256": "a9a22b002d655843e0c289201f9e8ff18f3557670b61effe64321872ab21fb47"
+      },
+      {
+        "index": 24037,
+        "pixels_sha256": "a08ab1959381ef252e457e63e9775227dfaa6a32bb1d096720c9c4f60d90b70d"
+      },
+      {
+        "index": 24038,
+        "pixels_sha256": "5e5ccaec833556265947fd592edfca3e8f02833e15ee0e6cadc6259d3c04ab33"
+      },
+      {
+        "index": 24039,
+        "pixels_sha256": "bf61042217a757a5900edd6c6e20db68eac7caa67c3b6f11c0f561c5f94ba6b2"
+      },
+      {
+        "index": 24040,
+        "pixels_sha256": "8566020d277a23098df8776c736e03a845cd3187022fe37c938cf304242fdb9e"
+      },
+      {
+        "index": 24041,
+        "pixels_sha256": "88c3180d033b9c337b725051a94552f2dd3872c9ca55edfbce68f457e9566483"
+      },
+      {
+        "index": 24042,
+        "pixels_sha256": "6189abc67617aa1b7f78733cdbf42fd699ae8667ace1280ab65b08f1d7b870df"
+      },
+      {
+        "index": 24043,
+        "pixels_sha256": "25032552fd594d387e83369fbdbba03a9ef5ab7665581b29ba12e41bf42a90da"
+      },
+      {
+        "index": 24044,
+        "pixels_sha256": "e0580128bbb5c11206116ce6918a6c5951c526eaf6343cc7ac4a375acc4f7404"
+      },
+      {
+        "index": 24045,
+        "pixels_sha256": "fc5945ff09fb43811d2d34fa9b66adcefd5636223aa48dfec48dc062347dea16"
+      },
+      {
+        "index": 24046,
+        "pixels_sha256": "5646af6892363fb24ae459c4c52d5b45205b0855f361fba8ea3b06b4713d8d25"
+      },
+      {
+        "index": 24047,
+        "pixels_sha256": "88558bf5705a225f36ab7b80d0a34776f8236569baf8049bed2dce70a66b3797"
+      },
+      {
+        "index": 24048,
+        "pixels_sha256": "31a1f94332802e6456df633e2a5cda053cc7214a78b73a730eef8cc5d107bf2e"
+      },
+      {
+        "index": 24049,
+        "pixels_sha256": "be6e91fecde1db31f5f64302740a96b04d50a06dc7fa24a590b9feaa2c4dc058"
+      },
+      {
+        "index": 24050,
+        "pixels_sha256": "bbec908e3a6dc9cd435e1e51410c6c03ff6773aa7132f20e8b3c771ef3c1a2fa"
+      },
+      {
+        "index": 24051,
+        "pixels_sha256": "098a22d72c940e0f6a1e23d3ca2a4a26ec183e5459cc98a73ee83b63b56bcfe5"
+      },
+      {
+        "index": 24052,
+        "pixels_sha256": "b93739a80c824abc0b5180381f5ddc150a466c29836e63448b5a162e56bd61f1"
+      },
+      {
+        "index": 24053,
+        "pixels_sha256": "ba279ddce1aa19d7a90cb2b49bfe995fb53ae11eb91f567bde8072b896f395d2"
+      },
+      {
+        "index": 24054,
+        "pixels_sha256": "f9fb607c405c655c8ff82f207ac17d4fd2d987c345ec6983598acdf61e9f9bcb"
+      },
+      {
+        "index": 24055,
+        "pixels_sha256": "1897d85ff36102c49194fb3fef8d577cc0ba0b259f116b21096e8830f3b3f105"
+      },
+      {
+        "index": 24056,
+        "pixels_sha256": "1a9fb8274231d35a332871529c7e278c20a7a01d86554c3bc80ae52d11ce98b8"
+      },
+      {
+        "index": 24057,
+        "pixels_sha256": "19ca34d2aae04f4f2d16a92d66671b1071d436b7005807024a048259dcf27466"
+      },
+      {
+        "index": 24058,
+        "pixels_sha256": "8545260a9f8787988ef23c4813f865ef8551c313274ebda9d9f68802910a1cd7"
+      },
+      {
+        "index": 24059,
+        "pixels_sha256": "c95fba9845685bc84dc7e2a116a222f02e653164bd0ea15de0bc6fcab3250bf8"
+      },
+      {
+        "index": 24060,
+        "pixels_sha256": "ae88f000ed5f86d2d7a367f3b1d28e55e82db15f6747785774b8dc8cf9d4f3f3"
+      },
+      {
+        "index": 24061,
+        "pixels_sha256": "63086d9fa11b668688a0df6fc930fe03f5bcb6b78e85a1091441ff414325bd95"
+      },
+      {
+        "index": 24062,
+        "pixels_sha256": "2195bb2c81e70066a4cc6f3ada9f1bf66d7f9d562ebd38c27ea4fad97def1e53"
+      },
+      {
+        "index": 24063,
+        "pixels_sha256": "7f6bb4556aa454cae063c238d919a4c8639689a9996a114178b950db7b90d5eb"
+      },
+      {
+        "index": 24064,
+        "pixels_sha256": "ab6dd6819c5cdc62b29684582b71f68b064f88fbee6dca5c1f6d804c2b09efbc"
+      },
+      {
+        "index": 24065,
+        "pixels_sha256": "62f0e1d27ac2dce6dd373074c77620b20e5161ced3fe22a3ceda44ffc2fab76c"
+      },
+      {
+        "index": 24066,
+        "pixels_sha256": "d1bf2aa4acff5b10dfbddcbc3a706674591c1fb424c72460a2dc118f5ae6f99f"
+      },
+      {
+        "index": 24067,
+        "pixels_sha256": "0a2fe5b7383ef514cf7a4877f055515da78533b4744634624665fe970ec73ab5"
+      },
+      {
+        "index": 24068,
+        "pixels_sha256": "87056d0075d80b759fca3d194d5b5b92c27af60da8a630c8d3a1bfaee00d46e1"
+      },
+      {
+        "index": 24069,
+        "pixels_sha256": "224269dfb0df6cdcbebd0f726fa6223cd1b81f44fa9650e244bcd27e875ba815"
+      },
+      {
+        "index": 24070,
+        "pixels_sha256": "992d2dcc2cc3b0a7eb4b3ef16743adf02e051a29db9920e3a643185e947f8cd6"
+      },
+      {
+        "index": 24071,
+        "pixels_sha256": "f4a8383df5b74e0dbd78bf795d3c848ac15d0ae83297dc55ea2785c0e50c5c2a"
+      },
+      {
+        "index": 24072,
+        "pixels_sha256": "4868af557ff4a357385f27f7e80dc29b8189c7ed9a3fdaed7e1a172e406c56eb"
+      },
+      {
+        "index": 24073,
+        "pixels_sha256": "1941273b7711b9fa72f2c6c78e1c5d0ced7efddde394329e948bcddda01fb02c"
+      },
+      {
+        "index": 24074,
+        "pixels_sha256": "5cfc5a21b518bfddb429c59ffe0598da7fdff5eccb537b54e73c10e2c98b8aa2"
+      },
+      {
+        "index": 24075,
+        "pixels_sha256": "241ba13e33b1f96d4840bcc974028a6af420e8724ad6c0b9d48b631449519f76"
+      },
+      {
+        "index": 24076,
+        "pixels_sha256": "ee628c74e04a58eb5d2e041b71b57f38666d45fd1db7cb6de76cf50822832575"
+      },
+      {
+        "index": 24077,
+        "pixels_sha256": "5b3db3dc6d2142f863b09491225afd0d9f0654eee6874686e8a0e3b08cba5116"
+      },
+      {
+        "index": 24078,
+        "pixels_sha256": "0a60cfcb82f14437d9b3b25a579af625f5a550228f227c576262e9206ba5b84b"
+      },
+      {
+        "index": 24079,
+        "pixels_sha256": "e0e50cace28430da5b0f4b2dcfd875ca7cdc25ba9644d0c0ea0c7c2fce511af5"
+      },
+      {
+        "index": 24080,
+        "pixels_sha256": "47070ecbbbc65d69209ce0ba555c138fd759b7f71e6827a426c8094d9ce03005"
+      },
+      {
+        "index": 24081,
+        "pixels_sha256": "2eab613f94b3a929e4fc36e339cac3f7fc8c478e2fe237b2b712f2ab00b37303"
+      },
+      {
+        "index": 24082,
+        "pixels_sha256": "85e01753ff3c098bb5ac1577330ae959ff94ecd2a4ef284e11ab94dbfe9c9431"
+      },
+      {
+        "index": 24083,
+        "pixels_sha256": "2a192ec42c69d3ba5b70f83094471f4a671811b065f4ceafc199d7d47c418579"
+      },
+      {
+        "index": 24084,
+        "pixels_sha256": "7699daaab862402496628ce4135c3efdf104957d5bef0d9ddf635ed2fe8eb2d9"
+      },
+      {
+        "index": 24085,
+        "pixels_sha256": "1e3d6263babe1a4b0269fa7b79d6146b2b00011a1e149f030007bf748ab59c95"
+      },
+      {
+        "index": 24086,
+        "pixels_sha256": "ea2c318ddba03bf71627e776a9a3e517bf13de81fc1abaec3fb060711a391855"
+      },
+      {
+        "index": 24087,
+        "pixels_sha256": "f042f77769759fc10c7542394b6d1868c49c5dbb87d73c27f29f1ac87cef99ac"
+      },
+      {
+        "index": 24088,
+        "pixels_sha256": "6e8278a0891074743e731fde679566a7060bcd170cf385c84c525165f2a39d2f"
+      },
+      {
+        "index": 24089,
+        "pixels_sha256": "31a7ebb2703bb64b0814e410aca8e289bdf81d40ee3c36d874b9f190648af2bd"
+      },
+      {
+        "index": 24090,
+        "pixels_sha256": "968bb26d26692b53a2fe44ac54c9108b5a867881f0a642f772ce9b44e297741b"
+      },
+      {
+        "index": 24091,
+        "pixels_sha256": "6c9543ddd44fda8dd9cf79cd7be330b6a9442b05768965609ea88bcd0aec5121"
+      },
+      {
+        "index": 24092,
+        "pixels_sha256": "56f45124783036e13b64873ddeff2f69e94b0f6fd87e606f029676df35a24dae"
+      },
+      {
+        "index": 24093,
+        "pixels_sha256": "2b0cfd96d1c82bf6b588d8bd22a0667f32cc6cb25fa1eaf62ac0504053b0f228"
+      },
+      {
+        "index": 24094,
+        "pixels_sha256": "a1ac78e9c4eaee4de98fc2e64ad25e8d5b829e67987e26f4fdf3bb603b8bff2f"
+      },
+      {
+        "index": 24095,
+        "pixels_sha256": "aec424fe7368f36b251f99d5ba753197604f42cc44977928543463b7a9b1f87e"
+      },
+      {
+        "index": 24096,
+        "pixels_sha256": "6700a228d10c650046b91429ea125c15baa8ae601326992ba889e50b71b99a75"
+      },
+      {
+        "index": 24097,
+        "pixels_sha256": "6c6354f66d1ddb653497dbfd3b8bd8fea21f81f0719dbdeb4971504ef7e50e0e"
+      },
+      {
+        "index": 24098,
+        "pixels_sha256": "f1fa1337e8bc306876342e906ffe43f68f3e59f2e13a1ee93492fd868e3d14b6"
+      },
+      {
+        "index": 24099,
+        "pixels_sha256": "0c98a0e8e8f5d1ad0104ce1bb89ba437e204ea0236d5e2740539142355f66f27"
+      }
+    ],
+    "architecture_sha256": "9e143898679ebeebc5d2fc94ad1b89c38aa4a4d43da4e0fcba0f93e476994913",
+    "code_sha256": "40f358ed237662214a3b3b1d3ea35ca85f8e332d084cf4bbc7154f4879db841c",
+    "input_size": [
+      20,
+      20
+    ],
+    "output_size": [
+      80,
+      80
+    ],
+    "batch_size": 1,
+    "warmup_forwards": 10,
+    "timed_unique_images": 100,
+    "precision": "FP32",
+    "no_grad": true,
+    "eval": true,
+    "self_ensemble": false,
+    "tf32": false,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "cpu_threads": 4,
+    "hardware": {
+      "logical_device_index": 0,
+      "name": "NVIDIA A100-SXM4-80GB",
+      "uuid": "ce49dc62-4aa7-2741-b60b-ff76a737e101",
+      "capability": [
+        8,
+        0
+      ],
+      "total_memory_bytes": 85167243264,
+      "multiprocessor_count": 108
+    },
+    "software": {
+      "python": "3.10.21",
+      "platform": "Linux-5.15.0-78-th-an-x86_64-with-glibc2.35",
+      "torch": "2.5.1+cu124",
+      "cuda_runtime": "12.4",
+      "cudnn": 90100,
+      "numpy": "1.26.4",
+      "nvidia_driver": null
+    }
+  },
+  "parameter_count": 11900199,
+  "parameter_bytes": 47600796,
+  "per_image_ms": [
+    {
+      "index": 24000,
+      "ms": 49.811134338378906
+    },
+    {
+      "index": 24001,
+      "ms": 48.92524719238281
+    },
+    {
+      "index": 24002,
+      "ms": 48.49372863769531
+    },
+    {
+      "index": 24003,
+      "ms": 48.05865478515625
+    },
+    {
+      "index": 24004,
+      "ms": 48.443199157714844
+    },
+    {
+      "index": 24005,
+      "ms": 48.34320068359375
+    },
+    {
+      "index": 24006,
+      "ms": 48.38060760498047
+    },
+    {
+      "index": 24007,
+      "ms": 54.35798263549805
+    },
+    {
+      "index": 24008,
+      "ms": 49.1124153137207
+    },
+    {
+      "index": 24009,
+      "ms": 48.46915054321289
+    },
+    {
+      "index": 24010,
+      "ms": 48.39712142944336
+    },
+    {
+      "index": 24011,
+      "ms": 48.198368072509766
+    },
+    {
+      "index": 24012,
+      "ms": 48.463584899902344
+    },
+    {
+      "index": 24013,
+      "ms": 48.36412811279297
+    },
+    {
+      "index": 24014,
+      "ms": 48.565185546875
+    },
+    {
+      "index": 24015,
+      "ms": 48.67136001586914
+    },
+    {
+      "index": 24016,
+      "ms": 48.087039947509766
+    },
+    {
+      "index": 24017,
+      "ms": 48.002174377441406
+    },
+    {
+      "index": 24018,
+      "ms": 48.27056121826172
+    },
+    {
+      "index": 24019,
+      "ms": 48.515296936035156
+    },
+    {
+      "index": 24020,
+      "ms": 48.29190444946289
+    },
+    {
+      "index": 24021,
+      "ms": 48.323551177978516
+    },
+    {
+      "index": 24022,
+      "ms": 48.357662200927734
+    },
+    {
+      "index": 24023,
+      "ms": 48.30928039550781
+    },
+    {
+      "index": 24024,
+      "ms": 48.3317756652832
+    },
+    {
+      "index": 24025,
+      "ms": 48.32102584838867
+    },
+    {
+      "index": 24026,
+      "ms": 48.19232177734375
+    },
+    {
+      "index": 24027,
+      "ms": 48.3812141418457
+    },
+    {
+      "index": 24028,
+      "ms": 47.97999954223633
+    },
+    {
+      "index": 24029,
+      "ms": 48.08537673950195
+    },
+    {
+      "index": 24030,
+      "ms": 48.48700714111328
+    },
+    {
+      "index": 24031,
+      "ms": 48.23302459716797
+    },
+    {
+      "index": 24032,
+      "ms": 49.246559143066406
+    },
+    {
+      "index": 24033,
+      "ms": 48.13401412963867
+    },
+    {
+      "index": 24034,
+      "ms": 48.53327941894531
+    },
+    {
+      "index": 24035,
+      "ms": 48.56806564331055
+    },
+    {
+      "index": 24036,
+      "ms": 48.495521545410156
+    },
+    {
+      "index": 24037,
+      "ms": 48.49359893798828
+    },
+    {
+      "index": 24038,
+      "ms": 48.412574768066406
+    },
+    {
+      "index": 24039,
+      "ms": 48.49260711669922
+    },
+    {
+      "index": 24040,
+      "ms": 48.136192321777344
+    },
+    {
+      "index": 24041,
+      "ms": 48.020606994628906
+    },
+    {
+      "index": 24042,
+      "ms": 48.62153625488281
+    },
+    {
+      "index": 24043,
+      "ms": 48.229759216308594
+    },
+    {
+      "index": 24044,
+      "ms": 48.198368072509766
+    },
+    {
+      "index": 24045,
+      "ms": 48.219966888427734
+    },
+    {
+      "index": 24046,
+      "ms": 41.916160583496094
+    },
+    {
+      "index": 24047,
+      "ms": 39.51558303833008
+    },
+    {
+      "index": 24048,
+      "ms": 39.5351676940918
+    },
+    {
+      "index": 24049,
+      "ms": 39.2303352355957
+    },
+    {
+      "index": 24050,
+      "ms": 39.179649353027344
+    },
+    {
+      "index": 24051,
+      "ms": 39.31577682495117
+    },
+    {
+      "index": 24052,
+      "ms": 39.343326568603516
+    },
+    {
+      "index": 24053,
+      "ms": 39.05228805541992
+    },
+    {
+      "index": 24054,
+      "ms": 39.08992004394531
+    },
+    {
+      "index": 24055,
+      "ms": 39.15974426269531
+    },
+    {
+      "index": 24056,
+      "ms": 39.160640716552734
+    },
+    {
+      "index": 24057,
+      "ms": 39.25263977050781
+    },
+    {
+      "index": 24058,
+      "ms": 39.16748809814453
+    },
+    {
+      "index": 24059,
+      "ms": 39.24665451049805
+    },
+    {
+      "index": 24060,
+      "ms": 38.89286422729492
+    },
+    {
+      "index": 24061,
+      "ms": 38.60569763183594
+    },
+    {
+      "index": 24062,
+      "ms": 38.282623291015625
+    },
+    {
+      "index": 24063,
+      "ms": 38.3172492980957
+    },
+    {
+      "index": 24064,
+      "ms": 38.05411148071289
+    },
+    {
+      "index": 24065,
+      "ms": 38.22431945800781
+    },
+    {
+      "index": 24066,
+      "ms": 41.76553726196289
+    },
+    {
+      "index": 24067,
+      "ms": 38.92841720581055
+    },
+    {
+      "index": 24068,
+      "ms": 38.580352783203125
+    },
+    {
+      "index": 24069,
+      "ms": 38.631103515625
+    },
+    {
+      "index": 24070,
+      "ms": 38.201663970947266
+    },
+    {
+      "index": 24071,
+      "ms": 38.2720947265625
+    },
+    {
+      "index": 24072,
+      "ms": 38.372161865234375
+    },
+    {
+      "index": 24073,
+      "ms": 38.23817443847656
+    },
+    {
+      "index": 24074,
+      "ms": 38.57868957519531
+    },
+    {
+      "index": 24075,
+      "ms": 38.742401123046875
+    },
+    {
+      "index": 24076,
+      "ms": 38.62006378173828
+    },
+    {
+      "index": 24077,
+      "ms": 38.020286560058594
+    },
+    {
+      "index": 24078,
+      "ms": 37.926334381103516
+    },
+    {
+      "index": 24079,
+      "ms": 38.563968658447266
+    },
+    {
+      "index": 24080,
+      "ms": 38.601470947265625
+    },
+    {
+      "index": 24081,
+      "ms": 38.388671875
+    },
+    {
+      "index": 24082,
+      "ms": 38.75881576538086
+    },
+    {
+      "index": 24083,
+      "ms": 38.75222396850586
+    },
+    {
+      "index": 24084,
+      "ms": 38.902400970458984
+    },
+    {
+      "index": 24085,
+      "ms": 38.2982063293457
+    },
+    {
+      "index": 24086,
+      "ms": 38.694942474365234
+    },
+    {
+      "index": 24087,
+      "ms": 38.604766845703125
+    },
+    {
+      "index": 24088,
+      "ms": 38.66755294799805
+    },
+    {
+      "index": 24089,
+      "ms": 38.54057693481445
+    },
+    {
+      "index": 24090,
+      "ms": 38.61372756958008
+    },
+    {
+      "index": 24091,
+      "ms": 38.84223937988281
+    },
+    {
+      "index": 24092,
+      "ms": 38.38409423828125
+    },
+    {
+      "index": 24093,
+      "ms": 38.04195022583008
+    },
+    {
+      "index": 24094,
+      "ms": 37.876800537109375
+    },
+    {
+      "index": 24095,
+      "ms": 38.22467041015625
+    },
+    {
+      "index": 24096,
+      "ms": 38.54800033569336
+    },
+    {
+      "index": 24097,
+      "ms": 38.72083282470703
+    },
+    {
+      "index": 24098,
+      "ms": 38.493953704833984
+    },
+    {
+      "index": 24099,
+      "ms": 38.479007720947266
+    }
+  ],
+  "latency_ms": {
+    "mean": 43.27445331573486,
+    "median": 39.4294548034668,
+    "p95": 48.684054374694824,
+    "min": 37.876800537109375,
+    "max": 54.35798263549805,
+    "std_population": 4.932945179548653
+  },
+  "p95_method": "numpy percentile linear interpolation",
+  "measured_loop_wall_ms_including_host_sync": 4331.914208829403,
+  "memory_bytes": {
+    "steady_baseline_allocated": 76810240,
+    "steady_baseline_reserved": 111149056,
+    "peak_allocated_total": 83977728,
+    "peak_allocated_increment": 7167488,
+    "peak_reserved_total": 111149056,
+    "peak_reserved_increment": 0,
+    "device_free_before": 84522565632,
+    "device_free_after": 84522565632,
+    "device_total_before": 85167243264,
+    "device_total_after": 85167243264
+  },
+  "context": {
+    "slurm_job_id": "264015",
+    "cuda_visible_devices": "0",
+    "input_gpu_residency": "All100 FP32 inputs resident before timing; model and inputs included in memory baseline",
+    "timed_operation": "CUDA event elapsed model.forward20to80 including official padding/crop; no clamping/PNG/display resize/transfer",
+    "warmup_indices": [
+      24000,
+      24001,
+      24002,
+      24003,
+      24004,
+      24005,
+      24006,
+      24007,
+      24008,
+      24009
+    ],
+    "mem_peak_scope": "100 forward loop after warmup; allocator peaks before final finite-output check",
+    "test_paired_or_hr_pixels_opened": false,
+    "native_input_only": true,
+    "candidate_changed": false,
+    "cuda_cache_emptied_after_warmup": false,
+    "gpu_clocks_or_power_changed": false
+  },
+  "limitations": [
+    "This is batch1 GPU forward latency, not end-to-end file throughput or sustained server throughput.",
+    "One assigned GPU/session; clock, thermal state and other device workload can affect results; no cross-GPU equivalence claim.",
+    "Allocated/reserved memory describes this PyTorch process; device free memory also reflects other device allocations.",
+    "Latency alone does not establish image quality, factual detail recovery, or deployment recommendation."
+  ]
+}

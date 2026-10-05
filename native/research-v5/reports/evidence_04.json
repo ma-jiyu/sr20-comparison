@@ -1,0 +1,2156 @@
+{
+  "schema_version": "v5.loss_ablation.1",
+  "analysis_script": {
+    "path": "D:\\超分网络测试\\sr20\\compare_v5_loss_ablation.py",
+    "sha256": "78ecd886f76fad21b70e71b8807c301b04fffaa4d6d93b144df6ed1c8a9a3fe1"
+  },
+  "complete": true,
+  "test_images_read": false,
+  "test_metrics_used_for_selection": false,
+  "scope": "Saved paired real-aircraft validation only. No native PSNR/SSIM or native ground-truth inference.",
+  "design": {
+    "original": "6000 updates; L1+.05 edge through4000, plus .03 ROI LPIPS on updates4001..6000",
+    "reconstruction": "6000 updates; L1+.05 edge throughout; same LR schedule",
+    "experimental_units": "61 validation objects in4 held-out locations, each clean/sensor;122 cases are not122 independent objects",
+    "weighting": "Within-location case mean, then equal-location mean; regime summaries use the same4-location macro weighting",
+    "native_display": "20px input ->80px learned output;400px interpolation display only"
+  },
+  "loss_change_isolation_verified": true,
+  "configuration_check": {
+    "all_differences": [
+      {
+        "field": "code_sha256.train_v5_reconstruction.py",
+        "original": null,
+        "reconstruction": "d3e9bcbc6c47d7bd4bd82c37f13fb4ad2f90cf87de537919dcd544f0e0494a89"
+      },
+      {
+        "field": "protocol_sha256",
+        "original": "de0e2c83a9a9775aba35653f47e09a424f4816ed2c26488cd249c1ab6a2d5b2a",
+        "reconstruction": "30697d8425b24d18960634511a10302b7a2802ebe6f00145a2b8ebc7d7c09dc0"
+      },
+      {
+        "field": "reconstruction_steps",
+        "original": 4000,
+        "reconstruction": 6000
+      }
+    ],
+    "unexplained_differences": [],
+    "protocol_invariant_matches": {
+      "data_manifest_sha256": true,
+      "model": true,
+      "steps": true,
+      "effective_batch": true,
+      "microbatch": true,
+      "seed": true,
+      "scale": true,
+      "validation_interval": true,
+      "test_used_for_selection": true,
+      "input_size": true,
+      "learned_output_size": true,
+      "display_only_size": true,
+      "candidate_guard": true
+    },
+    "protocol_all_differences": [
+      {
+        "field": "candidate_checkpoint",
+        "original": null,
+        "reconstruction": "best_fidelity.pt"
+      },
+      {
+        "field": "created_at",
+        "original": "2026-10-05T11:04:16.242006+00:00",
+        "reconstruction": "2026-10-05T11:49:02.562194+00:00"
+      },
+      {
+        "field": "hypothesis",
+        "original": "Match aircraft footprint, use native unupsampled HR truth and genuine pretrained x4 reconstruction to avoid unsupported20x texture synthesis. Compare two pretrained degradation priors at identical data/optimization budget.",
+        "reconstruction": "Remove the LPIPS training term while retaining identical official classical initialization, real training data, augmentation, seed, optimizer and6000updates. Inspect whether native diagonal textures are absent and reconstruction gains retained."
+      },
+      {
+        "field": "phase",
+        "original": "New real-aircraft x4 transfer-learning pilot",
+        "reconstruction": "Prospective reconstruction-only control after native-panel artifact rejection; no paired test opened"
+      },
+      {
+        "field": "reconstruction_steps",
+        "original": 4000,
+        "reconstruction": 6000
+      },
+      {
+        "field": "rejected_parent_checkpoint_sha256",
+        "original": null,
+        "reconstruction": "4a12ad7204bd144f64bc480afdd6e1174997d0094adf1b1ebc9498e8cd8c92ea"
+      },
+      {
+        "field": "rejection_observation",
+        "original": null,
+        "reconstruction": "New fine diagonal stripes in native24018 and24259; preserve original6000perceptual result as rejected evidence"
+      },
+      {
+        "field": "selection",
+        "original": "Separate highest ROI-PSNR and lowest guard-eligible LPIPS checkpoints on grouped validation. Final candidate needs actual whole-plane visual review and comparison against bicubic, old C20 and B20 on identical grids. Do not report native PSNR without HR. Final test only after candidate identity freeze.",
+        "reconstruction": "Highest grouped validation ROI PSNR, tie earliest, plus original structural guard and actual native29+val8 visual veto. No automatic fallback. Test only after new freeze."
+      },
+      {
+        "field": "selection_policy",
+        "original": null,
+        "reconstruction": "highest_validation_roi_psnr"
+      },
+      {
+        "field": "trainer",
+        "original": null,
+        "reconstruction": "train_v5_reconstruction.py"
+      },
+      {
+        "field": "trainer_change",
+        "original": null,
+        "reconstruction": "Only permits equal reconstruction/total budget and additionally hashes its own filename; all optimizer/data/loss implementation identical."
+      },
+      {
+        "field": "trainer_sha256",
+        "original": null,
+        "reconstruction": "d3e9bcbc6c47d7bd4bd82c37f13fb4ad2f90cf87de537919dcd544f0e0494a89"
+      }
+    ],
+    "code": {
+      "expected_source_changes_only": true,
+      "allowed_changes": [
+        "Allow reconstruction_steps == total_steps",
+        "Add train_v5_reconstruction.py self fingerprint"
+      ],
+      "source_diff": [
+        "--- train_v5_swinir.py",
+        "+++ train_v5_reconstruction.py",
+        "@@ -231,7 +231,7 @@",
+        "     import lpips",
+        "     begin = time.monotonic()",
+        "     cv2.setNumThreads(2); torch.set_num_threads(4)",
+        "-    assert args.steps > args.reconstruction_steps > 0",
+        "+    assert args.steps >= args.reconstruction_steps > 0",
+        "     assert args.batch in (8, 16) and args.batch % args.microbatch == 0",
+        "     assert args.device != 'cuda' or torch.cuda.is_available()",
+        "     random.seed(args.seed); np.random.seed(args.seed); torch.manual_seed(args.seed)",
+        "@@ -248,7 +248,7 @@",
+        "     model = SwinIRBaseline(args.model, args.assets, args.device)",
+        "     assert model.scale == 4",
+        "     optimizer = torch.optim.Adam(model.parameters(), lr=3e-5)",
+        "-    code_names = ('train_v5_swinir.py', 'v5_baselines.py', 'prepare_reduction_v2.py', 'train_matched.py',",
+        "+    code_names = ('train_v5_reconstruction.py', 'train_v5_swinir.py', 'v5_baselines.py', 'prepare_reduction_v2.py', 'train_matched.py',",
+        "                   'train_reduction_v2.py', 'train_expansion_v3.py', 'train_research_v4.py', 'diagnose_v5_perceptual.py')",
+        "     config = {'version': 5, 'model': args.model, 'source_receipt': model.source_receipt, 'scale': 4,",
+        "         'steps': args.steps, 'reconstruction_steps': args.reconstruction_steps, 'effective_batch': args.batch,"
+      ],
+      "shared_dependency_fingerprints": [
+        {
+          "file": "train_v5_swinir.py",
+          "same_recorded_hash": true,
+          "local_file_matches_recorded": true
+        },
+        {
+          "file": "v5_baselines.py",
+          "same_recorded_hash": true,
+          "local_file_matches_recorded": true
+        },
+        {
+          "file": "prepare_reduction_v2.py",
+          "same_recorded_hash": true,
+          "local_file_matches_recorded": true
+        },
+        {
+          "file": "train_matched.py",
+          "same_recorded_hash": true,
+          "local_file_matches_recorded": true
+        },
+        {
+          "file": "train_reduction_v2.py",
+          "same_recorded_hash": true,
+          "local_file_matches_recorded": true
+        },
+        {
+          "file": "train_expansion_v3.py",
+          "same_recorded_hash": true,
+          "local_file_matches_recorded": true
+        },
+        {
+          "file": "train_research_v4.py",
+          "same_recorded_hash": true,
+          "local_file_matches_recorded": true
+        },
+        {
+          "file": "diagnose_v5_perceptual.py",
+          "same_recorded_hash": true,
+          "local_file_matches_recorded": true
+        }
+      ],
+      "dependencies_all_identical": true
+    },
+    "inputs": {
+      "manifest_path": "D:\\超分实验\\飞机超分突破诊断_20261005\\rareplanes\\data\\manifest.json",
+      "manifest_sha256": "344914c935fc08b757ccb23adb176d3f0bf00a5500aa21565f97697c8d4c2d86",
+      "train_pairs": 385,
+      "val_pairs": 61,
+      "train_groups": 20,
+      "val_groups": 4,
+      "train_val_file_hashes_verified": 2230,
+      "validation_rows_exactly_match_frozen_val_split": true,
+      "test_payload_read": false,
+      "note": "Manifest metadata includes all split names; no test image payload opened."
+    },
+    "all_step_lr_max_abs_difference": 0.0,
+    "batch_identity_limitation": "Same seed, serial-indexed sampler and augmentation code imply identical sampling; no per-update input-tensor hashes were logged."
+  },
+  "pre_loss_change_parity": {
+    "validation_steps": "0..4000 inclusive, every500",
+    "absolute_tolerance": 1e-06,
+    "mean_metrics_all_within_tolerance": true,
+    "per_metric_mean_max_abs_difference": {
+      "full": 0.0,
+      "roi": 0.0,
+      "ssim_roi": 0.0,
+      "edge_mae": 0.0,
+      "lpips_roi": 0.0,
+      "same_operator_lr_mae": 0.0
+    },
+    "per_row_metric_max_abs_difference": {
+      "full": 0.0,
+      "roi": 0.0,
+      "ssim_roi": 0.0,
+      "edge_mae": 0.0,
+      "lpips_roi": 0.0,
+      "same_operator_lr_mae": 0.0
+    },
+    "checkpoints": [
+      {
+        "step": 0,
+        "mean_max_abs_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "step": 500,
+        "mean_max_abs_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "step": 1000,
+        "mean_max_abs_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "step": 1500,
+        "mean_max_abs_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "step": 2000,
+        "mean_max_abs_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "step": 2500,
+        "mean_max_abs_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "step": 3000,
+        "mean_max_abs_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "step": 3500,
+        "mean_max_abs_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "step": 4000,
+        "mean_max_abs_difference": 0.0,
+        "within_tolerance": true
+      }
+    ],
+    "first4000_training_log_max_abs_difference": {
+      "loss": 0.0,
+      "grad": 0.0,
+      "lr": 0.0
+    },
+    "prediction_pixel_identity_verified": false,
+    "interpretation": "Compares saved validation metrics, not image tensors or parameter equality. Deviations are reported, not suppressed or automatically rejected; hardware/software numerics may differ, but this file does not attribute causality without environment evidence."
+  },
+  "validation_checkpoints": [
+    {
+      "step": 0,
+      "original": {
+        "full": 25.560465656258852,
+        "roi": 20.497895502236243,
+        "ssim_roi": 0.8459023565930479,
+        "edge_mae": 0.06054142391441536,
+        "lpips_roi": 0.3196074730232723,
+        "same_operator_lr_mae": 0.006174868742888137
+      },
+      "reconstruction": {
+        "full": 25.560465656258852,
+        "roi": 20.497895502236243,
+        "ssim_roi": 0.8459023565930479,
+        "edge_mae": 0.06054142391441536,
+        "lpips_roi": 0.3196074730232723,
+        "same_operator_lr_mae": 0.006174868742888137
+      },
+      "delta_reconstruction_minus_original": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      },
+      "by_regime": {
+        "clean": {
+          "original": {
+            "full": 27.472834545599042,
+            "roi": 22.444976930197672,
+            "ssim_roi": 0.9235131271986985,
+            "edge_mae": 0.052264403146874236,
+            "lpips_roi": 0.2773427539322452,
+            "same_operator_lr_mae": 0.0005306031796113958
+          },
+          "reconstruction": {
+            "full": 27.472834545599042,
+            "roi": 22.444976930197672,
+            "ssim_roi": 0.9235131271986985,
+            "edge_mae": 0.052264403146874236,
+            "lpips_roi": 0.2773427539322452,
+            "same_operator_lr_mae": 0.0005306031796113958
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        },
+        "sensor": {
+          "original": {
+            "full": 23.64809676691866,
+            "roi": 18.550814074274815,
+            "ssim_roi": 0.7682915859873972,
+            "edge_mae": 0.06881844468195648,
+            "lpips_roi": 0.36187219211429944,
+            "same_operator_lr_mae": 0.011819134306164878
+          },
+          "reconstruction": {
+            "full": 23.64809676691866,
+            "roi": 18.550814074274815,
+            "ssim_roi": 0.7682915859873972,
+            "edge_mae": 0.06881844468195648,
+            "lpips_roi": 0.36187219211429944,
+            "same_operator_lr_mae": 0.011819134306164878
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        }
+      },
+      "group_delta": {
+        "rare_location_44": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_73": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_8": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_98": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        }
+      },
+      "per_row_max_abs_metric_difference": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      }
+    },
+    {
+      "step": 500,
+      "original": {
+        "full": 26.97337878526706,
+        "roi": 21.983736638779916,
+        "ssim_roi": 0.9131984252007861,
+        "edge_mae": 0.053091413732252866,
+        "lpips_roi": 0.28124712425393655,
+        "same_operator_lr_mae": 0.004301386524593017
+      },
+      "reconstruction": {
+        "full": 26.97337878526706,
+        "roi": 21.983736638779916,
+        "ssim_roi": 0.9131984252007861,
+        "edge_mae": 0.053091413732252866,
+        "lpips_roi": 0.28124712425393655,
+        "same_operator_lr_mae": 0.004301386524593017
+      },
+      "delta_reconstruction_minus_original": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      },
+      "by_regime": {
+        "clean": {
+          "original": {
+            "full": 27.79649591003704,
+            "roi": 22.793059486209692,
+            "ssim_roi": 0.9318056394583454,
+            "edge_mae": 0.04901726489393588,
+            "lpips_roi": 0.26092009077615597,
+            "same_operator_lr_mae": 0.0016943002646810639
+          },
+          "reconstruction": {
+            "full": 27.79649591003704,
+            "roi": 22.793059486209692,
+            "ssim_roi": 0.9318056394583454,
+            "edge_mae": 0.04901726489393588,
+            "lpips_roi": 0.26092009077615597,
+            "same_operator_lr_mae": 0.0016943002646810639
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        },
+        "sensor": {
+          "original": {
+            "full": 26.15026166049708,
+            "roi": 21.17441379135014,
+            "ssim_roi": 0.8945912109432267,
+            "edge_mae": 0.05716556257056985,
+            "lpips_roi": 0.30157415773171714,
+            "same_operator_lr_mae": 0.00690847278450497
+          },
+          "reconstruction": {
+            "full": 26.15026166049708,
+            "roi": 21.17441379135014,
+            "ssim_roi": 0.8945912109432267,
+            "edge_mae": 0.05716556257056985,
+            "lpips_roi": 0.30157415773171714,
+            "same_operator_lr_mae": 0.00690847278450497
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        }
+      },
+      "group_delta": {
+        "rare_location_44": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_73": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_8": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_98": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        }
+      },
+      "per_row_max_abs_metric_difference": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      }
+    },
+    {
+      "step": 1000,
+      "original": {
+        "full": 27.1553663392782,
+        "roi": 22.20318414150634,
+        "ssim_roi": 0.9180866358436498,
+        "edge_mae": 0.05196101609663125,
+        "lpips_roi": 0.27600121712312103,
+        "same_operator_lr_mae": 0.004084275052150142
+      },
+      "reconstruction": {
+        "full": 27.1553663392782,
+        "roi": 22.20318414150634,
+        "ssim_roi": 0.9180866358436498,
+        "edge_mae": 0.05196101609663125,
+        "lpips_roi": 0.27600121712312103,
+        "same_operator_lr_mae": 0.004084275052150142
+      },
+      "delta_reconstruction_minus_original": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      },
+      "by_regime": {
+        "clean": {
+          "original": {
+            "full": 27.98082595747031,
+            "roi": 23.019923682370226,
+            "ssim_roi": 0.93517691856798,
+            "edge_mae": 0.047676667273409815,
+            "lpips_roi": 0.2576954591982797,
+            "same_operator_lr_mae": 0.0015803447113142408
+          },
+          "reconstruction": {
+            "full": 27.98082595747031,
+            "roi": 23.019923682370226,
+            "ssim_roi": 0.93517691856798,
+            "edge_mae": 0.047676667273409815,
+            "lpips_roi": 0.2576954591982797,
+            "same_operator_lr_mae": 0.0015803447113142408
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        },
+        "sensor": {
+          "original": {
+            "full": 26.32990672108609,
+            "roi": 21.38644460064246,
+            "ssim_roi": 0.9009963531193196,
+            "edge_mae": 0.056245364919852686,
+            "lpips_roi": 0.2943069750479623,
+            "same_operator_lr_mae": 0.006588205392986043
+          },
+          "reconstruction": {
+            "full": 26.32990672108609,
+            "roi": 21.38644460064246,
+            "ssim_roi": 0.9009963531193196,
+            "edge_mae": 0.056245364919852686,
+            "lpips_roi": 0.2943069750479623,
+            "same_operator_lr_mae": 0.006588205392986043
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        }
+      },
+      "group_delta": {
+        "rare_location_44": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_73": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_8": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_98": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        }
+      },
+      "per_row_max_abs_metric_difference": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      }
+    },
+    {
+      "step": 1500,
+      "original": {
+        "full": 27.199155076712145,
+        "roi": 22.26727045046453,
+        "ssim_roi": 0.9214060495991041,
+        "edge_mae": 0.051146938555015654,
+        "lpips_roi": 0.2728646318117778,
+        "same_operator_lr_mae": 0.004165149195386238
+      },
+      "reconstruction": {
+        "full": 27.199155076712145,
+        "roi": 22.26727045046453,
+        "ssim_roi": 0.9214060495991041,
+        "edge_mae": 0.051146938555015654,
+        "lpips_roi": 0.2728646318117778,
+        "same_operator_lr_mae": 0.004165149195386238
+      },
+      "delta_reconstruction_minus_original": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      },
+      "by_regime": {
+        "clean": {
+          "original": {
+            "full": 27.952051648438573,
+            "roi": 23.00455036907167,
+            "ssim_roi": 0.9358306209100228,
+            "edge_mae": 0.04733590916867423,
+            "lpips_roi": 0.2561399550304985,
+            "same_operator_lr_mae": 0.0017523332457023892
+          },
+          "reconstruction": {
+            "full": 27.952051648438573,
+            "roi": 23.00455036907167,
+            "ssim_roi": 0.9358306209100228,
+            "edge_mae": 0.04733590916867423,
+            "lpips_roi": 0.2561399550304985,
+            "same_operator_lr_mae": 0.0017523332457023892
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        },
+        "sensor": {
+          "original": {
+            "full": 26.44625850498572,
+            "roi": 21.52999053185739,
+            "ssim_roi": 0.9069814782881853,
+            "edge_mae": 0.05495796794135708,
+            "lpips_roi": 0.2895893085930569,
+            "same_operator_lr_mae": 0.006577965145070088
+          },
+          "reconstruction": {
+            "full": 26.44625850498572,
+            "roi": 21.52999053185739,
+            "ssim_roi": 0.9069814782881853,
+            "edge_mae": 0.05495796794135708,
+            "lpips_roi": 0.2895893085930569,
+            "same_operator_lr_mae": 0.006577965145070088
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        }
+      },
+      "group_delta": {
+        "rare_location_44": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_73": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_8": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_98": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        }
+      },
+      "per_row_max_abs_metric_difference": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      }
+    },
+    {
+      "step": 2000,
+      "original": {
+        "full": 27.18830557024795,
+        "roi": 22.26047005798003,
+        "ssim_roi": 0.9212436241444711,
+        "edge_mae": 0.05135144674442891,
+        "lpips_roi": 0.2711835388623762,
+        "same_operator_lr_mae": 0.00409357830734128
+      },
+      "reconstruction": {
+        "full": 27.18830557024795,
+        "roi": 22.26047005798003,
+        "ssim_roi": 0.9212436241444711,
+        "edge_mae": 0.05135144674442891,
+        "lpips_roi": 0.2711835388623762,
+        "same_operator_lr_mae": 0.00409357830734128
+      },
+      "delta_reconstruction_minus_original": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      },
+      "by_regime": {
+        "clean": {
+          "original": {
+            "full": 27.97567918796555,
+            "roi": 23.05932606553109,
+            "ssim_roi": 0.9366986192762852,
+            "edge_mae": 0.04709422376929034,
+            "lpips_roi": 0.2542678392601802,
+            "same_operator_lr_mae": 0.001720121726504979
+          },
+          "reconstruction": {
+            "full": 27.97567918796555,
+            "roi": 23.05932606553109,
+            "ssim_roi": 0.9366986192762852,
+            "edge_mae": 0.04709422376929034,
+            "lpips_roi": 0.2542678392601802,
+            "same_operator_lr_mae": 0.001720121726504979
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        },
+        "sensor": {
+          "original": {
+            "full": 26.400931952530353,
+            "roi": 21.461614050428977,
+            "ssim_roi": 0.9057886290126571,
+            "edge_mae": 0.05560866971956749,
+            "lpips_roi": 0.28809923846457225,
+            "same_operator_lr_mae": 0.00646703488817758
+          },
+          "reconstruction": {
+            "full": 26.400931952530353,
+            "roi": 21.461614050428977,
+            "ssim_roi": 0.9057886290126571,
+            "edge_mae": 0.05560866971956749,
+            "lpips_roi": 0.28809923846457225,
+            "same_operator_lr_mae": 0.00646703488817758
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        }
+      },
+      "group_delta": {
+        "rare_location_44": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_73": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_8": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_98": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        }
+      },
+      "per_row_max_abs_metric_difference": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      }
+    },
+    {
+      "step": 2500,
+      "original": {
+        "full": 27.178893557503727,
+        "roi": 22.2407279674573,
+        "ssim_roi": 0.9229752230987537,
+        "edge_mae": 0.051174313218478915,
+        "lpips_roi": 0.26950820715385765,
+        "same_operator_lr_mae": 0.004358605828141056
+      },
+      "reconstruction": {
+        "full": 27.178893557503727,
+        "roi": 22.2407279674573,
+        "ssim_roi": 0.9229752230987537,
+        "edge_mae": 0.051174313218478915,
+        "lpips_roi": 0.26950820715385765,
+        "same_operator_lr_mae": 0.004358605828141056
+      },
+      "delta_reconstruction_minus_original": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      },
+      "by_regime": {
+        "clean": {
+          "original": {
+            "full": 27.95489143858608,
+            "roi": 23.02462271416005,
+            "ssim_roi": 0.9366489686144918,
+            "edge_mae": 0.04720876114032067,
+            "lpips_roi": 0.25390837972837627,
+            "same_operator_lr_mae": 0.0019142874817428975
+          },
+          "reconstruction": {
+            "full": 27.95489143858608,
+            "roi": 23.02462271416005,
+            "ssim_roi": 0.9366489686144918,
+            "edge_mae": 0.04720876114032067,
+            "lpips_roi": 0.25390837972837627,
+            "same_operator_lr_mae": 0.0019142874817428975
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        },
+        "sensor": {
+          "original": {
+            "full": 26.402895676421373,
+            "roi": 21.456833220754554,
+            "ssim_roi": 0.9093014775830157,
+            "edge_mae": 0.05513986529663717,
+            "lpips_roi": 0.285108034579339,
+            "same_operator_lr_mae": 0.006802924174539215
+          },
+          "reconstruction": {
+            "full": 26.402895676421373,
+            "roi": 21.456833220754554,
+            "ssim_roi": 0.9093014775830157,
+            "edge_mae": 0.05513986529663717,
+            "lpips_roi": 0.285108034579339,
+            "same_operator_lr_mae": 0.006802924174539215
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        }
+      },
+      "group_delta": {
+        "rare_location_44": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_73": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_8": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_98": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        }
+      },
+      "per_row_max_abs_metric_difference": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      }
+    },
+    {
+      "step": 3000,
+      "original": {
+        "full": 27.297423785223017,
+        "roi": 22.373669106692923,
+        "ssim_roi": 0.9244238485746523,
+        "edge_mae": 0.05039696147523857,
+        "lpips_roi": 0.26863695681369043,
+        "same_operator_lr_mae": 0.00400808373204057
+      },
+      "reconstruction": {
+        "full": 27.297423785223017,
+        "roi": 22.373669106692923,
+        "ssim_roi": 0.9244238485746523,
+        "edge_mae": 0.05039696147523857,
+        "lpips_roi": 0.26863695681369043,
+        "same_operator_lr_mae": 0.00400808373204057
+      },
+      "delta_reconstruction_minus_original": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      },
+      "by_regime": {
+        "clean": {
+          "original": {
+            "full": 27.990188133632657,
+            "roi": 23.083183323356984,
+            "ssim_roi": 0.9375812267044595,
+            "edge_mae": 0.04662682795988432,
+            "lpips_roi": 0.25311027258525,
+            "same_operator_lr_mae": 0.0017355394705316262
+          },
+          "reconstruction": {
+            "full": 27.990188133632657,
+            "roi": 23.083183323356984,
+            "ssim_roi": 0.9375812267044595,
+            "edge_mae": 0.04662682795988432,
+            "lpips_roi": 0.25311027258525,
+            "same_operator_lr_mae": 0.0017355394705316262
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        },
+        "sensor": {
+          "original": {
+            "full": 26.604659436813378,
+            "roi": 21.66415489002886,
+            "ssim_roi": 0.9112664704448452,
+            "edge_mae": 0.054167094990592815,
+            "lpips_roi": 0.2841636410421308,
+            "same_operator_lr_mae": 0.006280627993549512
+          },
+          "reconstruction": {
+            "full": 26.604659436813378,
+            "roi": 21.66415489002886,
+            "ssim_roi": 0.9112664704448452,
+            "edge_mae": 0.054167094990592815,
+            "lpips_roi": 0.2841636410421308,
+            "same_operator_lr_mae": 0.006280627993549512
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        }
+      },
+      "group_delta": {
+        "rare_location_44": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_73": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_8": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_98": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        }
+      },
+      "per_row_max_abs_metric_difference": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      }
+    },
+    {
+      "step": 3500,
+      "original": {
+        "full": 27.2707817964451,
+        "roi": 22.32987119163683,
+        "ssim_roi": 0.9229361738096558,
+        "edge_mae": 0.05106627517425474,
+        "lpips_roi": 0.268717729008994,
+        "same_operator_lr_mae": 0.003991232120468197
+      },
+      "reconstruction": {
+        "full": 27.2707817964451,
+        "roi": 22.32987119163683,
+        "ssim_roi": 0.9229361738096558,
+        "edge_mae": 0.05106627517425474,
+        "lpips_roi": 0.268717729008994,
+        "same_operator_lr_mae": 0.003991232120468197
+      },
+      "delta_reconstruction_minus_original": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      },
+      "by_regime": {
+        "clean": {
+          "original": {
+            "full": 28.00122225398377,
+            "roi": 23.072629005428688,
+            "ssim_roi": 0.9367435439544566,
+            "edge_mae": 0.04707734820241218,
+            "lpips_roi": 0.2533601600841126,
+            "same_operator_lr_mae": 0.00165586918822145
+          },
+          "reconstruction": {
+            "full": 28.00122225398377,
+            "roi": 23.072629005428688,
+            "ssim_roi": 0.9367435439544566,
+            "edge_mae": 0.04707734820241218,
+            "lpips_roi": 0.2533601600841126,
+            "same_operator_lr_mae": 0.00165586918822145
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        },
+        "sensor": {
+          "original": {
+            "full": 26.54034133890643,
+            "roi": 21.58711337784497,
+            "ssim_roi": 0.9091288036648549,
+            "edge_mae": 0.055055202146097285,
+            "lpips_roi": 0.2840752979338753,
+            "same_operator_lr_mae": 0.0063265950527149435
+          },
+          "reconstruction": {
+            "full": 26.54034133890643,
+            "roi": 21.58711337784497,
+            "ssim_roi": 0.9091288036648549,
+            "edge_mae": 0.055055202146097285,
+            "lpips_roi": 0.2840752979338753,
+            "same_operator_lr_mae": 0.0063265950527149435
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        }
+      },
+      "group_delta": {
+        "rare_location_44": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_73": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_8": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_98": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        }
+      },
+      "per_row_max_abs_metric_difference": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      }
+    },
+    {
+      "step": 4000,
+      "original": {
+        "full": 27.307434935412836,
+        "roi": 22.37087345755399,
+        "ssim_roi": 0.9242954794755753,
+        "edge_mae": 0.05059511267041386,
+        "lpips_roi": 0.2678569526877254,
+        "same_operator_lr_mae": 0.003982266361344955
+      },
+      "reconstruction": {
+        "full": 27.307434935412836,
+        "roi": 22.37087345755399,
+        "ssim_roi": 0.9242954794755753,
+        "edge_mae": 0.05059511267041386,
+        "lpips_roi": 0.2678569526877254,
+        "same_operator_lr_mae": 0.003982266361344955
+      },
+      "delta_reconstruction_minus_original": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      },
+      "by_regime": {
+        "clean": {
+          "original": {
+            "full": 28.015691185958715,
+            "roi": 23.089473408913605,
+            "ssim_roi": 0.9372503806270804,
+            "edge_mae": 0.046852371748080296,
+            "lpips_roi": 0.2529007729015076,
+            "same_operator_lr_mae": 0.0016391316050858758
+          },
+          "reconstruction": {
+            "full": 28.015691185958715,
+            "roi": 23.089473408913605,
+            "ssim_roi": 0.9372503806270804,
+            "edge_mae": 0.046852371748080296,
+            "lpips_roi": 0.2529007729015076,
+            "same_operator_lr_mae": 0.0016391316050858758
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        },
+        "sensor": {
+          "original": {
+            "full": 26.59917868486695,
+            "roi": 21.652273506194376,
+            "ssim_roi": 0.9113405783240702,
+            "edge_mae": 0.05433785359274742,
+            "lpips_roi": 0.2828131324739433,
+            "same_operator_lr_mae": 0.006325401117604035
+          },
+          "reconstruction": {
+            "full": 26.59917868486695,
+            "roi": 21.652273506194376,
+            "ssim_roi": 0.9113405783240702,
+            "edge_mae": 0.05433785359274742,
+            "lpips_roi": 0.2828131324739433,
+            "same_operator_lr_mae": 0.006325401117604035
+          },
+          "delta": {
+            "full": 0.0,
+            "roi": 0.0,
+            "ssim_roi": 0.0,
+            "edge_mae": 0.0,
+            "lpips_roi": 0.0,
+            "same_operator_lr_mae": 0.0
+          }
+        }
+      },
+      "group_delta": {
+        "rare_location_44": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_73": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_8": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        },
+        "rare_location_98": {
+          "full": 0.0,
+          "roi": 0.0,
+          "ssim_roi": 0.0,
+          "edge_mae": 0.0,
+          "lpips_roi": 0.0,
+          "same_operator_lr_mae": 0.0
+        }
+      },
+      "per_row_max_abs_metric_difference": {
+        "full": 0.0,
+        "roi": 0.0,
+        "ssim_roi": 0.0,
+        "edge_mae": 0.0,
+        "lpips_roi": 0.0,
+        "same_operator_lr_mae": 0.0
+      }
+    },
+    {
+      "step": 4500,
+      "original": {
+        "full": 27.25576353843416,
+        "roi": 22.34506183704909,
+        "ssim_roi": 0.9241891602017716,
+        "edge_mae": 0.05089433251414448,
+        "lpips_roi": 0.2399167682519,
+        "same_operator_lr_mae": 0.004037359611709903
+      },
+      "reconstruction": {
+        "full": 27.291293181261388,
+        "roi": 22.360984301917636,
+        "ssim_roi": 0.9246050817015417,
+        "edge_mae": 0.050614114491013336,
+        "lpips_roi": 0.26704827784925844,
+        "same_operator_lr_mae": 0.003999503850144381
+      },
+      "delta_reconstruction_minus_original": {
+        "full": 0.03552964282722826,
+        "roi": 0.015922464868545205,
+        "ssim_roi": 0.00041592149977009996,
+        "edge_mae": -0.0002802180231311416,
+        "lpips_roi": 0.02713150959735844,
+        "same_operator_lr_mae": -3.7855761565522283e-05
+      },
+      "by_regime": {
+        "clean": {
+          "original": {
+            "full": 27.95412070672713,
+            "roi": 23.065338004171295,
+            "ssim_roi": 0.9370857095236287,
+            "edge_mae": 0.04719308350353922,
+            "lpips_roi": 0.22435816795035612,
+            "same_operator_lr_mae": 0.0017378628273624652
+          },
+          "reconstruction": {
+            "full": 27.98125523140998,
+            "roi": 23.067809649572627,
+            "ssim_roi": 0.9372792678428631,
+            "edge_mae": 0.046980467535482316,
+            "lpips_roi": 0.2524320110386493,
+            "same_operator_lr_mae": 0.0016730237775667703
+          },
+          "delta": {
+            "full": 0.027134524682846717,
+            "roi": 0.0024716454013322675,
+            "ssim_roi": 0.00019355831923439926,
+            "edge_mae": -0.0002126159680569048,
+            "lpips_roi": 0.028073843088293193,
+            "same_operator_lr_mae": -6.483904979569482e-05
+          }
+        },
+        "sensor": {
+          "original": {
+            "full": 26.557406370141187,
+            "roi": 21.624785669926887,
+            "ssim_roi": 0.9112926108799144,
+            "edge_mae": 0.05459558152474975,
+            "lpips_roi": 0.2554753685534439,
+            "same_operator_lr_mae": 0.0063368563960573415
+          },
+          "reconstruction": {
+            "full": 26.601331131112797,
+            "roi": 21.65415895426264,
+            "ssim_roi": 0.9119308955602202,
+            "edge_mae": 0.05424776144654435,
+            "lpips_roi": 0.28166454465986757,
+            "same_operator_lr_mae": 0.006325983922721992
+          },
+          "delta": {
+            "full": 0.0439247609716098,
+            "roi": 0.02937328433575459,
+            "ssim_roi": 0.0006382846803058007,
+            "edge_mae": -0.0003478200782053992,
+            "lpips_roi": 0.026189176106423684,
+            "same_operator_lr_mae": -1.0872473335349526e-05
+          }
+        }
+      },
+      "group_delta": {
+        "rare_location_44": {
+          "full": 0.03067581646853057,
+          "roi": 0.020996060384899096,
+          "ssim_roi": 0.0004652484374887411,
+          "edge_mae": -0.00023719986133715482,
+          "lpips_roi": 0.026330852333237148,
+          "same_operator_lr_mae": -6.295641052180565e-05
+        },
+        "rare_location_73": {
+          "full": 0.05646482393392205,
+          "roi": 0.03261624763581494,
+          "ssim_roi": 0.0007721563180287383,
+          "edge_mae": -0.0003622987618049009,
+          "lpips_roi": 0.02890828251838684,
+          "same_operator_lr_mae": -2.821335025752613e-05
+        },
+        "rare_location_8": {
+          "full": 0.026479038207291694,
+          "roi": -0.007417534163895567,
+          "ssim_roi": -1.7702579498291016e-05,
+          "edge_mae": -0.00023568980395793915,
+          "lpips_roi": 0.03114723041653633,
+          "same_operator_lr_mae": -3.7990128475939855e-05
+        },
+        "rare_location_98": {
+          "full": 0.028498892699172274,
+          "roi": 0.01749508561736235,
+          "ssim_roi": 0.0004439838230609894,
+          "edge_mae": -0.00028568366542458534,
+          "lpips_roi": 0.022139673121273518,
+          "same_operator_lr_mae": -2.22631570068188e-05
+        }
+      },
+      "per_row_max_abs_metric_difference": {
+        "full": 0.12758774760943936,
+        "roi": 0.12142886660633678,
+        "ssim_roi": 0.0027388930320739746,
+        "edge_mae": 0.0011988356709480286,
+        "lpips_roi": 0.04766598343849182,
+        "same_operator_lr_mae": 0.00022222171537578106
+      }
+    },
+    {
+      "step": 5000,
+      "original": {
+        "full": 27.225868565592393,
+        "roi": 22.30948027886366,
+        "ssim_roi": 0.9235527104095501,
+        "edge_mae": 0.05104420090655741,
+        "lpips_roi": 0.23916485648072672,
+        "same_operator_lr_mae": 0.00412988193196475
+      },
+      "reconstruction": {
+        "full": 27.258098210343544,
+        "roi": 22.321719704394674,
+        "ssim_roi": 0.9240103092482861,
+        "edge_mae": 0.05075851618882963,
+        "lpips_roi": 0.2669810053581993,
+        "same_operator_lr_mae": 0.004111381897168673
+      },
+      "delta_reconstruction_minus_original": {
+        "full": 0.0322296447511512,
+        "roi": 0.012239425531014092,
+        "ssim_roi": 0.00045759883873597307,
+        "edge_mae": -0.0002856847177277813,
+        "lpips_roi": 0.02781614887747258,
+        "same_operator_lr_mae": -1.8500034796077765e-05
+      },
+      "by_regime": {
+        "clean": {
+          "original": {
+            "full": 27.95690508135842,
+            "roi": 23.06895329301632,
+            "ssim_roi": 0.9371751920995759,
+            "edge_mae": 0.047009145971113706,
+            "lpips_roi": 0.22379394886540432,
+            "same_operator_lr_mae": 0.0018205602209633855
+          },
+          "reconstruction": {
+            "full": 27.979075439305724,
+            "roi": 23.067003801063564,
+            "ssim_roi": 0.9373456910033436,
+            "edge_mae": 0.04681775837260134,
+            "lpips_roi": 0.2524297990361411,
+            "same_operator_lr_mae": 0.001768821818604563
+          },
+          "delta": {
+            "full": 0.022170357947302932,
+            "roi": -0.0019494919527573984,
+            "ssim_roi": 0.00017049890376774623,
+            "edge_mae": -0.00019138759851236586,
+            "lpips_roi": 0.028635850170736776,
+            "same_operator_lr_mae": -5.173840235882243e-05
+          }
+        },
+        "sensor": {
+          "original": {
+            "full": 26.494832049826364,
+            "roi": 21.550007264711,
+            "ssim_roi": 0.9099302287195243,
+            "edge_mae": 0.05507925584200112,
+            "lpips_roi": 0.2545357640960491,
+            "same_operator_lr_mae": 0.006439203642966116
+          },
+          "reconstruction": {
+            "full": 26.537120981381367,
+            "roi": 21.576435607725788,
+            "ssim_roi": 0.9106749274932286,
+            "edge_mae": 0.05469927400505791,
+            "lpips_roi": 0.28153221168025744,
+            "same_operator_lr_mae": 0.006453941975732781
+          },
+          "delta": {
+            "full": 0.04228893155500302,
+            "roi": 0.026428343014789135,
+            "ssim_roi": 0.0007446987737043109,
+            "edge_mae": -0.00037998183694321064,
+            "lpips_roi": 0.026996447584208327,
+            "same_operator_lr_mae": 1.4738332766665169e-05
+          }
+        }
+      },
+      "group_delta": {
+        "rare_location_44": {
+          "full": 0.025644277140557392,
+          "roi": 0.014644391963223313,
+          "ssim_roi": 0.00037833084078398027,
+          "edge_mae": -0.00019411915255819479,
+          "lpips_roi": 0.026874914327088523,
+          "same_operator_lr_mae": -3.364097467377109e-05
+        },
+        "rare_location_73": {
+          "full": 0.03794966250498888,
+          "roi": 0.01119572477750097,
+          "ssim_roi": 0.0005393683910369651,
+          "edge_mae": -0.0002694918463627474,
+          "lpips_roi": 0.02950138151645662,
+          "same_operator_lr_mae": -1.9604146170113662e-06
+        },
+        "rare_location_8": {
+          "full": 0.032570749108352004,
+          "roi": 0.000991356759797668,
+          "ssim_roi": 0.00039036571979522705,
+          "edge_mae": -0.0003768657334148884,
+          "lpips_roi": 0.03230180963873863,
+          "same_operator_lr_mae": -2.2058840841054916e-05
+        },
+        "rare_location_98": {
+          "full": 0.03275389025071007,
+          "roi": 0.022126228623548627,
+          "ssim_roi": 0.0005223304033279419,
+          "edge_mae": -0.0003022621385753155,
+          "lpips_roi": 0.022586490027606487,
+          "same_operator_lr_mae": -1.6339909052476287e-05
+        }
+      },
+      "per_row_max_abs_metric_difference": {
+        "full": 0.12360516456688231,
+        "roi": 0.1602504442384074,
+        "ssim_roi": 0.0032300949096679688,
+        "edge_mae": 0.00133495032787323,
+        "lpips_roi": 0.04647214710712433,
+        "same_operator_lr_mae": 0.00025490112602710724
+      }
+    },
+    {
+      "step": 5500,
+      "original": {
+        "full": 27.28789543324277,
+        "roi": 22.378844197780424,
+        "ssim_roi": 0.9243528738435285,
+        "edge_mae": 0.05081533991147344,
+        "lpips_roi": 0.23875542667183075,
+        "same_operator_lr_mae": 0.004000787954186414
+      },
+      "reconstruction": {
+        "full": 27.321964087330123,
+        "roi": 22.39252378819176,
+        "ssim_roi": 0.9247556367268165,
+        "edge_mae": 0.05054573252176245,
+        "lpips_roi": 0.26718526092887507,
+        "same_operator_lr_mae": 0.003972020145067968
+      },
+      "delta_reconstruction_minus_original": {
+        "full": 0.03406865408735271,
+        "roi": 0.013679590411335596,
+        "ssim_roi": 0.00040276288328799925,
+        "edge_mae": -0.00026960738971099074,
+        "lpips_roi": 0.028429834257044317,
+        "same_operator_lr_mae": -2.8767809118446577e-05
+      },
+      "by_regime": {
+        "clean": {
+          "original": {
+            "full": 27.988831100045537,
+            "roi": 23.103033879780433,
+            "ssim_roi": 0.9375488648738931,
+            "edge_mae": 0.0469212496114493,
+            "lpips_roi": 0.22326589784968426,
+            "same_operator_lr_mae": 0.0017471710522787521
+          },
+          "reconstruction": {
+            "full": 28.01315716631105,
+            "roi": 23.1024957898552,
+            "ssim_roi": 0.9376967992049222,
+            "edge_mae": 0.04672665903664322,
+            "lpips_roi": 0.25237605916884015,
+            "same_operator_lr_mae": 0.0017006100057259056
+          },
+          "delta": {
+            "full": 0.02432606626551248,
+            "roi": -0.000538089925232299,
+            "ssim_roi": 0.00014793433102910925,
+            "edge_mae": -0.00019459057480607916,
+            "lpips_roi": 0.02911016131915589,
+            "same_operator_lr_mae": -4.6561046552846515e-05
+          }
+        },
+        "sensor": {
+          "original": {
+            "full": 26.586959766440007,
+            "roi": 21.654654515780415,
+            "ssim_roi": 0.9111568828131638,
+            "edge_mae": 0.05470943021149758,
+            "lpips_roi": 0.25424495549397724,
+            "same_operator_lr_mae": 0.0062544048560940774
+          },
+          "reconstruction": {
+            "full": 26.630771008349193,
+            "roi": 21.682551786528318,
+            "ssim_roi": 0.9118144742487108,
+            "edge_mae": 0.054364806006881684,
+            "lpips_roi": 0.28199446268891004,
+            "same_operator_lr_mae": 0.006243430284410031
+          },
+          "delta": {
+            "full": 0.04381124190918584,
+            "roi": 0.02789727074790349,
+            "ssim_roi": 0.0006575914355470003,
+            "edge_mae": -0.0003446242046158954,
+            "lpips_roi": 0.0277495071949328,
+            "same_operator_lr_mae": -1.0974571684046856e-05
+          }
+        }
+      },
+      "group_delta": {
+        "rare_location_44": {
+          "full": 0.026898144126136003,
+          "roi": 0.015138092830664363,
+          "ssim_roi": 0.0003157196676030205,
+          "edge_mae": -0.0001981948392794433,
+          "lpips_roi": 0.027662686784477808,
+          "same_operator_lr_mae": -4.382934917778001e-05
+        },
+        "rare_location_73": {
+          "full": 0.0484094441509626,
+          "roi": 0.023200733020644293,
+          "ssim_roi": 0.0006199181079864502,
+          "edge_mae": -0.0002991476406653745,
+          "lpips_roi": 0.029966542124748224,
+          "same_operator_lr_mae": -2.3856169233719103e-05
+        },
+        "rare_location_8": {
+          "full": 0.033054441578801885,
+          "roi": -0.0002539647622974428,
+          "ssim_roi": 0.00026576220989227295,
+          "edge_mae": -0.00031119072809815407,
+          "lpips_roi": 0.03285539895296097,
+          "same_operator_lr_mae": -2.941176717285998e-05
+        },
+        "rare_location_98": {
+          "full": 0.027912586493503255,
+          "roi": 0.016633500556334724,
+          "ssim_roi": 0.0004096515476703644,
+          "edge_mae": -0.00026989635080099106,
+          "lpips_roi": 0.023234709165990353,
+          "same_operator_lr_mae": -1.7973950889427215e-05
+        }
+      },
+      "per_row_max_abs_metric_difference": {
+        "full": 0.14806639953313905,
+        "roi": 0.18524649983536534,
+        "ssim_roi": 0.0030719637870788574,
+        "edge_mae": 0.001293085515499115,
+        "lpips_roi": 0.050300031900405884,
+        "same_operator_lr_mae": 0.00016993493773043156
+      }
+    },
+    {
+      "step": 6000,
+      "original": {
+        "full": 27.24496818145881,
+        "roi": 22.33518431559599,
+        "ssim_roi": 0.9244465644635698,
+        "edge_mae": 0.0508042578512401,
+        "lpips_roi": 0.2385406590495989,
+        "same_operator_lr_mae": 0.004167521132922939
+      },
+      "reconstruction": {
+        "full": 27.28096821691164,
+        "roi": 22.35025553533167,
+        "ssim_roi": 0.9248539895367096,
+        "edge_mae": 0.05053047194332797,
+        "lpips_roi": 0.26675264635305923,
+        "same_operator_lr_mae": 0.004133954735384488
+      },
+      "delta_reconstruction_minus_original": {
+        "full": 0.03600003545282959,
+        "roi": 0.01507121973568104,
+        "ssim_roi": 0.00040742507313984433,
+        "edge_mae": -0.00027378590791212604,
+        "lpips_roi": 0.028211987303460334,
+        "same_operator_lr_mae": -3.3566397538450574e-05
+      },
+      "by_regime": {
+        "clean": {
+          "original": {
+            "full": 27.96419570417294,
+            "roi": 23.082597590641168,
+            "ssim_roi": 0.9375647594020062,
+            "edge_mae": 0.04684439173114358,
+            "lpips_roi": 0.22303225563692988,
+            "same_operator_lr_mae": 0.0018547850122130887
+          },
+          "reconstruction": {
+            "full": 27.991304489710313,
+            "roi": 23.08368929339212,
+            "ssim_roi": 0.9377073331717767,
+            "edge_mae": 0.04665248952805996,
+            "lpips_roi": 0.25215364209394536,
+            "same_operator_lr_mae": 0.0017845228858027885
+          },
+          "delta": {
+            "full": 0.02710878553737217,
+            "roi": 0.0010917027509513844,
+            "ssim_roi": 0.00014257376977044878,
+            "edge_mae": -0.0001919022030836201,
+            "lpips_roi": 0.02912138645701548,
+            "same_operator_lr_mae": -7.026212641030017e-05
+          }
+        },
+        "sensor": {
+          "original": {
+            "full": 26.525740658744674,
+            "roi": 21.58777104055081,
+            "ssim_roi": 0.9113283695251334,
+            "edge_mae": 0.05476412397133661,
+            "lpips_roi": 0.25404906246226794,
+            "same_operator_lr_mae": 0.00648025725363279
+          },
+          "reconstruction": {
+            "full": 26.570631944112968,
+            "roi": 21.616821777271216,
+            "ssim_roi": 0.9120006459016425,
+            "edge_mae": 0.05440845435859599,
+            "lpips_roi": 0.28135165061217315,
+            "same_operator_lr_mae": 0.006483386584966187
+          },
+          "delta": {
+            "full": 0.04489128536829412,
+            "roi": 0.029050736720407144,
+            "ssim_roi": 0.0006722763765091289,
+            "edge_mae": -0.00035566961274062503,
+            "lpips_roi": 0.027302588149905216,
+            "same_operator_lr_mae": 3.129331333397503e-06
+          }
+        }
+      },
+      "group_delta": {
+        "rare_location_44": {
+          "full": 0.03143222058916706,
+          "roi": 0.020329536643867385,
+          "ssim_roi": 0.0003651266588884372,
+          "edge_mae": -0.0002073119120562794,
+          "lpips_roi": 0.027575100607731773,
+          "same_operator_lr_mae": -5.632446674794407e-05
+        },
+        "rare_location_73": {
+          "full": 0.04962091725336748,
+          "roi": 0.024000930160148926,
+          "ssim_roi": 0.0006174087524414285,
+          "edge_mae": -0.00030824430286884724,
+          "lpips_roi": 0.029874108731746646,
+          "same_operator_lr_mae": -1.5032702746490233e-05
+        },
+        "rare_location_8": {
+          "full": 0.03140437252313788,
+          "roi": -0.004836152021329809,
+          "ssim_roi": 0.0001657530665397644,
+          "edge_mae": -0.000292251817882061,
+          "lpips_roi": 0.03220045380294323,
+          "same_operator_lr_mae": -4.738553616334684e-05
+        },
+        "rare_location_98": {
+          "full": 0.03154263144565661,
+          "roi": 0.02079056416003411,
+          "ssim_roi": 0.00048141181468963623,
+          "edge_mae": -0.00028733559884130955,
+          "lpips_roi": 0.023198286071419716,
+          "same_operator_lr_mae": -1.5522884496022016e-05
+        }
+      },
+      "per_row_max_abs_metric_difference": {
+        "full": 0.162584809171765,
+        "roi": 0.16863331469354037,
+        "ssim_roi": 0.0031447410583496094,
+        "edge_mae": 0.0014602690935134888,
+        "lpips_roi": 0.046789661049842834,
+        "same_operator_lr_mae": 0.0002026145812124014
+      }
+    }
+  ],
+  "training_loss_phases": {
+    "original": [
+      {
+        "first_update": 1,
+        "last_update": 4000,
+        "count": 4000,
+        "mean": {
+          "loss": 0.030689914057729764,
+          "grad": 0.06425873197382316,
+          "lr": 2.171352321551284e-05,
+          "perceptual_weight": 0.0
+        },
+        "component_mean": {
+          "l1": 0.029167765101534314,
+          "edge": 0.030442979017505423,
+          "lpips": 0.0
+        },
+        "perceptual_weights_observed": [
+          0.0
+        ]
+      },
+      {
+        "first_update": 4001,
+        "last_update": 6000,
+        "count": 2000,
+        "mean": {
+          "loss": 0.036525775929447266,
+          "grad": 0.07243130250647664,
+          "lr": 5.337277622774248e-06,
+          "perceptual_weight": 0.03
+        },
+        "component_mean": {
+          "l1": 0.027402935676043853,
+          "edge": 0.029298324906732887,
+          "lpips": 0.255264140907675
+        },
+        "perceptual_weights_observed": [
+          0.03
+        ]
+      }
+    ],
+    "reconstruction": [
+      {
+        "first_update": 1,
+        "last_update": 4000,
+        "count": 4000,
+        "mean": {
+          "loss": 0.030689914057729764,
+          "grad": 0.06425873197382316,
+          "lr": 2.171352321551284e-05,
+          "perceptual_weight": 0.0
+        },
+        "component_mean": {
+          "l1": 0.029167765101534314,
+          "edge": 0.030442979017505423,
+          "lpips": 0.0
+        },
+        "perceptual_weights_observed": [
+          0.0
+        ]
+      },
+      {
+        "first_update": 4001,
+        "last_update": 6000,
+        "count": 2000,
+        "mean": {
+          "loss": 0.028656221924815328,
+          "grad": 0.053160032995976506,
+          "lr": 5.337277622774248e-06,
+          "perceptual_weight": 0.0
+        },
+        "component_mean": {
+          "l1": 0.02720646822778508,
+          "edge": 0.028995074342470617,
+          "lpips": 0.0
+        },
+        "perceptual_weights_observed": [
+          0.0
+        ]
+      }
+    ]
+  },
+  "change_4000_to_6000": {
+    "original": {
+      "full": -0.0624667539540269,
+      "roi": -0.035689141958002324,
+      "ssim_roi": 0.00015108498799443204,
+      "edge_mae": 0.0002091451808262368,
+      "lpips_roi": -0.029316293638126517,
+      "same_operator_lr_mae": 0.00018525477157798394
+    },
+    "reconstruction": {
+      "full": -0.026466718501197306,
+      "roi": -0.020617922222321283,
+      "ssim_roi": 0.0005585100611342764,
+      "edge_mae": -6.464072708588925e-05,
+      "lpips_roi": -0.001104306334666183,
+      "same_operator_lr_mae": 0.00015168837403953337
+    }
+  },
+  "phase_difference_of_changes_reconstruction_minus_original": {
+    "full": 0.03600003545282959,
+    "roi": 0.01507121973568104,
+    "ssim_roi": 0.00040742507313984433,
+    "edge_mae": -0.00027378590791212604,
+    "lpips_roi": 0.028211987303460334,
+    "same_operator_lr_mae": -3.3566397538450574e-05
+  },
+  "metric_directions": {
+    "full": "higher",
+    "roi": "higher",
+    "ssim_roi": "higher",
+    "edge_mae": "lower",
+    "lpips_roi": "lower",
+    "same_operator_lr_mae": "lower"
+  },
+  "clean_lr_definition": "same_operator_lr_mae downsamples prediction with matching PIL bicubic and compares with clean LR, including sensor-input cases; it is not native truth.",
+  "native_artifact_evidence": {
+    "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\final_preview\\independent_visual_review.json",
+    "sha256": "baa709df710a934b33268abbd9723360ca0e0127b737bb09ef04290f85b8ac73",
+    "checkpoint_sha256": "4a12ad7204bd144f64bc480afdd6e1174997d0094adf1b1ebc9498e8cd8c92ea",
+    "finding": "24018 的机体和右侧背景出现初始化没有的明显细密重复斜纹；24900、24938、26236、28200、30600 等也可见同类方向性细纹。即便验证主体清晰，仍应否决此 checkpoint 的该视觉门槛。",
+    "review": "Labeled nonblind model visual review; separate from paired validation metrics"
+  },
+  "limitations": [
+    "A single seed and four validation locations do not establish population-wide generalization or causal certainty.",
+    "Only the training loss schedule is intended to differ; final candidate selection policy also differs and is disclosed in protocol differences.",
+    "Equal-step 6000 comparisons are the loss ablation; best-checkpoint selection is not used to substitute unequal steps here.",
+    "Total training loss values are not directly comparable after4000 because one arm includes an LPIPS term.",
+    "No new-arm native artifact disappearance can be claimed from numeric metrics; requires separate actual image review.",
+    "Any parity failure must be reported and investigated rather than assuming identical trajectories."
+  ],
+  "sources": {
+    "original": [
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_x4\\config.json",
+        "sha256": "e827012f0b97df84334166bb35c1714d8109c255398a6cbaef17ec0f69916abb"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_x4\\training_complete.json",
+        "sha256": "138642e167f8b0e0ccee5257c969e79046c19e362f1e1d65af9664998371ab66"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\swinir_classical_x4_training_protocol.json",
+        "sha256": "de0e2c83a9a9775aba35653f47e09a424f4816ed2c26488cd249c1ab6a2d5b2a"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_x4\\progress.jsonl",
+        "sha256": "0b60613bbd129370e976ee68a5aba4cce86188f6860812d4665cd12eac0659e5"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_x4\\validation_0.json",
+        "sha256": "dd752babac56218e383fdff05f08cb1dab6c99e85faf95e0ac607bb210c824be"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_x4\\validation_500.json",
+        "sha256": "c0a626479a82eda1e6edd23368e462709df5b299ab74e68c00f8f47e1a69b8e8"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_x4\\validation_1000.json",
+        "sha256": "f570362df367cee99b7e8566d4e56b0b621aeb47bbecb2ca3502279b80fcce3c"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_x4\\validation_1500.json",
+        "sha256": "40a3b3c36e4c464ee60b65e9a7fbcef0b892a23c5b49163eca58bdf672030c11"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_x4\\validation_2000.json",
+        "sha256": "d3a8a067a6030a8a1214cba41de355ca13e5ddf2a897eee1b646689c857233b0"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_x4\\validation_2500.json",
+        "sha256": "ef68202cef49f44f921d7cf574bd69809ac9281d69779261d4425713ddc7150d"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_x4\\validation_3000.json",
+        "sha256": "32066493ef64c75ef642aa6d570bf59c9fd7fb2e5405a839ff09c18685f67d98"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_x4\\validation_3500.json",
+        "sha256": "9f75b78a7d16955c1297a6bacb711acaeaad5103c1a773803dff96d3104f3b30"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_x4\\validation_4000.json",
+        "sha256": "c1fd92fe8b605c2d3e6ccefe12645f0965fa3d489c321337d4131c80971c079a"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_x4\\validation_4500.json",
+        "sha256": "9c7f5d0978d93688bedaf52c690f5d7dd7c852bfc9cef35c85b2619879fd7536"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_x4\\validation_5000.json",
+        "sha256": "ebca2127fef7db93d98f534712724399160a2556c9ee12e0ddb4f519d0ba62d6"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_x4\\validation_5500.json",
+        "sha256": "f2610cc8def0056cad74d9a8e4d54841903f1160b024283dd66488a1425d1d67"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_x4\\validation_6000.json",
+        "sha256": "847860be4d9fdbe792972b6104e08a841c99da3df9aa05f8304cf6f5d5592781"
+      }
+    ],
+    "reconstruction": [
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_reconstruction_x4\\config.json",
+        "sha256": "55f52ca950d190b2e2479e1b44bf8bef63638e24b783e0bf256f5fc9be87203f"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_reconstruction_x4\\training_complete.json",
+        "sha256": "da62d5b91218f4d59a802d488dab9f00ea33d41bf6ac3f98512a68f399b094cc"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\swinir_classical_reconstruction_x4_training_protocol.json",
+        "sha256": "30697d8425b24d18960634511a10302b7a2802ebe6f00145a2b8ebc7d7c09dc0"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_reconstruction_x4\\progress.jsonl",
+        "sha256": "5c6981b87b9609683929a3a345f34c78c4c333d7f904739221f855beaa5b09ee"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_reconstruction_x4\\validation_0.json",
+        "sha256": "1bd5fea32fb9ce846df468c48cb4d18a04d3dc38fc00b4482f33d51f375b98de"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_reconstruction_x4\\validation_500.json",
+        "sha256": "5335320630b0fcacba46eebea35c9c3955ae419f5ce5d17d2e01d6e6894491f7"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_reconstruction_x4\\validation_1000.json",
+        "sha256": "a96d3e2b4594c7990c06e67c2c69cf7422272f7712cddc075879a18d3061dc8e"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_reconstruction_x4\\validation_1500.json",
+        "sha256": "5782c103d0bcabd5fa316482931f99edd53af01dd1ff8195284d5ee8b8e66846"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_reconstruction_x4\\validation_2000.json",
+        "sha256": "438982359a2535219efe9dc4131fba2e8e9ec4793dad7cb23dc417d1f68a3ec4"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_reconstruction_x4\\validation_2500.json",
+        "sha256": "61c62f5c1d4f88393e2f1f2d02b8c416f65db8922108b8ffe64c5360d0421d90"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_reconstruction_x4\\validation_3000.json",
+        "sha256": "1df979a7531b356149927610a954a4bc576144d475a2766e09bed2ba3d5ffa80"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_reconstruction_x4\\validation_3500.json",
+        "sha256": "23a447527e60f367d7cd23a588a65afc9ece17713d03a0a449ce4942633db81f"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_reconstruction_x4\\validation_4000.json",
+        "sha256": "04eceeb3f2b62d548c8ab52c1a4ff3be06b02c6a9f0b029d5477f3cfbd02a6bb"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_reconstruction_x4\\validation_4500.json",
+        "sha256": "5ace32dc668dfdd6cddcb502489a6badc394e2000ae869c8077f41be2bb8067f"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_reconstruction_x4\\validation_5000.json",
+        "sha256": "89944e97d8aff2afcc546c910e945c6ce5b9938676b17741403d6ea3e6151186"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_reconstruction_x4\\validation_5500.json",
+        "sha256": "7f574eb933a15a8671a995ecd7d4db3915f10a7fba6625785e8433446003bc72"
+      },
+      {
+        "path": "D:\\超分实验\\飞机超分突破诊断_20261005\\training\\swinir_classical_reconstruction_x4\\validation_6000.json",
+        "sha256": "2f1b18981d7357a77cbdc459ef656f9c16bedbac432ba1efeef47bbbfa9ee125"
+      }
+    ]
+  },
+  "saved_macro_recompute_max_error": {
+    "original": 1.0658141036401503e-14,
+    "reconstruction": 1.0658141036401503e-14
+  }
+}
